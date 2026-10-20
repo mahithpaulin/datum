@@ -118,7 +118,41 @@ python benchmarks/compare.py \
 
 `pandas` and `duckdb` are optional; missing tools are listed as skipped. The
 `.github/workflows/benchmark.yml` workflow installs both and publishes the comparison report
-as a downloadable artifact. No cross-tool result is checked into the repository yet.
+as a downloadable artifact.
+
+## CI comparison result
+
+The checked-in report is `benchmarks/results/comparison-ci.json`, produced by GitHub Actions
+at source commit `4a875ad` on 2026-10-20T05:13:29Z. The runner had 4 vCPUs, 16 GB RAM,
+CPython 3.13.16, pandas 3.0.6, and DuckDB 1.5.6.
+
+### Text ingest
+
+48 text files, 16 KiB target per file, 760,621 input bytes, 44 output records.
+
+| Tool | Wall s | Build/work s | Peak RSS | Output bytes | Content match |
+| --- | ---: | ---: | ---: | ---: | --- |
+| DATUM (full build) | 0.728 | 0.198 | 28.7 MiB | 714,109 | yes |
+| Python reference | 0.181 | 0.083 | 24.4 MiB | 714,109 | yes |
+
+### CSV transform
+
+30,000 input rows, 2,870,976 input bytes, 29,940 output records.
+
+| Tool | Wall s | Build/work s | Peak RSS | Output bytes | Content match |
+| --- | ---: | ---: | ---: | ---: | --- |
+| DATUM (full build) | 3.050 | 2.910 | 31.1 MiB | 3,055,991 | yes |
+| pandas | 0.905 | 0.256 | 90.4 MiB | 3,055,991 | yes |
+| DuckDB | 0.585 | 0.364 | 174.4 MiB | 3,055,991 | yes |
+
+Pandas produced byte-identical JSONL to DATUM in this run. DuckDB's JSON serialization
+differed byte-for-byte, but the parsed records matched. DATUM's build time includes schema
+validation, quality accounting, and manifest generation; its wall time also includes process
+startup and post-build verification. The baseline tools perform only the stated transform.
+
+These numbers are a single run on a shared CI runner. They are useful for finding gross
+regressions and overhead, not for ranking tools or predicting customer workloads. Repeat runs
+varied enough that small differences should not be treated as meaningful.
 
 ## Interpreting results
 
@@ -132,7 +166,8 @@ as a downloadable artifact. No cross-tool result is checked into the repository 
 
 ## Missing evidence
 
-There is no public acceptance corpus, no published cross-tool result, no cold-storage
-benchmark, and no long-running large-corpus result yet. The comparison harness exists, but its
-output must be reviewed against the stated fairness limits. These are roadmap items and must
-be produced before making public performance claims.
+There is no public acceptance corpus, no independent replication of the comparison, no
+cold-storage benchmark, and no long-running large-corpus result yet. One synthetic CI
+comparison is checked in, but it must be read against the stated fairness limits and is not
+customer evidence. These are roadmap items and must be produced before making public
+performance claims.
