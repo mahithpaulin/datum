@@ -798,6 +798,7 @@ def run(args: argparse.Namespace) -> int:
     report["warmups"] = []
     failures: list[dict[str, Any]] = []
     unsupported: list[dict[str, Any]] = []
+    kept_outputs: set[str] = set()
     if args.warmups and not existing:
         warmup_path = run_dir / "warmups.jsonl"
         with warmup_path.open("w", encoding="utf-8") as warmup_handle:
@@ -906,6 +907,11 @@ def run(args: argparse.Namespace) -> int:
                     )
                     if trial.get("status") != "completed":
                         failures.append(trial)
+                    if args.keep_outputs == "first" and output_dir.exists():
+                        if trial.get("status") == "completed" and tool not in kept_outputs:
+                            kept_outputs.add(tool)
+                        else:
+                            shutil.rmtree(output_dir)
                     _write_trial(trial_handle, trial)
                     report["trials"].append(trial)
                     print(
@@ -967,6 +973,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--hash-fixture", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--verify", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--keep-outputs",
+        choices=["all", "first"],
+        default="all",
+        help="Retain every trial output or only the first completed output per tool/mode.",
+    )
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--allow-low-resource", action="store_true")
     parser.add_argument("--min-free-disk-mib", type=int, default=512)

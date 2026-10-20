@@ -100,7 +100,9 @@ Each run directory contains:
 - `report.json`: manifest, environment, source commit, settings, raw trials, summary,
   parity, determinism, failures, skipped tools, and validation.
 - `report.md`: human-readable table.
-- `outputs/`: retained tool outputs (large; do not commit).
+- `outputs/`: retained tool outputs (large; do not commit). Use
+  `--keep-outputs first` to retain one completed output per tool/mode and prune later
+  repetitions after hashing.
 
 For each completed trial the report includes wall time, internal/work time, CPU time,
 peak RSS, records, output bytes, canonical record hash, output tree hash, versions, and
@@ -129,7 +131,9 @@ does not collapse different profiles or hosts into one number.
 
 `benchmarks/kaggle/` contains a private notebook and kernel metadata. The notebook clones
 the benchmark branch, installs optional baselines if needed, runs Tiers A/B and a Tier C
-pilot, validates every report, and copies compact artifacts to `/kaggle/working`.
+pilot with `--keep-outputs first`, validates every report, and copies compact artifacts to
+`/kaggle/working`. Tier C retains one output per tool/mode, not every repetition, to stay
+within Kaggle's working-disk budget.
 
 Tier D/E are intentionally not automated. They need a resource plan, a pilot, and a host
 with sufficient memory, disk, and session time.

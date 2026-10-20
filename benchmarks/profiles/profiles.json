@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "tiers": {
+    "A": 10485760,
+    "B": 104857600,
+    "C": 1073741824,
+    "D": 5368709120,
+    "E": 10737418240
+  },
+  "profiles": {
+    "many-small-text": {
+      "description": "Many small text files with duplicates, empty files, Unicode, and malformed bytes.",
+      "equivalent_baselines": ["python", "pandas", "duckdb", "polars"],
+      "workflow": true
+    },
+    "large-text": {
+      "description": "Fewer large text documents with character chunking and overlap.",
+      "equivalent_baselines": [],
+      "workflow": true
+    },
+    "jsonl-training": {
+      "description": "Prompt/completion/label JSONL with malformed, missing, duplicate, and schema-invalid rows.",
+      "equivalent_baselines": ["python", "pandas", "duckdb", "polars"],
+      "workflow": true
+    },
+    "csv-transform": {
+      "description": "Prompt/completion CSV with duplicates, empty fields, whitespace, and Unicode.",
+      "equivalent_baselines": ["python", "pandas", "duckdb", "polars"],
+      "workflow": true
+    },
+    "mixed-formats": {
+      "description": "Text, Markdown, CSV, TSV, JSON, JSONL, DOCX, PDF, and unsupported files in one build.",
+      "equivalent_baselines": [],
+      "workflow": true
+    },
+    "adversarial-quality": {
+      "description": "Malformed, corrupt, overlong, duplicate, unsupported, and unusual-path inputs.",
+      "equivalent_baselines": [],
+      "workflow": true
+    }
+  }
+}

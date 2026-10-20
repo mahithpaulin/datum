@@ -5,10 +5,21 @@ from pathlib import Path
 
 import pytest
 
-from benchmarks.generate_data import generate
+from benchmarks.generate_data import PROFILES, TIER_BYTES, generate
 from benchmarks.run import main as run_benchmark
 from benchmarks.verify_results import validate_report
 from benchmarks.workloads import run as run_workload
+
+
+def test_profile_manifest_matches_runner():
+    manifest = json.loads(
+        (Path(__file__).resolve().parent.parent / "benchmarks" / "profiles" / "profiles.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert manifest["schema_version"] == 1
+    assert set(manifest["profiles"]) == set(PROFILES)
+    assert manifest["tiers"] == TIER_BYTES
 
 
 def test_generated_fixtures_are_deterministic(tmp_path):
