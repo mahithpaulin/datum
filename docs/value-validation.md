@@ -146,10 +146,10 @@ failures. See [benchmark methodology](benchmark-methodology.md),
 [performance analysis](performance-analysis.md), and
 [competitive assessment](competitive-assessment.md).
 
-The local Tier A CSV result is already negative for speed: on a 10.5 MB fixture, DATUM's
-full build took 53.545 s median versus 13.673 s for the Python transform reference, while
-using 40.8 MB versus 111.2 MB peak RSS. This does not support a speed claim. The Kaggle
-tier results must be added before any scaling conclusion is made.
+The local Tier A CSV result is already negative for speed: on a 10.5 MB fixture, the
+optimized DATUM full build took 35.617 s median versus 10.472 s for the Python transform
+reference, while using 42.3 MB versus 112.4 MB peak RSS. This does not support a speed claim.
+The Kaggle tier results must be added before any scaling conclusion is made.
 
 ## Reproducibility evidence
 
