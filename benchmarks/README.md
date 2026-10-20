@@ -56,9 +56,9 @@ live under `benchmarks/runs/<run-id>/` and are ignored by git.
 
 | Profile | What it exercises | Equivalent baselines |
 | --- | --- | --- |
-| `many-small-text` | Thousands of small files, empties, duplicates, Unicode, malformed bytes | Python, pandas, DuckDB, Polars |
+| `many-small-text` | Thousands of valid UTF-8 files, empties, duplicates, Unicode, unusual paths | Python, pandas, DuckDB, Polars |
 | `large-text` | Fewer large documents with character chunking and overlap | DATUM only |
-| `jsonl-training` | Prompt/completion/label JSONL with duplicates, malformed, missing, schema-invalid, overlong rows | Python, pandas, DuckDB, Polars |
+| `jsonl-training` | Well-formed JSONL with null-typed, missing, duplicate, schema-invalid, overlong rows | Python, pandas, DuckDB, Polars |
 | `csv-transform` | Prompt/completion CSV with empties, duplicates, whitespace, Unicode | Python, pandas, DuckDB, Polars |
 | `mixed-formats` | Text, Markdown, CSV, TSV, JSON, JSONL, DOCX, PDF, unsupported files | DATUM only |
 | `adversarial-quality` | Corrupt files, unusual paths, malformed rows, overlong records, unsupported inputs | DATUM only |
@@ -78,8 +78,9 @@ counts, rejection accounting, peak RSS, determinism, and verification evidence.
 
 Actual bytes are recorded in `fixture.json`; generated sizes are approximate because
 empty/duplicate files, compressed DOCX/PDF, and row validation change the final total.
-Advance to a larger tier only after the smaller tier completes without unexplained
-failures.
+Generated DATUM configs raise `limits.max_file_bytes` above the tier target so the default
+64 MiB safety limit does not reject legitimate large-tier inputs. Advance to a larger tier
+only after the smaller tier completes without unexplained failures.
 
 ## Modes
 

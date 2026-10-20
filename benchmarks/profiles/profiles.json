@@ -9,7 +9,7 @@
   },
   "profiles": {
     "many-small-text": {
-      "description": "Many small text files with duplicates, empty files, Unicode, and malformed bytes.",
+      "description": "Many small text files with duplicates, empty files, Unicode, and unusual paths.",
       "equivalent_baselines": ["python", "pandas", "duckdb", "polars"],
       "workflow": true
     },
@@ -19,7 +19,7 @@
       "workflow": true
     },
     "jsonl-training": {
-      "description": "Prompt/completion/label JSONL with malformed, missing, duplicate, and schema-invalid rows.",
+      "description": "Prompt/completion/label JSONL with null-typed, missing, duplicate, schema-invalid, and overlong rows.",
       "equivalent_baselines": ["python", "pandas", "duckdb", "polars"],
       "workflow": true
     },

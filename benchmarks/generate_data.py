@@ -43,9 +43,9 @@ PROFILES = (
 )
 
 PROFILE_DESCRIPTIONS = {
-    "many-small-text": "Thousands of small text files with duplicates, empty files, Unicode, and malformed bytes.",
+    "many-small-text": "Thousands of small text files with duplicates, empty files, Unicode, and unusual paths.",
     "large-text": "Fewer large text documents with character chunking and overlap.",
-    "jsonl-training": "Prompt/completion/label JSONL with malformed, missing, duplicate, and schema-invalid rows.",
+    "jsonl-training": "Prompt/completion/label JSONL with null-typed, missing, duplicate, and schema-invalid rows.",
     "csv-transform": "Prompt/completion CSV with duplicates, null-like fields, and whitespace for equivalent transforms.",
     "mixed-formats": "Text, Markdown, CSV, TSV, JSON, JSONL, DOCX, PDF, and unsupported files in one build.",
     "adversarial-quality": "Malformed, corrupt, overlong, duplicate, unsupported, and unusual-path inputs for accounting checks.",
@@ -161,11 +161,8 @@ def _write_many_small_text(root: Path, target_bytes: int, files: int, seed: int)
             data = previous
             duplicated += 1
         else:
-            is_malformed = size > 0 and rng.random() < 0.002
-            _write_text_file(path, size, _rng(seed, f"many-small-text:{index}"), malformed=is_malformed)
+            _write_text_file(path, size, _rng(seed, f"many-small-text:{index}"))
             data = path.read_bytes()
-            if is_malformed:
-                malformed += 1
         path.write_bytes(data)
         if data:
             previous = data
@@ -262,7 +259,9 @@ def _write_jsonl_training(
                 line = "\n"
                 counts["blank_rows"] += 1
             elif draw < 0.01:
-                line = f'{{"prompt": "malformed {index}", "completion": \n'
+                row = _jsonl_row(index, rng)
+                row["prompt"] = None
+                line = json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
                 counts["malformed_rows"] += 1
             elif draw < 0.04 and last_valid:
                 line = last_valid
@@ -709,10 +708,15 @@ unsupported = "skip"
 """
 
 
-def _config_text(profile: str, *, workflow: bool) -> str:
+def _file_limit(target_bytes: int) -> int:
+    return max(64 * MIB, target_bytes * 2)
+
+
+def _config_text(profile: str, *, workflow: bool, target_bytes: int) -> str:
     chunking = "enabled = true\nunit = \"chars\"\nsize = 8000\noverlap = 400" if profile in ("large-text", "mixed-formats") else "enabled = false"
     split = "enabled = true\nseed = 42\ntrain = 0.8\nvalidation = 0.1\ntest = 0.1" if workflow else "enabled = false"
     provenance = "sidecar" if workflow else "off"
+    limit = _file_limit(target_bytes)
     if profile == "csv-transform":
         schema = '[schema]\nname = "completion"'
     elif profile in ("jsonl-training", "adversarial-quality"):
@@ -728,7 +732,7 @@ def _config_text(profile: str, *, workflow: bool) -> str:
     return (
         prefix
         + CONFIG_COMMON
-        + f"\n{schema}\n\n[chunking]\n{chunking}\n\n[length]\nmin_chars = {minimum}\nmax_chars = {maximum}\noversize = \"reject\"\n\n"
+        + f"\n{schema}\n\n[limits]\nmax_file_bytes = {limit}\n\n[chunking]\n{chunking}\n\n[length]\nmin_chars = {minimum}\nmax_chars = {maximum}\noversize = \"reject\"\n\n"
         + "[dedup]\nenabled = true\nindex = \"memory\"\n\n"
         + f"[split]\n{split}\n\n[provenance]\nmode = \"{provenance}\"\n\n[output]\ndir = \"output\"\n\n"
         + "[quality]\nmin_exported_records = 1\nmax_file_error_rate = 1.0\nmax_schema_rejection_rate = 1.0\nmax_duplicate_rate = 1.0\n\n"
@@ -874,8 +878,25 @@ def generate(
             },
         )
         counts = _write_adversarial(input_dir, plan["target_bytes"], seed)
-    (base / "datum.toml").write_text(_config_text(profile, workflow=False), encoding="utf-8")
-    (base / "datum-workflow.toml").write_text(_config_text(profile, workflow=True), encoding="utf-8")
+    limit = _file_limit(plan["target_bytes"])
+    oversized = [
+        path
+        for path in input_dir.rglob("*")
+        if path.is_file() and path.stat().st_size > limit
+    ]
+    if oversized:
+        relative = oversized[0].relative_to(input_dir)
+        raise ValueError(
+            f"generated file {relative} exceeds configured max_file_bytes ({limit} bytes)"
+        )
+    (base / "datum.toml").write_text(
+        _config_text(profile, workflow=False, target_bytes=plan["target_bytes"]),
+        encoding="utf-8",
+    )
+    (base / "datum-workflow.toml").write_text(
+        _config_text(profile, workflow=True, target_bytes=plan["target_bytes"]),
+        encoding="utf-8",
+    )
     elapsed = time.perf_counter() - started
     manifest = {
         "fixture_schema_version": 1,
@@ -891,6 +912,7 @@ def generate(
         "input_files": len([path for path in input_dir.rglob("*") if path.is_file()]),
         "generation_seconds": round(elapsed, 6),
         "fixture_sha256": _tree_hash(input_dir) if hash_fixture else None,
+        "limits": {"max_file_bytes": limit},
         "configs": {
             "equivalent": str(base / "datum.toml"),
             "workflow": str(base / "datum-workflow.toml"),

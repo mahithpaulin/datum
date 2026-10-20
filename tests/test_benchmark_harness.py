@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from benchmarks.generate_data import PROFILES, TIER_BYTES, generate
+from benchmarks.generate_data import PROFILES, TIER_BYTES, _config_text, generate
 from benchmarks.run import main as run_benchmark
 from benchmarks.verify_results import validate_report
 from benchmarks.workloads import run as run_workload
@@ -20,6 +20,28 @@ def test_profile_manifest_matches_runner():
     assert manifest["schema_version"] == 1
     assert set(manifest["profiles"]) == set(PROFILES)
     assert manifest["tiers"] == TIER_BYTES
+
+
+def test_generated_config_allows_tier_files():
+    for tier in ("A", "B", "C"):
+        config = _config_text("csv-transform", workflow=False, target_bytes=TIER_BYTES[tier])
+        limit = int(config.split("max_file_bytes = ", 1)[1].splitlines()[0])
+        assert limit >= TIER_BYTES[tier]
+
+
+def test_equivalent_jsonl_fixture_is_well_formed(tmp_path):
+    generate("jsonl-training", tmp_path / "fixture", target_bytes=200_000, seed=11)
+    root = tmp_path / "fixture" / "input"
+    for path in root.rglob("*.jsonl"):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                assert isinstance(json.loads(line), dict)
+
+
+def test_equivalent_text_fixture_is_valid_utf8(tmp_path):
+    generate("many-small-text", tmp_path / "fixture", target_bytes=200_000, seed=11)
+    for path in (tmp_path / "fixture" / "input").rglob("*.txt"):
+        path.read_text(encoding="utf-8")
 
 
 def test_generated_fixtures_are_deterministic(tmp_path):

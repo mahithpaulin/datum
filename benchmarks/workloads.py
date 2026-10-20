@@ -252,8 +252,10 @@ def _duckdb(profile: str, input_dir: Path, output_path: Path) -> list[dict[str, 
             pattern = str(input_dir / "**" / "*.txt")
             connection.execute(
                 "COPY ("
-                "SELECT DISTINCT trim(regexp_replace(regexp_replace(content, '\\r\\n', '\\n', 'g'), '\\r', '\\n', 'g')) AS text "
-                "FROM read_text(?) WHERE length(trim(content)) > 0 ORDER BY text"
+                "SELECT DISTINCT trim(regexp_replace(regexp_replace(content, '\\r\\n', '\\n', 'g'), '\\r', '\\n', 'g'), "
+                "' ' || chr(9) || chr(10) || chr(13)) AS text "
+                "FROM read_text(?) WHERE length(trim(content, ' ' || chr(9) || chr(10) || chr(13))) > 0 "
+                "ORDER BY text"
                 f") TO '{str(temporary).replace(chr(39), chr(39) * 2)}' (FORMAT JSON, ARRAY false)",
                 [pattern],
             )
@@ -263,12 +265,13 @@ def _duckdb(profile: str, input_dir: Path, output_path: Path) -> list[dict[str, 
             connection.execute(
                 "COPY ("
                 "SELECT prompt, completion, label FROM ("
-                "SELECT coalesce(trim(CAST(prompt AS VARCHAR)), '') AS prompt, "
-                "coalesce(trim(CAST(completion AS VARCHAR)), '') AS completion, "
+                "SELECT trim(CAST(prompt AS VARCHAR), ' ' || chr(9) || chr(10) || chr(13)) AS prompt, "
+                "trim(CAST(completion AS VARCHAR), ' ' || chr(9) || chr(10) || chr(13)) AS completion, "
                 "CAST(label AS VARCHAR) AS label "
                 "FROM read_json(?, format='newline_delimited', "
                 "columns={'prompt': 'VARCHAR', 'completion': 'VARCHAR', 'label': 'VARCHAR'}, ignore_errors=true)"
                 ") WHERE label IN ('supported', 'review') "
+                "AND prompt IS NOT NULL AND completion IS NOT NULL "
                 "AND length(prompt) + length(completion) >= 5 "
                 "AND length(prompt) + length(completion) <= 12000 "
                 "QUALIFY row_number() OVER (PARTITION BY prompt, completion, label ORDER BY prompt) = 1 "
@@ -340,12 +343,17 @@ def _polars(profile: str, input_dir: Path) -> list[dict[str, Any]]:
                         rows.append(record)
         frame = pl.DataFrame(rows, schema={"prompt": pl.Utf8, "completion": pl.Utf8, "label": pl.Utf8})
     else:
-        frame = pl.read_csv(paths[0], infer_schema_length=0, null_values=[])
+        frame = pl.read_csv(
+            paths[0],
+            infer_schema_length=0,
+            null_values=[],
+            missing_utf8_is_empty_string=True,
+        )
     frame = frame.select(["prompt", "completion", "label"] if profile == "jsonl-training" else ["prompt", "completion"])
     frame = frame.with_columns(
         [
-            pl.col("prompt").cast(pl.Utf8).str.replace_all("\r\n", "\n").str.replace_all("\r", "\n").str.strip_chars(),
-            pl.col("completion").cast(pl.Utf8).str.replace_all("\r\n", "\n").str.replace_all("\r", "\n").str.strip_chars(),
+            pl.col("prompt").cast(pl.Utf8).fill_null("").str.replace_all("\r\n", "\n").str.replace_all("\r", "\n").str.strip_chars(),
+            pl.col("completion").cast(pl.Utf8).fill_null("").str.replace_all("\r\n", "\n").str.replace_all("\r", "\n").str.strip_chars(),
         ]
     )
     frame = frame.filter(

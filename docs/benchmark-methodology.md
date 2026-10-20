@@ -47,8 +47,8 @@ claimed to be semantically identical.
 
 ### jsonl-training
 
-Read newline-delimited JSON records with `prompt`, `completion`, and `label`. Ignore blank
-and malformed lines. Require prompt/completion strings, a valid label, minimum total
+Read well-formed newline-delimited JSON records with `prompt`, `completion`, and `label`.
+Ignore blank lines and reject null/non-string fields. Require a valid label, minimum total
 content length 5, and maximum total content length 12,000. Normalize strings, drop exact
 duplicates, and write canonical JSONL with all three fields.
 
@@ -68,6 +68,10 @@ coverage and rejection behavior, not a portable competitor ranking.
 Read malformed JSONL, invalid schema records, overlong records, corrupt DOCX/PDF/JSON,
 unsupported binaries, and filenames with spaces, Unicode, and leading dashes. The point is
 accounting, failure classification, and preservation of bad input evidence.
+
+Equivalent profiles use syntactically readable inputs so every baseline sees the same source
+records. Invalid UTF-8 and syntactically corrupt files are isolated in the DATUM-only
+`adversarial-quality` profile, where parser recovery semantics are not portable.
 
 ## Fixtures and tiers
 
