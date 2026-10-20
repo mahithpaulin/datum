@@ -1,0 +1,54 @@
+[datum]
+config_version = 1
+
+[source]
+path = "input"
+exclude = ["*.tmp"]
+
+[schema]
+name = "text"
+
+[normalize]
+line_endings = "lf"
+strip_outer_whitespace = true
+
+[chunking]
+enabled = true
+unit = "chars"
+size = 600
+overlap = 80
+
+[length]
+min_chars = 20
+max_chars = 2000
+oversize = "reject"
+
+[dedup]
+enabled = true
+index = "memory"
+
+[split]
+enabled = true
+seed = 42
+train = 0.8
+validation = 0.1
+test = 0.1
+
+[provenance]
+mode = "sidecar"
+
+[output]
+dir = "output/example"
+
+[quality]
+min_exported_records = 3
+max_file_error_rate = 0.5
+max_schema_rejection_rate = 0.5
+max_duplicate_rate = 0.5
+
+[cache]
+enabled = true
+
+[runtime]
+workers = 2
+progress = false

@@ -1,0 +1,4 @@
+{"prompt":"Name the command that builds a dataset.","completion":"datum build --config datum.toml"}
+{"prompt":"What file records output provenance?","completion":"provenance.jsonl"}
+{"prompt":"What file records output provenance?","completion":"provenance.jsonl"}
+{"prompt":"This line is malformed","completion":

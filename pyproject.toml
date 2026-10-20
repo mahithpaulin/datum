@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datum-compiler"
+version = "0.1.0"
+description = "Fast, reliable, reproducible preparation of AI-ready datasets from mixed raw data"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "DATUM" }]
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf>=4.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+datum = "datum.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["datum*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

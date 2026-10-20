@@ -1,0 +1,3 @@
+DATUM is a local data compiler. It discovers mixed files, extracts records, maps them to a schema, removes exact duplicates, and exports reproducible JSONL.
+
+The first build should be small. Inspect the quality report before using the output. A schema-valid record is not automatically a true or useful record.

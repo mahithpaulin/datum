@@ -1,0 +1,111 @@
+{
+  "ai": {
+    "api_key_env": "",
+    "base_url": "",
+    "enabled": false,
+    "max_calls": 0,
+    "model": "",
+    "provider": ""
+  },
+  "cache": {
+    "dir": null,
+    "enabled": true,
+    "verify_integrity": true
+  },
+  "chunking": {
+    "enabled": true,
+    "overlap": 80,
+    "size": 600,
+    "tokenizer": "",
+    "unit": "chars"
+  },
+  "completion_separator": "",
+  "config_version": 1,
+  "dedup": {
+    "enabled": true,
+    "index": "memory"
+  },
+  "errors": {
+    "policy": "permissive",
+    "unsupported": "skip"
+  },
+  "length": {
+    "max_chars": 2000,
+    "min_chars": 20,
+    "oversize": "reject"
+  },
+  "limits": {
+    "max_archive_uncompressed_bytes": 268435456,
+    "max_file_bytes": 67108864,
+    "max_records_per_file": 1000000,
+    "min_free_disk_bytes": 52428800
+  },
+  "manifest": {
+    "include_input_hashes": true
+  },
+  "mapping": {
+    "fields": {}
+  },
+  "normalize": {
+    "collapse_whitespace": false,
+    "line_endings": "lf",
+    "strip_control_chars": true,
+    "strip_outer_whitespace": true,
+    "strip_trailing_whitespace": false,
+    "unicode_form": "none"
+  },
+  "output": {
+    "dir": "/data/data/com.termux/files/home/projects/datum/examples/output/example"
+  },
+  "pdf": {
+    "engine": "builtin"
+  },
+  "provenance": {
+    "include_file_sha256": true,
+    "inline_field": "_datum",
+    "mode": "sidecar"
+  },
+  "quality": {
+    "include_samples": false,
+    "max_duplicate_rate": 0.5,
+    "max_file_error_rate": 0.5,
+    "max_samples": 20,
+    "max_schema_rejection_rate": 0.5,
+    "min_exported_records": 3,
+    "sample_chars": 160
+  },
+  "runtime": {
+    "progress": false,
+    "workers": 2
+  },
+  "schema": {
+    "file": null,
+    "name": "text",
+    "version": 1
+  },
+  "source": {
+    "csv_delimiter": "auto",
+    "csv_has_header": true,
+    "detect_content": true,
+    "encoding": "auto",
+    "encoding_errors": "strict",
+    "exclude": [
+      "*.tmp"
+    ],
+    "follow_symlinks": false,
+    "include_hidden": false,
+    "json_records_path": "",
+    "jsonl_skip_blank": true,
+    "ordering": "path",
+    "path": "/data/data/com.termux/files/home/projects/datum/examples/input",
+    "recursive": true,
+    "text_fallback": false
+  },
+  "split": {
+    "enabled": true,
+    "seed": 42,
+    "test": 0.1,
+    "train": 0.8,
+    "validation": 0.1
+  }
+}

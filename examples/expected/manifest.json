@@ -1,0 +1,561 @@
+{
+  "build": {
+    "build_id": "a45d94a913b96579fe9a1e000c531eae",
+    "finished_at": "2026-10-20T04:15:12Z",
+    "output_identity": "a55c1e70f4819a8f21a8a93215504591a6732047c528c406e4c23123f791b9ca",
+    "started_at": "2026-10-20T04:15:12Z",
+    "status": "complete"
+  },
+  "cache": {
+    "directory": "/data/data/com.termux/files/home/projects/datum/examples/output/example/.datum-cache",
+    "enabled": true,
+    "entry_bytes": 1939,
+    "hash_seconds": 0.001549,
+    "hits": 0,
+    "invalid": 0,
+    "misses": 3,
+    "read_seconds": 0.001014,
+    "write_errors": 0,
+    "write_seconds": 0.0,
+    "writes": 3
+  },
+  "config": {
+    "ai": {
+      "api_key_env": "",
+      "base_url": "",
+      "enabled": false,
+      "max_calls": 0,
+      "model": "",
+      "provider": ""
+    },
+    "cache": {
+      "dir": null,
+      "enabled": true,
+      "verify_integrity": true
+    },
+    "chunking": {
+      "enabled": true,
+      "overlap": 80,
+      "size": 600,
+      "tokenizer": "",
+      "unit": "chars"
+    },
+    "completion_separator": "",
+    "config_version": 1,
+    "dedup": {
+      "enabled": true,
+      "index": "memory"
+    },
+    "errors": {
+      "policy": "permissive",
+      "unsupported": "skip"
+    },
+    "length": {
+      "max_chars": 2000,
+      "min_chars": 20,
+      "oversize": "reject"
+    },
+    "limits": {
+      "max_archive_uncompressed_bytes": 268435456,
+      "max_file_bytes": 67108864,
+      "max_records_per_file": 1000000,
+      "min_free_disk_bytes": 52428800
+    },
+    "manifest": {
+      "include_input_hashes": true
+    },
+    "mapping": {
+      "fields": {}
+    },
+    "normalize": {
+      "collapse_whitespace": false,
+      "line_endings": "lf",
+      "strip_control_chars": true,
+      "strip_outer_whitespace": true,
+      "strip_trailing_whitespace": false,
+      "unicode_form": "none"
+    },
+    "output": {
+      "dir": "/data/data/com.termux/files/home/projects/datum/examples/output/example"
+    },
+    "pdf": {
+      "engine": "builtin"
+    },
+    "provenance": {
+      "include_file_sha256": true,
+      "inline_field": "_datum",
+      "mode": "sidecar"
+    },
+    "quality": {
+      "include_samples": false,
+      "max_duplicate_rate": 0.5,
+      "max_file_error_rate": 0.5,
+      "max_samples": 20,
+      "max_schema_rejection_rate": 0.5,
+      "min_exported_records": 3,
+      "sample_chars": 160
+    },
+    "runtime": {
+      "progress": false,
+      "workers": 2
+    },
+    "schema": {
+      "file": null,
+      "name": "text",
+      "version": 1
+    },
+    "source": {
+      "csv_delimiter": "auto",
+      "csv_has_header": true,
+      "detect_content": true,
+      "encoding": "auto",
+      "encoding_errors": "strict",
+      "exclude": [
+        "*.tmp"
+      ],
+      "follow_symlinks": false,
+      "include_hidden": false,
+      "json_records_path": "",
+      "jsonl_skip_blank": true,
+      "ordering": "path",
+      "path": "/data/data/com.termux/files/home/projects/datum/examples/input",
+      "recursive": true,
+      "text_fallback": false
+    },
+    "split": {
+      "enabled": true,
+      "seed": 42,
+      "test": 0.1,
+      "train": 0.8,
+      "validation": 0.1
+    }
+  },
+  "config_fingerprint": "2c945620d66025066366c4de032fd3bf32fa02fbdb7afc24e18793b1b3b67883",
+  "datum_version": "0.1.0",
+  "dependencies": {
+    "optional": {},
+    "required": {}
+  },
+  "environment": {
+    "cpu_count": 8,
+    "implementation": "CPython",
+    "machine": "aarch64",
+    "memory_total_bytes": 3921993728,
+    "platform": "Android-13-aarch64-64bit",
+    "python": "3.14.6"
+  },
+  "inputs": [
+    {
+      "adapter": "text",
+      "format": "markdown",
+      "path": "checklist.md",
+      "sha256": "9af4b70467aeb2f3168c9e0bc907fae8ce8ed369a9cb3c8f33b64b33a944bf9a",
+      "size": 273,
+      "status": "processed"
+    },
+    {
+      "adapter": "text",
+      "format": "markdown",
+      "path": "guide.md",
+      "sha256": "eef922960e1867c6bedf108900fe1478ec97506a55bb96612a2bd1561748326d",
+      "size": 221,
+      "status": "processed"
+    },
+    {
+      "format": "unsupported",
+      "path": "ignored.png",
+      "reason": "image inputs are unsupported; DATUM 0.1.0 does not perform OCR",
+      "size": 40,
+      "status": "skipped"
+    },
+    {
+      "adapter": "text",
+      "format": "text",
+      "path": "notes.txt",
+      "sha256": "cc8fd6116e987d967655d41f29bedd3492719c0a8daa1927cf2598859f1e6f87",
+      "size": 311,
+      "status": "processed"
+    }
+  ],
+  "manifest_schema_version": 1,
+  "notes": [
+    "Dataset bytes are deterministic for equivalent inputs and processing configuration.",
+    "Timestamps, durations, environment details, and cache statistics make manifest bytes nondeterministic.",
+    "Schema validity is a mechanical check, not a guarantee of semantic correctness."
+  ],
+  "ordering": "source path ascending; source record ordinal; chunk index",
+  "output_identity": "a55c1e70f4819a8f21a8a93215504591a6732047c528c406e4c23123f791b9ca",
+  "outputs": [
+    {
+      "bytes": 0,
+      "path": "test.jsonl",
+      "records": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 613,
+      "path": "train.jsonl",
+      "records": 2,
+      "sha256": "10d08202b03e5f2b38d43f3040ca278e4248767421828addd60d2ecba725c53a"
+    },
+    {
+      "bytes": 240,
+      "path": "validation.jsonl",
+      "records": 1,
+      "sha256": "c53a210a30b2e9081828b67bd5eebbfd5ce11cce910934ce1988c994e706795c"
+    }
+  ],
+  "performance": {
+    "compile_seconds": 0.003043,
+    "dedup_hash_seconds": 0.000195,
+    "dedup_index_seconds": 1.5e-05,
+    "discovery_seconds": 0.001682,
+    "exported_records_per_second": 96.730269,
+    "files_per_second": 193.154172,
+    "input_bytes": 805,
+    "input_mib_per_second": 0.037071,
+    "output_bytes": 853,
+    "peak_rss_bytes": 25821184,
+    "processing_seconds": 0.020709,
+    "rejected_bytes": 0,
+    "sidecar_bytes": 1335,
+    "source_records_per_second": 144.865629,
+    "total_seconds": 0.104734,
+    "verification_seconds": 0.007715,
+    "workers": 2
+  },
+  "pipeline_fingerprint": "a33db021b624f3b43211061fec2788cd6eba74b032057a3abac7b2ccf77d5cf7",
+  "pipeline_version": 1,
+  "quality": {
+    "build_id": "a45d94a913b96579fe9a1e000c531eae",
+    "cache": {
+      "directory": "/data/data/com.termux/files/home/projects/datum/examples/output/example/.datum-cache",
+      "enabled": true,
+      "entry_bytes": 1939,
+      "hash_seconds": 0.001549,
+      "hits": 0,
+      "invalid": 0,
+      "misses": 3,
+      "read_seconds": 0.001014,
+      "write_errors": 0,
+      "write_seconds": 0.0,
+      "writes": 3
+    },
+    "definitions": {
+      "exported": "records written to dataset files; independent verification revalidates bytes, schema, and counts",
+      "file_error_rate": "failed files / discovered files",
+      "record_duplicate_rate": "duplicates / retained_pre_dedup",
+      "retained_pre_dedup": "candidates passing empty, length, and schema checks before exact deduplication",
+      "schema_compliance": "(schema_checked - schema_rejected) / schema_checked; null when no candidate reached schema validation"
+    },
+    "errors": {
+      "by_code": {
+        "unsupported_input": 1
+      },
+      "examples": [
+        {
+          "code": "unsupported_input",
+          "message": "image inputs are unsupported; DATUM 0.1.0 does not perform OCR",
+          "path": "ignored.png",
+          "severity": "warning"
+        }
+      ],
+      "examples_truncated": false,
+      "total": 1
+    },
+    "files": {
+      "discovered": 4,
+      "duplicate_targets_skipped": 0,
+      "empty_files": 0,
+      "excluded_by_config": 0,
+      "failed": 0,
+      "hidden_skipped": 0,
+      "input_bytes_discovered": 845,
+      "input_bytes_processed": 805,
+      "non_regular_skipped": 0,
+      "processed": 3,
+      "processed_with_errors": 0,
+      "skipped": 1,
+      "symlinks_skipped": 0,
+      "walk_issues": 0
+    },
+    "invariants": [
+      {
+        "detail": "discovered=4 processed=3 failed=0 skipped=1",
+        "name": "file_accounting",
+        "passed": true
+      },
+      {
+        "detail": "processed_with_errors=0 processed=3",
+        "name": "processed_with_errors_subset",
+        "passed": true
+      },
+      {
+        "detail": "extracted=3 mapped=3 mapping_rejected=0",
+        "name": "source_record_mapping",
+        "passed": true
+      },
+      {
+        "detail": "chunks=3 empty=0 too_short=0 too_long=0 schema_rejected=0 duplicates=0 exported=3",
+        "name": "candidate_outcomes",
+        "passed": true
+      },
+      {
+        "detail": "retained_pre_dedup=3",
+        "name": "retention_equation",
+        "passed": true
+      },
+      {
+        "detail": "exported=3 retained_pre_dedup=3 duplicates=0",
+        "name": "export_equation",
+        "passed": true
+      },
+      {
+        "detail": "exported=3 split_total=3",
+        "name": "split_accounting",
+        "passed": true
+      },
+      {
+        "detail": "log_entries=0 rejected_total=0 malformed_input=0",
+        "name": "rejected_log_accounting",
+        "passed": true
+      }
+    ],
+    "lengths": {
+      "count": 3,
+      "max": 310,
+      "mean": 267.3333333333333,
+      "min": 220,
+      "p50": 272,
+      "p90": 310,
+      "p99": 310,
+      "total_chars": 802
+    },
+    "performance": {
+      "compile_seconds": 0.003043,
+      "dedup_hash_seconds": 0.000195,
+      "dedup_index_seconds": 1.5e-05,
+      "discovery_seconds": 0.001682,
+      "exported_records_per_second": 96.730269,
+      "files_per_second": 193.154172,
+      "input_bytes": 805,
+      "input_mib_per_second": 0.037071,
+      "output_bytes": 853,
+      "peak_rss_bytes": 25821184,
+      "processing_seconds": 0.020709,
+      "rejected_bytes": 0,
+      "sidecar_bytes": 1335,
+      "source_records_per_second": 144.865629,
+      "total_seconds": 0.104734,
+      "verification_seconds": 0.007715,
+      "workers": 2
+    },
+    "rates": {
+      "file_error_rate": 0.0,
+      "file_skip_rate": 0.25,
+      "mapping_rejection_rate": 0.0,
+      "record_duplicate_rate": 0.0,
+      "schema_compliance": 1.0,
+      "schema_rejection_rate": 0.0
+    },
+    "records": {
+      "chunks_created": 3,
+      "duplicates": 0,
+      "empty": 0,
+      "excluded_total": 0,
+      "exported": 3,
+      "malformed_input": 0,
+      "mapping_rejected": 0,
+      "rejected_total": 0,
+      "retained_pre_dedup": 3,
+      "schema_rejected": 0,
+      "source_records_extracted": 3,
+      "source_records_mapped": 3,
+      "source_records_split": 0,
+      "too_long": 0,
+      "too_short": 0,
+      "truncated": 0
+    },
+    "rejected": {
+      "by_rule": {},
+      "log_entries": 0
+    },
+    "schema": {
+      "checked": 3,
+      "compliance": 1.0,
+      "name": "text",
+      "note": "schema compliance is mechanical, not semantic correctness",
+      "rejected": 0,
+      "version": 1
+    },
+    "schema_version": 1,
+    "splits": {
+      "test": 0,
+      "train": 2,
+      "validation": 1
+    },
+    "status": "passed",
+    "threshold_failures": [],
+    "thresholds": [
+      {
+        "actual": 3,
+        "metric": "min_exported_records",
+        "passed": true,
+        "requirement": ">= 3"
+      },
+      {
+        "actual": 0.0,
+        "metric": "max_file_error_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      },
+      {
+        "actual": 0.0,
+        "metric": "max_schema_rejection_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      },
+      {
+        "actual": 0.0,
+        "metric": "max_duplicate_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      }
+    ],
+    "transformation": {
+      "control_chars_removed": 0,
+      "encoding_replacements": 0,
+      "line_endings_converted": 0,
+      "outer_whitespace_stripped": 3,
+      "trailing_whitespace_removed": 0,
+      "truncated_records": 0,
+      "unicode_normalized": 0,
+      "warnings": 0,
+      "whitespace_collapsed": 0
+    }
+  },
+  "rejected": {
+    "bytes": 0,
+    "path": "rejected.jsonl",
+    "records": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "schema": {
+    "additional_properties": false,
+    "description": "Plain text training example",
+    "fields": {
+      "text": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    "kind": "text",
+    "name": "text",
+    "version": 1
+  },
+  "seed": 42,
+  "sidecar": {
+    "bytes": 1335,
+    "path": "provenance.jsonl",
+    "records": 3,
+    "sha256": "143f8de0678a1323eebd61383126c58d817aff75711a08c544a5203cbf295766"
+  },
+  "transformations": [
+    {
+      "config": {
+        "ordering": "path",
+        "recursive": true
+      },
+      "name": "discovery",
+      "version": 1
+    },
+    {
+      "adapters": [
+        "text",
+        "delimited",
+        "json",
+        "jsonl",
+        "pdf",
+        "docx"
+      ],
+      "name": "extraction",
+      "version": 1
+    },
+    {
+      "config": {
+        "collapse_whitespace": false,
+        "line_endings": "lf",
+        "strip_control_chars": true,
+        "strip_outer_whitespace": true,
+        "strip_trailing_whitespace": false,
+        "unicode_form": "none"
+      },
+      "name": "normalize",
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": true,
+        "overlap": 80,
+        "size": 600,
+        "tokenizer": "",
+        "unit": "chars"
+      },
+      "name": "chunking",
+      "version": 1
+    },
+    {
+      "config": {
+        "fields": {}
+      },
+      "name": "mapping",
+      "version": 1
+    },
+    {
+      "name": "schema_validation",
+      "schema": {
+        "additional_properties": false,
+        "description": "Plain text training example",
+        "fields": {
+          "text": {
+            "required": true,
+            "type": "string"
+          }
+        },
+        "kind": "text",
+        "name": "text",
+        "version": 1
+      },
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": true,
+        "index": "memory"
+      },
+      "name": "exact_deduplication",
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": true,
+        "seed": 42,
+        "test": 0.1,
+        "train": 0.8,
+        "validation": 0.1
+      },
+      "name": "split",
+      "version": 1
+    },
+    {
+      "format": "jsonl",
+      "name": "export",
+      "provenance": {
+        "include_file_sha256": true,
+        "inline_field": "_datum",
+        "mode": "sidecar"
+      },
+      "version": 1
+    }
+  ]
+}

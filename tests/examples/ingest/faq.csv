@@ -1,0 +1,4 @@
+question,answer
+What is DATUM?,A local compiler for AI-ready datasets.
+Does it need a server?,No. The core build runs offline.
+Can it read PDFs?,"Yes, with a limited built-in extractor or the optional pypdf engine."

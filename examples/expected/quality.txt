@@ -1,0 +1,11 @@
+DATUM quality report (passed)
+Build ID: a45d94a913b96579fe9a1e000c531eae
+Files: 4 discovered, 3 processed (0 with record errors), 0 failed, 1 skipped
+Records: 3 source records, 3 candidate chunks, 3 exported
+Exclusions: 0 mapping, 0 empty, 0 too short, 0 too long, 0 schema-invalid, 0 exact duplicates
+Malformed input records: 0
+Schema: text v1; compliance: 100.00%
+Splits: test=0, train=2, validation=1
+Lengths: min=220 max=310 p50=272 p99=310
+Time: 105 ms; input 805 B; output 853 B
+Quality thresholds: passed

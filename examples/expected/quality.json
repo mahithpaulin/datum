@@ -1,0 +1,208 @@
+{
+  "build_id": "a45d94a913b96579fe9a1e000c531eae",
+  "cache": {
+    "directory": "/data/data/com.termux/files/home/projects/datum/examples/output/example/.datum-cache",
+    "enabled": true,
+    "entry_bytes": 1939,
+    "hash_seconds": 0.001549,
+    "hits": 0,
+    "invalid": 0,
+    "misses": 3,
+    "read_seconds": 0.001014,
+    "write_errors": 0,
+    "write_seconds": 0.0,
+    "writes": 3
+  },
+  "definitions": {
+    "exported": "records written to dataset files; independent verification revalidates bytes, schema, and counts",
+    "file_error_rate": "failed files / discovered files",
+    "record_duplicate_rate": "duplicates / retained_pre_dedup",
+    "retained_pre_dedup": "candidates passing empty, length, and schema checks before exact deduplication",
+    "schema_compliance": "(schema_checked - schema_rejected) / schema_checked; null when no candidate reached schema validation"
+  },
+  "errors": {
+    "by_code": {
+      "unsupported_input": 1
+    },
+    "examples": [
+      {
+        "code": "unsupported_input",
+        "message": "image inputs are unsupported; DATUM 0.1.0 does not perform OCR",
+        "path": "ignored.png",
+        "severity": "warning"
+      }
+    ],
+    "examples_truncated": false,
+    "total": 1
+  },
+  "files": {
+    "discovered": 4,
+    "duplicate_targets_skipped": 0,
+    "empty_files": 0,
+    "excluded_by_config": 0,
+    "failed": 0,
+    "hidden_skipped": 0,
+    "input_bytes_discovered": 845,
+    "input_bytes_processed": 805,
+    "non_regular_skipped": 0,
+    "processed": 3,
+    "processed_with_errors": 0,
+    "skipped": 1,
+    "symlinks_skipped": 0,
+    "walk_issues": 0
+  },
+  "invariants": [
+    {
+      "detail": "discovered=4 processed=3 failed=0 skipped=1",
+      "name": "file_accounting",
+      "passed": true
+    },
+    {
+      "detail": "processed_with_errors=0 processed=3",
+      "name": "processed_with_errors_subset",
+      "passed": true
+    },
+    {
+      "detail": "extracted=3 mapped=3 mapping_rejected=0",
+      "name": "source_record_mapping",
+      "passed": true
+    },
+    {
+      "detail": "chunks=3 empty=0 too_short=0 too_long=0 schema_rejected=0 duplicates=0 exported=3",
+      "name": "candidate_outcomes",
+      "passed": true
+    },
+    {
+      "detail": "retained_pre_dedup=3",
+      "name": "retention_equation",
+      "passed": true
+    },
+    {
+      "detail": "exported=3 retained_pre_dedup=3 duplicates=0",
+      "name": "export_equation",
+      "passed": true
+    },
+    {
+      "detail": "exported=3 split_total=3",
+      "name": "split_accounting",
+      "passed": true
+    },
+    {
+      "detail": "log_entries=0 rejected_total=0 malformed_input=0",
+      "name": "rejected_log_accounting",
+      "passed": true
+    }
+  ],
+  "lengths": {
+    "count": 3,
+    "max": 310,
+    "mean": 267.3333333333333,
+    "min": 220,
+    "p50": 272,
+    "p90": 310,
+    "p99": 310,
+    "total_chars": 802
+  },
+  "performance": {
+    "compile_seconds": 0.003043,
+    "dedup_hash_seconds": 0.000195,
+    "dedup_index_seconds": 1.5e-05,
+    "discovery_seconds": 0.001682,
+    "exported_records_per_second": 96.730269,
+    "files_per_second": 193.154172,
+    "input_bytes": 805,
+    "input_mib_per_second": 0.037071,
+    "output_bytes": 853,
+    "peak_rss_bytes": 25821184,
+    "processing_seconds": 0.020709,
+    "rejected_bytes": 0,
+    "sidecar_bytes": 1335,
+    "source_records_per_second": 144.865629,
+    "total_seconds": 0.104734,
+    "verification_seconds": 0.007715,
+    "workers": 2
+  },
+  "rates": {
+    "file_error_rate": 0.0,
+    "file_skip_rate": 0.25,
+    "mapping_rejection_rate": 0.0,
+    "record_duplicate_rate": 0.0,
+    "schema_compliance": 1.0,
+    "schema_rejection_rate": 0.0
+  },
+  "records": {
+    "chunks_created": 3,
+    "duplicates": 0,
+    "empty": 0,
+    "excluded_total": 0,
+    "exported": 3,
+    "malformed_input": 0,
+    "mapping_rejected": 0,
+    "rejected_total": 0,
+    "retained_pre_dedup": 3,
+    "schema_rejected": 0,
+    "source_records_extracted": 3,
+    "source_records_mapped": 3,
+    "source_records_split": 0,
+    "too_long": 0,
+    "too_short": 0,
+    "truncated": 0
+  },
+  "rejected": {
+    "by_rule": {},
+    "log_entries": 0
+  },
+  "schema": {
+    "checked": 3,
+    "compliance": 1.0,
+    "name": "text",
+    "note": "schema compliance is mechanical, not semantic correctness",
+    "rejected": 0,
+    "version": 1
+  },
+  "schema_version": 1,
+  "splits": {
+    "test": 0,
+    "train": 2,
+    "validation": 1
+  },
+  "status": "passed",
+  "threshold_failures": [],
+  "thresholds": [
+    {
+      "actual": 3,
+      "metric": "min_exported_records",
+      "passed": true,
+      "requirement": ">= 3"
+    },
+    {
+      "actual": 0.0,
+      "metric": "max_file_error_rate",
+      "passed": true,
+      "requirement": "<= 0.5"
+    },
+    {
+      "actual": 0.0,
+      "metric": "max_schema_rejection_rate",
+      "passed": true,
+      "requirement": "<= 0.5"
+    },
+    {
+      "actual": 0.0,
+      "metric": "max_duplicate_rate",
+      "passed": true,
+      "requirement": "<= 0.5"
+    }
+  ],
+  "transformation": {
+    "control_chars_removed": 0,
+    "encoding_replacements": 0,
+    "line_endings_converted": 0,
+    "outer_whitespace_stripped": 3,
+    "trailing_whitespace_removed": 0,
+    "truncated_records": 0,
+    "unicode_normalized": 0,
+    "warnings": 0,
+    "whitespace_collapsed": 0
+  }
+}
