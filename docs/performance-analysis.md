@@ -37,7 +37,7 @@ stayed the same. Treat these as runner-specific.
 ## Local Tier A CSV run (Termux, Python 3.14.6)
 
 Run `tierA-csv-10`, three measured repetitions, one warm-up, DATUM plus the Python
-reference. Fixture: 10,511,219 input bytes, 102,144 CSV rows, 98,625 exported records.
+reference. Compact evidence: `benchmarks/results/local-tier-a/before/`. Fixture: 10,511,219 input bytes, 102,144 CSV rows, 98,625 exported records.
 The fixture hash and all trial evidence are in the run report.
 
 | Mode / tool | Median wall | Min | Max | IQR | Peak RSS | Records |
@@ -73,7 +73,8 @@ removal now uses a compiled Unicode `Cc` range substitution instead of a per-cha
 dataclass dictionary for every record. The replacement has an explicit equivalence test for
 `Cc` handling and preserves the same counters.
 
-Same host, same 10,511,219-byte fixture, three repetitions, one warm-up omitted:
+Same host, same 10,511,219-byte fixture, three repetitions, one warm-up omitted. Compact
+evidence: `benchmarks/results/local-tier-a/after/`.
 
 | Mode / tool | Baseline median | Optimized median | Change | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | ---: |

@@ -1,0 +1,2031 @@
+{
+  "created_at": "2026-10-20T06:48:57Z",
+  "determinism": {
+    "equivalent": {
+      "datum": {
+        "output_stable": true,
+        "record_counts": [
+          98625,
+          98625,
+          98625
+        ],
+        "record_counts_stable": true,
+        "runs": 3
+      },
+      "python": {
+        "output_stable": true,
+        "record_counts": [
+          98625,
+          98625,
+          98625
+        ],
+        "record_counts_stable": true,
+        "runs": 3
+      }
+    },
+    "workflow": {
+      "datum": {
+        "output_stable": true,
+        "record_counts": [
+          98625,
+          98625,
+          98625
+        ],
+        "record_counts_stable": true,
+        "runs": 3
+      }
+    }
+  },
+  "environment": {
+    "cpu_count": 8,
+    "disk_free_bytes": 38668595200,
+    "disk_total_bytes": 113349984256,
+    "environment_variables": {
+      "CUDA_VISIBLE_DEVICES": null,
+      "KAGGLE_KERNEL_RUN_TYPE": null,
+      "KAGGLE_URL_BASE": null,
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "PYTHONHASHSEED": null
+    },
+    "machine": "aarch64",
+    "memory_available_bytes": 1119019008,
+    "platform": "Android-13-aarch64-64bit",
+    "processor": null,
+    "python_implementation": "CPython",
+    "python_version": "3.14.6 (main, Jul  5 2026, 10:35:55) [Clang 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f0",
+    "tool_versions": {
+      "datasets": null,
+      "datum": "0.1.0",
+      "duckdb": null,
+      "pandas": null,
+      "polars": null,
+      "psutil": null,
+      "pyarrow": null
+    }
+  },
+  "failures": [],
+  "fixture": {
+    "configs": {
+      "equivalent": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+      "workflow": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml"
+    },
+    "counts": {
+      "bytes": 10511219,
+      "duplicate_rows": 2491,
+      "empty_rows": 1028,
+      "files": 1,
+      "rows": 102144,
+      "whitespace_rows": 3401
+    },
+    "created_at": "2026-10-20T06:48:56Z",
+    "description": "Prompt/completion CSV with duplicates, null-like fields, and whitespace for equivalent transforms.",
+    "fixture_schema_version": 1,
+    "fixture_sha256": "80bb411a2ff9561defe400d019f21fb2a5ffd1f9479f563f4a0926109930c1cf",
+    "generation_seconds": 1.773057,
+    "input_bytes": 10511219,
+    "input_files": 1,
+    "path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture",
+    "plan": {
+      "columns": 4,
+      "files": 1,
+      "profile": "csv-transform",
+      "rows": 0,
+      "rows_explicit": false,
+      "seed": 42,
+      "target_bytes": 10485760,
+      "tier": "A"
+    },
+    "profile": "csv-transform",
+    "status": "generated"
+  },
+  "ok": true,
+  "parity": {
+    "equivalent": {
+      "datum": {
+        "actual_records": 98625,
+        "content_match": true,
+        "duplicates": 0,
+        "expected_records": 98625,
+        "extra": 0,
+        "extra_samples": [],
+        "missing": 0,
+        "missing_samples": [],
+        "reference": "python"
+      },
+      "python": {
+        "actual_records": 98625,
+        "content_match": true,
+        "duplicates": 0,
+        "expected_records": 98625,
+        "extra": 0,
+        "extra_samples": [],
+        "missing": 0,
+        "missing_samples": [],
+        "reference": "python"
+      }
+    },
+    "workflow": {}
+  },
+  "partial": false,
+  "resource_check": {
+    "allowed": true,
+    "available_disk_bytes": 38679158784,
+    "available_memory_bytes": 1107775488,
+    "disk_ok": true,
+    "forced": true,
+    "memory_ok": true,
+    "needed_disk_bytes": 568328192,
+    "needed_memory_bytes": 284164096,
+    "target_bytes": 10485760
+  },
+  "run_id": "tierA-csv-10",
+  "run_schema_version": 1,
+  "settings": {
+    "allow_low_resource": true,
+    "columns": 4,
+    "files": null,
+    "fixture_dir": null,
+    "hash_fixture": true,
+    "min_free_disk_mib": 512,
+    "mode": "both",
+    "profile": "csv-transform",
+    "repetitions": 3,
+    "resume": false,
+    "rows": null,
+    "run_id": "tierA-csv-10",
+    "runs_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs",
+    "seed": 42,
+    "target_bytes": null,
+    "tier": "A",
+    "timeout": 3600,
+    "tools": "python",
+    "verify": true,
+    "warmups": 1
+  },
+  "source": {
+    "branch": "benchmark/large-scale-v1",
+    "commit": "52ea9dabbfb8f24af37287fb805b9db6d113fa39",
+    "describe": "52ea9da-dirty",
+    "dirty": true,
+    "dirty_files": [
+      "M benchmarks/compare.py",
+      " M benchmarks/run.py",
+      "?? benchmarks/generate_data.py",
+      "?? benchmarks/kaggle/",
+      "?? benchmarks/results/baseline-52ea9da/",
+      "?? benchmarks/verify_results.py",
+      "?? benchmarks/workloads.py",
+      "?? tests/test_benchmark_harness.py"
+    ],
+    "remote": "https://github.com/mahithpaulin/datum.git"
+  },
+  "summary": {
+    "equivalent": {
+      "datum": {
+        "attempts": 3,
+        "completed": 3,
+        "failed": 0,
+        "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+        "output_stable": true,
+        "peak_rss_bytes_max": 40828928,
+        "record_counts_stable": true,
+        "records": 98625,
+        "tool_versions": {
+          "datum": "0.1.0"
+        },
+        "wall_seconds_iqr": 0.296138,
+        "wall_seconds_max": 54.133669,
+        "wall_seconds_median": 53.545397,
+        "wall_seconds_min": 53.541394,
+        "wall_seconds_runs": [
+          53.545397,
+          53.541394,
+          54.133669
+        ]
+      },
+      "python": {
+        "attempts": 3,
+        "completed": 3,
+        "failed": 0,
+        "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+        "output_stable": true,
+        "peak_rss_bytes_max": 111218688,
+        "record_counts_stable": true,
+        "records": 98625,
+        "tool_versions": {
+          "python": "3.14.6"
+        },
+        "wall_seconds_iqr": 0.00413,
+        "wall_seconds_max": 13.679673,
+        "wall_seconds_median": 13.672994,
+        "wall_seconds_min": 13.671413,
+        "wall_seconds_runs": [
+          13.679673,
+          13.671413,
+          13.672994
+        ]
+      }
+    },
+    "workflow": {
+      "datum": {
+        "attempts": 3,
+        "completed": 3,
+        "failed": 0,
+        "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+        "output_stable": true,
+        "peak_rss_bytes_max": 43950080,
+        "record_counts_stable": true,
+        "records": 98625,
+        "tool_versions": {
+          "datum": "0.1.0"
+        },
+        "wall_seconds_iqr": 0.086776,
+        "wall_seconds_max": 66.465845,
+        "wall_seconds_median": 66.366671,
+        "wall_seconds_min": 66.292293,
+        "wall_seconds_runs": [
+          66.292293,
+          66.366671,
+          66.465845
+        ]
+      }
+    }
+  },
+  "tool_startup_seconds": {
+    "datum": 0.089283,
+    "python": 0.139031
+  },
+  "tools_available": {
+    "datum": true,
+    "duckdb": false,
+    "pandas": false,
+    "polars": false,
+    "python": true
+  },
+  "trials": [
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-01/python.jsonl"
+      ],
+      "controller_wall_seconds": 17.233878,
+      "cpu_seconds": 13.529556,
+      "exit_code": 0,
+      "internal_seconds": 12.994504,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-01",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-01/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 111202304,
+      "recorded_at": "2026-10-20T06:51:41Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "repetition": 1,
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-01/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-01/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 111202304, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 12.994504}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 13.679673
+    },
+    {
+      "build_seconds": 52.084992,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 61.628596,
+      "cpu_seconds": 53.176615,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 52.084992,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 40828928,
+      "processing_seconds": 27.203661,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:52:42Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 1,
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 21.119218,\n    \"dedup_hash_seconds\": 4.518759,\n    \"dedup_index_seconds\": 0.259481,\n    \"discovery_seconds\": 0.000844,\n    \"exported_records_per_second\": 2037.056777,\n    \"files_per_second\": 0.03676,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.36849,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40828928,\n    \"processing_seconds\": 27.203661,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 3754.788676,\n    \"total_seconds\": 52.084992,\n    \"verification_seconds\": 3.573906,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 3.573906\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 3.573906,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-01/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "1 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=11648554 expected=11648554",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: 98625 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=98625 manifest=98625",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance mode=off",
+            "name": "sidecar_not_required",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "single dataset split",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b declared=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 4.453635
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 53.545397,
+      "workers": 1
+    },
+    {
+      "build_seconds": 52.577615,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 61.680492,
+      "cpu_seconds": 53.47657,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 52.577615,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 40714240,
+      "processing_seconds": 27.023387,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:53:44Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 2,
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 21.685583,\n    \"dedup_hash_seconds\": 4.630663,\n    \"dedup_index_seconds\": 0.26341,\n    \"discovery_seconds\": 0.001013,\n    \"exported_records_per_second\": 2020.851107,\n    \"files_per_second\": 0.037005,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.370948,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40714240,\n    \"processing_seconds\": 27.023387,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 3779.837094,\n    \"total_seconds\": 52.577615,\n    \"verification_seconds\": 3.678489,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 3.678489\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 3.678489,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-02/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "1 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=11648554 expected=11648554",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: 98625 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=98625 manifest=98625",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance mode=off",
+            "name": "sidecar_not_required",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "single dataset split",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b declared=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 4.504085
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 53.541394,
+      "workers": 1
+    },
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-02/python.jsonl"
+      ],
+      "controller_wall_seconds": 17.129898,
+      "cpu_seconds": 13.648264,
+      "exit_code": 0,
+      "internal_seconds": 13.117162,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-02",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-02/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 111218688,
+      "recorded_at": "2026-10-20T06:54:01Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "repetition": 2,
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-02/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-02/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 111218688, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 13.117162}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 13.671413
+    },
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-03/python.jsonl"
+      ],
+      "controller_wall_seconds": 17.182633,
+      "cpu_seconds": 13.490389,
+      "exit_code": 0,
+      "internal_seconds": 13.143404,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-03",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-03/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 111210496,
+      "recorded_at": "2026-10-20T06:54:18Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "repetition": 3,
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-03/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/python/rep-03/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 111210496, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 13.143404}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 13.672994
+    },
+    {
+      "build_seconds": 53.21256,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 62.197619,
+      "cpu_seconds": 54.010252,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 53.21256,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 40771584,
+      "processing_seconds": 27.448107,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:55:21Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 3,
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 21.959689,\n    \"dedup_hash_seconds\": 4.714299,\n    \"dedup_index_seconds\": 0.271304,\n    \"discovery_seconds\": 0.000859,\n    \"exported_records_per_second\": 1992.403894,\n    \"files_per_second\": 0.036432,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.365208,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40771584,\n    \"processing_seconds\": 27.448107,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 3721.349548,\n    \"total_seconds\": 53.21256,\n    \"verification_seconds\": 3.615804,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 3.615804\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 3.615804,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/equivalent/datum/rep-03/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "1 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=11648554 expected=11648554",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: 98625 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=98625 manifest=98625",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance mode=off",
+            "name": "sidecar_not_required",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "single dataset split",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b declared=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 4.452407
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 54.133669,
+      "workers": 1
+    },
+    {
+      "build_seconds": 65.394296,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 79.163631,
+      "cpu_seconds": 66.233294,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 65.394296,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43933696,
+      "processing_seconds": 27.175609,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:56:40Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 1,
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 29.760241,\n    \"dedup_hash_seconds\": 4.809104,\n    \"dedup_index_seconds\": 0.277709,\n    \"discovery_seconds\": 0.001116,\n    \"exported_records_per_second\": 1725.045549,\n    \"files_per_second\": 0.036798,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.36887,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43933696,\n    \"processing_seconds\": 27.175609,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 3758.66467,\n    \"total_seconds\": 65.394296,\n    \"verification_seconds\": 8.126509,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 8.126509\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 8.126509,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-01/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "3 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=1163686 expected=1163686",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: 9844 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=9844 manifest=9844",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=9306855 expected=9306855",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: 78824 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=78824 manifest=78824",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=1178013 expected=1178013",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: 9957 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=9957 manifest=9957",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance sha256",
+            "name": "sidecar_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=45751514 expected=45751514",
+            "name": "sidecar_bytes",
+            "passed": true
+          },
+          {
+            "detail": "provenance records parse and IDs are unique",
+            "name": "sidecar_parse",
+            "passed": true
+          },
+          {
+            "detail": "actual=98625 manifest=98625 exported=98625",
+            "name": "sidecar_record_count",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "quality={'test': 9844, 'train': 78824, 'validation': 9957} actual={'test': 9844, 'train': 78824, 'validation': 9957}",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090 declared=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 9.188474
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 66.292293,
+      "workers": 1
+    },
+    {
+      "build_seconds": 65.43005,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 79.102838,
+      "cpu_seconds": 66.231617,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 65.43005,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43933696,
+      "processing_seconds": 27.029376,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:57:59Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 2,
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 29.826035,\n    \"dedup_hash_seconds\": 4.763401,\n    \"dedup_index_seconds\": 0.27202,\n    \"discovery_seconds\": 0.000881,\n    \"exported_records_per_second\": 1727.294219,\n    \"files_per_second\": 0.036997,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.370866,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43933696,\n    \"processing_seconds\": 27.029376,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 3778.999549,\n    \"total_seconds\": 65.43005,\n    \"verification_seconds\": 8.167644,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 8.167644\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 8.167644,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-02/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "3 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=1163686 expected=1163686",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: 9844 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=9844 manifest=9844",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=9306855 expected=9306855",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: 78824 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=78824 manifest=78824",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=1178013 expected=1178013",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: 9957 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=9957 manifest=9957",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance sha256",
+            "name": "sidecar_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=45751514 expected=45751514",
+            "name": "sidecar_bytes",
+            "passed": true
+          },
+          {
+            "detail": "provenance records parse and IDs are unique",
+            "name": "sidecar_parse",
+            "passed": true
+          },
+          {
+            "detail": "actual=98625 manifest=98625 exported=98625",
+            "name": "sidecar_record_count",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "quality={'test': 9844, 'train': 78824, 'validation': 9957} actual={'test': 9844, 'train': 78824, 'validation': 9957}",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090 declared=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 8.991171
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 66.366671,
+      "workers": 1
+    },
+    {
+      "build_seconds": 65.585856,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 79.142246,
+      "cpu_seconds": 66.42262,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 65.585856,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43950080,
+      "processing_seconds": 26.916912,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T06:59:18Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 3,
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 30.122355,\n    \"dedup_hash_seconds\": 4.822127,\n    \"dedup_index_seconds\": 0.275184,\n    \"discovery_seconds\": 0.000877,\n    \"exported_records_per_second\": 1721.75688,\n    \"files_per_second\": 0.037151,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.372416,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43950080,\n    \"processing_seconds\": 26.916912,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 3794.788887,\n    \"total_seconds\": 65.585856,\n    \"verification_seconds\": 8.20612,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 8.20612\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 8.20612,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/outputs/workflow/datum/rep-03/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "3 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=1163686 expected=1163686",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: 9844 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=9844 manifest=9844",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=9306855 expected=9306855",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: 78824 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=78824 manifest=78824",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=1178013 expected=1178013",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: 9957 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=9957 manifest=9957",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance sha256",
+            "name": "sidecar_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=45751514 expected=45751514",
+            "name": "sidecar_bytes",
+            "passed": true
+          },
+          {
+            "detail": "provenance records parse and IDs are unique",
+            "name": "sidecar_parse",
+            "passed": true
+          },
+          {
+            "detail": "actual=98625 manifest=98625 exported=98625",
+            "name": "sidecar_record_count",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "quality={'test': 9844, 'train': 78824, 'validation': 9957} actual={'test': 9844, 'train': 78824, 'validation': 9957}",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090 declared=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 8.998572
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 66.465845,
+      "workers": 1
+    }
+  ],
+  "unsupported": [],
+  "validation": {
+    "checks": [
+      {
+        "detail": 1,
+        "name": "report schema",
+        "ok": true
+      },
+      {
+        "detail": "52ea9dabbfb8f24af37287fb805b9db6d113fa39",
+        "name": "source commit recorded",
+        "ok": true
+      },
+      {
+        "detail": "3.14.6 (main, Jul  5 2026, 10:35:55) [Clang 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f0",
+        "name": "environment recorded",
+        "ok": true
+      },
+      {
+        "detail": "csv-transform",
+        "name": "fixture manifest recorded",
+        "ok": true
+      },
+      {
+        "detail": 9,
+        "name": "trials present",
+        "ok": true
+      },
+      {
+        "detail": 9,
+        "name": "completed trials present",
+        "ok": true
+      },
+      {
+        "detail": 0,
+        "name": "completed trials have wall time",
+        "ok": true
+      },
+      {
+        "detail": 0,
+        "name": "DATUM trials preserved",
+        "ok": true
+      },
+      {
+        "detail": "summary differs",
+        "name": "summary recomputes",
+        "ok": true
+      },
+      {
+        "detail": [
+          "datum",
+          "python"
+        ],
+        "name": "equivalent has DATUM",
+        "ok": true
+      },
+      {
+        "detail": 0,
+        "name": "Python reference completed",
+        "ok": true
+      },
+      {
+        "detail": null,
+        "name": "deterministic equivalent/python",
+        "ok": true
+      },
+      {
+        "detail": null,
+        "name": "deterministic equivalent/datum",
+        "ok": true
+      },
+      {
+        "detail": null,
+        "name": "deterministic workflow/datum",
+        "ok": true
+      },
+      {
+        "detail": {
+          "duplicates": 0,
+          "extra": 0,
+          "missing": 0
+        },
+        "name": "parity equivalent/python",
+        "ok": true
+      },
+      {
+        "detail": {
+          "duplicates": 0,
+          "extra": 0,
+          "missing": 0
+        },
+        "name": "parity equivalent/datum",
+        "ok": true
+      },
+      {
+        "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture",
+        "name": "fixture path exists",
+        "ok": true
+      },
+      {
+        "detail": "80bb411a2ff9561defe400d019f21fb2a5ffd1f9479f563f4a0926109930c1cf",
+        "name": "fixture hash",
+        "ok": true
+      }
+    ],
+    "ok": true
+  },
+  "warmups": [
+    {
+      "build_seconds": 52.588721,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "cpu_seconds": 52.996811,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 52.588721,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 41844736,
+      "phase": "warmup",
+      "processing_seconds": 27.54217,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/current\",\n  \"performance\": {\n    \"compile_seconds\": 21.304812,\n    \"dedup_hash_seconds\": 4.567761,\n    \"dedup_index_seconds\": 0.258438,\n    \"discovery_seconds\": 0.000967,\n    \"exported_records_per_second\": 2015.317003,\n    \"files_per_second\": 0.036308,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.363961,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 41844736,\n    \"processing_seconds\": 27.54217,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 3708.640262,\n    \"total_seconds\": 52.588721,\n    \"verification_seconds\": 3.544579,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/datum/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 3.544579\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 3.544579,
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 53.486675,
+      "workers": 1
+    },
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/python/python.jsonl"
+      ],
+      "cpu_seconds": 13.225866,
+      "exit_code": 0,
+      "internal_seconds": 12.696313,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/python/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 112009216,
+      "phase": "warmup",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/python/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/equivalent/python/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 112009216, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 12.696313}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 13.275168
+    },
+    {
+      "build_seconds": 68.132635,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "cpu_seconds": 68.511682,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 68.132635,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43286528,
+      "phase": "warmup",
+      "processing_seconds": 26.863752,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/current\",\n  \"performance\": {\n    \"compile_seconds\": 32.436554,\n    \"dedup_hash_seconds\": 5.256491,\n    \"dedup_index_seconds\": 0.295852,\n    \"discovery_seconds\": 0.00083,\n    \"exported_records_per_second\": 1654.639274,\n    \"files_per_second\": 0.037225,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.373153,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43286528,\n    \"processing_seconds\": 26.863752,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 3802.298353,\n    \"total_seconds\": 68.132635,\n    \"verification_seconds\": 8.30506,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/warmups/workflow/datum/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 8.30506\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 8.30506,
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 69.056162,
+      "workers": 1
+    }
+  ]
+}

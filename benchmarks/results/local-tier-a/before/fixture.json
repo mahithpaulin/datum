@@ -1,0 +1,33 @@
+{
+  "configs": {
+    "equivalent": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+    "workflow": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml"
+  },
+  "counts": {
+    "bytes": 10511219,
+    "duplicate_rows": 2491,
+    "empty_rows": 1028,
+    "files": 1,
+    "rows": 102144,
+    "whitespace_rows": 3401
+  },
+  "created_at": "2026-10-20T06:48:56Z",
+  "description": "Prompt/completion CSV with duplicates, null-like fields, and whitespace for equivalent transforms.",
+  "fixture_schema_version": 1,
+  "fixture_sha256": "80bb411a2ff9561defe400d019f21fb2a5ffd1f9479f563f4a0926109930c1cf",
+  "generation_seconds": 1.773057,
+  "input_bytes": 10511219,
+  "input_files": 1,
+  "plan": {
+    "columns": 4,
+    "files": 1,
+    "profile": "csv-transform",
+    "rows": 0,
+    "rows_explicit": false,
+    "seed": 42,
+    "target_bytes": 10485760,
+    "tier": "A"
+  },
+  "profile": "csv-transform",
+  "status": "generated"
+}
