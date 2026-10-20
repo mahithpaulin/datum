@@ -68,6 +68,7 @@ jobs:
             --workers 2 \
             --json-out benchmarks/results/comparison.json
       - name: Upload comparison report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: benchmark-comparison
