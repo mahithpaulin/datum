@@ -17,9 +17,10 @@ Implemented:
 - Build manifest, build ID, output identity, quality report, rejection log.
 - Independent verifier with tamper detection.
 - Atomic publish to `current/`, `previous/`, and `failed/`.
-- CLI: build, inspect, validate, verify, manifest, clean, benchmark, version.
+- CLI: build, inspect, validate, quality, verify, manifest, clean, benchmark, version.
 - Test suite and synthetic benchmark smoke result.
 - Cross-tool mechanics comparison harness with one checked-in GitHub Actions result.
+- Value-validation report separating supported auditability evidence from unsupported speed claims.
 
 Exit criteria for treating this as a stable preview:
 

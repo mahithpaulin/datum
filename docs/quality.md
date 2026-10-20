@@ -75,6 +75,10 @@ excluded_total = rejected_total + malformed_input
 `rejected.jsonl` contains one entry for each `rejected_total` plus each `malformed_input`.
 It is not a sample: the verifier checks its line count against the quality report.
 
+Use `datum quality BUILD` to print the status, rejection counts by rule, error examples,
+failed thresholds, and failed invariants. Add `--json` for the summary or `--json --full` for
+the complete report.
+
 ## Rejection and error codes
 
 | Rule | Where it comes from | Meaning |

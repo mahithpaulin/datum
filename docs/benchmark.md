@@ -125,14 +125,56 @@ as a downloadable artifact.
 
 ## CI comparison result
 
-The GitHub Actions workflow runs the comparison and uploads the report as an artifact. The
-next checked-in report will include median throughput, peak RSS, and parity metrics after the
-repeated-run workflow completes.
+Recorded from commit `e631100` by GitHub Actions run `39377137608` on 2026-10-20. The
+checked-in report is `benchmarks/results/comparison-ci.json` (`comparison_schema_version` 2).
+
+Environment:
+
+| Property | Value |
+| --- | --- |
+| Runner | GitHub Actions Ubuntu, 4 vCPU |
+| Memory | 16 GB |
+| Python | CPython 3.13.16 |
+| pandas | 3.0.6 |
+| DuckDB | 1.5.6 |
+| Repetitions | 3, medians reported |
+
+Fixture: 48 text files at 16 KiB each (760,621 input bytes, 44 output records) and 30,000 CSV
+rows (2,870,976 input bytes, 29,940 output records).
+
+CSV transform:
+
+| Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DATUM (full build) | 3.115 s | 0.879 | 9,611 | 31.1 MiB | 100% |
+| pandas | 0.630 s | 4.348 | 47,543 | 91.2 MiB | 100% |
+| DuckDB | 0.533 s | 5.133 | 56,124 | 175.1 MiB | 100% |
+
+Text ingest:
+
+| Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DATUM (full build) | 0.334 s | 2.171 | 132 | 29.1 MiB | 100% |
+| Python reference | 0.188 s | 3.859 | 234 | 26.9 MiB | 100% |
+
+All tools produced zero missing, extra, or duplicate records. Pandas was byte-identical to
+DATUM on the CSV output; DuckDB's JSON serialization differed byte-for-byte while the parsed
+records matched.
+
+These results do **not** support a speed claim: pandas and DuckDB transform the CSV several
+times faster than DATUM's full build, and the Python reference is faster on text. DATUM used
+substantially less peak memory than pandas and DuckDB on the CSV fixture, but slightly more
+than the text reference. See [value validation](value-validation.md) for the claim-by-claim
+assessment.
 
 ## Interpreting results
 
 - Compare runs produced by the same commit, fixture settings, host, and power state.
-- Use `build_seconds` for pipeline comparisons and wall time for end-to-end user experience.
+- Use `build_seconds` for pipeline comparisons and median wall time for end-to-end user
+  experience. Report the fixture, hardware, dependency versions, and repetitions with any
+  comparison.
+- Read throughput and peak RSS together with the parity table; speed without correctness is
+  not a useful result.
 - Treat peak RSS as a coarse process-level measurement from the platform.
 - Do not use the synthetic result as evidence about model quality, corpus diversity, dedup
   effectiveness, or real-world ingestion speed.

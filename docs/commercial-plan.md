@@ -48,6 +48,8 @@ Each claim should be tested with a concrete before/after workflow, not a feature
   deliberate rejects and a committed verified snapshot.
 - `docs/quality.md`: the accounting and threshold model used as the review gate.
 - `docs/benchmark.md`: synthetic mechanics evidence and the limits on what it proves.
+- [Value validation](value-validation.md): measured speed, memory, parity, and audit evidence,
+  including claims that are explicitly not supported.
 
 These assets demonstrate mechanics and reviewability. They are not customer evidence and do
 not prove willingness to pay.
