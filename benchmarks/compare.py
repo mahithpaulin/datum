@@ -339,7 +339,8 @@ def worker_duckdb(input_path: Path, output_path: Path) -> dict[str, Any]:
             "ORDER BY rid"
             ") AS rn "
             "FROM rows"
-            ") WHERE length(prompt) + length(completion) > 0 AND rn = 1"
+            ") WHERE length(prompt) + length(completion) > 0 AND rn = 1 "
+            "ORDER BY prompt, completion"
             f") TO '{escaped}' (FORMAT JSON, ARRAY false)"
         )
     finally:
