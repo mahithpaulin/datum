@@ -44,6 +44,22 @@ WORDS = (
 ).split()
 
 
+def _source_commit() -> str | None:
+    try:
+        completed = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=5,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    commit = completed.stdout.strip()
+    return commit if completed.returncode == 0 and commit else None
+
+
 def _peak_rss_bytes() -> int | None:
     try:
         with open("/proc/self/status", "r", encoding="ascii") as handle:
@@ -493,6 +509,7 @@ def run_comparison(
         "comparison_schema_version": 1,
         "created_at": utc_now_iso(),
         "datum_version": __version__,
+        "source_commit": _source_commit(),
         "mode": "cross-tool-comparison",
         "environment": environment_info(),
         "fixture": {
