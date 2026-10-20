@@ -3,15 +3,15 @@
 This page records what the current evidence supports and what it does not. It is deliberately
 conservative: commercial claims must follow measurements, not the reverse.
 
-Recorded on 2026-10-20 from commit `e631100` and GitHub Actions run `39377137608`.
+Recorded on 2026-10-20 from commit `8536550` and GitHub Actions run `39377829817`.
 
 ## Verdict
 
 | Claim | Evidence | Status |
 | --- | --- | --- |
-| Raw transformation speed | CSV: DATUM 3.115 s median vs pandas 0.630 s and DuckDB 0.533 s. Text: DATUM 0.334 s vs Python reference 0.188 s | **Not supported** |
-| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.2 MiB and DuckDB 175.1 MiB | Supported on this fixture |
-| Lower memory than a minimal Python loop | Text peak RSS: DATUM 29.1 MiB vs reference 26.9 MiB | **Not supported** |
+| Raw transformation speed | CSV: DATUM 1.305 s median vs pandas 0.426 s and DuckDB 0.394 s. Text: DATUM 0.189 s vs Python reference 0.116 s | **Not supported** |
+| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.0 MiB and DuckDB 177.2 MiB | Supported on this fixture |
+| Lower memory than a minimal Python loop | Text peak RSS: DATUM 29.2 MiB vs reference 26.8 MiB | **Not supported** |
 | Correct output on the measured workloads | 29,940 CSV records and 44 text records; zero missing, extra, or duplicate records for every tool | Supported on these fixtures |
 | Easier to audit | Manifest, quality report, rejection ledger, independent verifier, tamper detection, deterministic rebuild | Supported by the evidence below |
 | More reliable in general | Deterministic rebuilds and quality gates are tested; no real-corpus field data exists | **Not proven** |
@@ -37,25 +37,31 @@ DuckDB on the measured transform.
 The checked-in report is `benchmarks/results/comparison-ci.json`, with medians over three runs
 on a 4-vCPU, 16 GB GitHub Actions runner (CPython 3.13.16, pandas 3.0.6, DuckDB 1.5.6).
 
+Absolute times are runner-specific. An earlier run of the same code measured 3.115 s for
+DATUM, 0.630 s for pandas, and 0.533 s for DuckDB on this workload. The ranking was stable,
+but absolute times varied by more than 2x, so use these results for relative ordering and
+mechanics, not as a portable performance guarantee.
+
 ### CSV transform: 30,000 rows, 2.87 MB input
 
 | Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | --- |
-| DATUM (full build) | 3.115 s | 0.879 | 9,611 | 31.1 MiB | 100% |
-| pandas | 0.630 s | 4.348 | 47,543 | 91.2 MiB | 100% |
-| DuckDB | 0.533 s | 5.133 | 56,124 | 175.1 MiB | 100% |
+| DATUM (full build) | 1.305 s | 2.097 | 22,934 | 31.1 MiB | 100% |
+| pandas | 0.426 s | 6.424 | 70,248 | 91.0 MiB | 100% |
+| DuckDB | 0.394 s | 6.946 | 75,951 | 177.2 MiB | 100% |
 
 ### Text ingest: 48 files, 0.76 MB input
 
 | Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | --- |
-| DATUM (full build) | 0.334 s | 2.171 | 132 | 29.1 MiB | 100% |
-| Python reference | 0.188 s | 3.859 | 234 | 26.9 MiB | 100% |
+| DATUM (full build) | 0.189 s | 3.845 | 233 | 29.2 MiB | 100% |
+| Python reference | 0.116 s | 6.276 | 381 | 26.8 MiB | 100% |
 
 DATUM performs a complete build: schema validation, quality accounting, manifest generation,
 and post-build verification. The baselines perform only the stated transform. This makes the
 timing comparison conservative for DATUM, but it does not change the conclusion: the current
-release is not a faster CSV transformer.
+release is not a faster CSV transformer. The current run shows roughly a 3x gap to pandas and
+DuckDB; the earlier run showed a larger gap. Either way, a speed-led claim is unsupported.
 
 The memory result depends on the workload and baseline. DATUM used substantially less memory
 than pandas and DuckDB on the CSV fixture and slightly more than the minimal text reference.

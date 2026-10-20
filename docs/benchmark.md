@@ -125,7 +125,7 @@ as a downloadable artifact.
 
 ## CI comparison result
 
-Recorded from commit `e631100` by GitHub Actions run `39377137608` on 2026-10-20. The
+Recorded from commit `8536550` by GitHub Actions run `39377829817` on 2026-10-20. The
 checked-in report is `benchmarks/results/comparison-ci.json` (`comparison_schema_version` 2).
 
 Environment:
@@ -146,26 +146,31 @@ CSV transform:
 
 | Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| DATUM (full build) | 3.115 s | 0.879 | 9,611 | 31.1 MiB | 100% |
-| pandas | 0.630 s | 4.348 | 47,543 | 91.2 MiB | 100% |
-| DuckDB | 0.533 s | 5.133 | 56,124 | 175.1 MiB | 100% |
+| DATUM (full build) | 1.305 s | 2.097 | 22,934 | 31.1 MiB | 100% |
+| pandas | 0.426 s | 6.424 | 70,248 | 91.0 MiB | 100% |
+| DuckDB | 0.394 s | 6.946 | 75,951 | 177.2 MiB | 100% |
 
 Text ingest:
 
 | Tool | Median wall | Input MiB/s | Records/s | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| DATUM (full build) | 0.334 s | 2.171 | 132 | 29.1 MiB | 100% |
-| Python reference | 0.188 s | 3.859 | 234 | 26.9 MiB | 100% |
+| DATUM (full build) | 0.189 s | 3.845 | 233 | 29.2 MiB | 100% |
+| Python reference | 0.116 s | 6.276 | 381 | 26.8 MiB | 100% |
 
 All tools produced zero missing, extra, or duplicate records. Pandas was byte-identical to
 DATUM on the CSV output; DuckDB's JSON serialization differed byte-for-byte while the parsed
 records matched.
 
-These results do **not** support a speed claim: pandas and DuckDB transform the CSV several
-times faster than DATUM's full build, and the Python reference is faster on text. DATUM used
-substantially less peak memory than pandas and DuckDB on the CSV fixture, but slightly more
-than the text reference. See [value validation](value-validation.md) for the claim-by-claim
-assessment.
+These results do **not** support a speed claim: pandas and DuckDB transform the CSV about
+three times faster than DATUM's full build, and the Python reference is faster on text. DATUM
+used substantially less peak memory than pandas and DuckDB on the CSV fixture, but slightly
+more than the text reference. See [value validation](value-validation.md) for the
+claim-by-claim assessment.
+
+Absolute times vary between runners. An earlier workflow run of the same code measured
+3.115 s for DATUM, 0.630 s for pandas, and 0.533 s for DuckDB on the CSV workload. The
+ranking was unchanged, but the absolute values moved by more than 2x. Treat these numbers as
+runner-specific and compare runs from the same host and commit.
 
 ## Interpreting results
 
