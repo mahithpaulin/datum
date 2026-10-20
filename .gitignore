@@ -12,3 +12,6 @@ examples/output/
 .DS_Store
 examples/structured/output/
 benchmarks/results/comparison.json
+
+# Large-scale benchmark runs
+benchmarks/runs/

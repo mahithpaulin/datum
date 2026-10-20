@@ -648,6 +648,81 @@ def run_comparison(
     return report
 
 
+def aggregate_reports(paths: Sequence[str | Path]) -> dict[str, Any]:
+    """Combine large-scale runner reports without discarding raw trial values."""
+    reports: list[dict[str, Any]] = []
+    for path in paths:
+        payload = json.loads(Path(path).read_text(encoding="utf-8"))
+        if payload.get("run_schema_version") != 1:
+            raise ValueError(f"unsupported run report schema in {path}")
+        reports.append(payload)
+    profiles: list[dict[str, Any]] = []
+    failures: list[dict[str, Any]] = []
+    unsupported: list[dict[str, Any]] = []
+    for report in reports:
+        fixture = report.get("fixture") or {}
+        profile = {
+            "run_id": report.get("run_id"),
+            "profile": fixture.get("profile"),
+            "tier": (fixture.get("plan") or {}).get("tier"),
+            "input_bytes": fixture.get("input_bytes"),
+            "input_files": fixture.get("input_files"),
+            "source": report.get("source"),
+            "environment": report.get("environment"),
+            "fixture_sha256": fixture.get("fixture_sha256"),
+            "modes": {},
+        }
+        summary = report.get("summary") or {}
+        parity = report.get("parity") or {}
+        determinism = report.get("determinism") or {}
+        for mode, tools in summary.items():
+            profile["modes"][mode] = {}
+            for tool, entry in tools.items():
+                profile["modes"][mode][tool] = {
+                    "runs": entry.get("completed"),
+                    "attempts": entry.get("attempts"),
+                    "failed": entry.get("failed"),
+                    "wall_seconds_median": entry.get("wall_seconds_median"),
+                    "wall_seconds_min": entry.get("wall_seconds_min"),
+                    "wall_seconds_max": entry.get("wall_seconds_max"),
+                    "wall_seconds_iqr": entry.get("wall_seconds_iqr"),
+                    "wall_seconds_runs": entry.get("wall_seconds_runs"),
+                    "peak_rss_bytes_max": entry.get("peak_rss_bytes_max"),
+                    "records": entry.get("records"),
+                    "output_sha256": entry.get("output_sha256"),
+                    "output_stable": entry.get("output_stable"),
+                    "record_counts_stable": entry.get("record_counts_stable"),
+                    "tool_versions": entry.get("tool_versions"),
+                    "parity": (parity.get(mode) or {}).get(tool),
+                    "determinism": (determinism.get(mode) or {}).get(tool),
+                }
+        profiles.append(profile)
+        failures.extend(report.get("failures") or [])
+        unsupported.extend(report.get("unsupported") or [])
+    return {
+        "comparison_schema_version": 3,
+        "created_at": utc_now_iso(),
+        "datum_version": __version__,
+        "source_commits": sorted(
+            {
+                (profile.get("source") or {}).get("commit")
+                for profile in profiles
+                if (profile.get("source") or {}).get("commit")
+            }
+        ),
+        "profiles": profiles,
+        "failures": failures,
+        "unsupported": unsupported,
+        "notes": [
+            "Wall times include process startup; DATUM performs a full build while competitor rows are transform-only unless marked workflow.",
+            "Each profile is separate; do not pool machines or profiles without recording the difference.",
+            "Raw run values are retained alongside medians, minima, maxima, and IQR.",
+            "Record-level parity is measured against an independent Python reference where a reference is available.",
+            "Synthetic fixtures measure mechanics and accounting, not downstream model quality.",
+        ],
+    }
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Compare DATUM with optional data-processing baselines.")
     parser.add_argument("--rows", type=int, default=30000)
@@ -658,6 +733,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--tools", default="pandas,duckdb", help="comma-separated optional tools")
     parser.add_argument("--workdir", help="retain fixtures and outputs here")
     parser.add_argument("--json-out", help="write the report to a file")
+    parser.add_argument("--reports", nargs="+", help="aggregate completed large-scale run report.json files")
     parser.add_argument("--json", action="store_true", help="print the report as JSON")
     parser.add_argument("--worker", choices=["reference-text", "pandas", "duckdb"], help=argparse.SUPPRESS)
     parser.add_argument("--input", help=argparse.SUPPRESS)
@@ -675,6 +751,38 @@ def main(argv: Sequence[str] | None = None) -> int:
         else:
             result = worker_duckdb(input_path, output_path)
         print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.reports:
+        try:
+            report = aggregate_reports(args.reports)
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 1
+        if args.json_out:
+            target = Path(args.json_out).expanduser()
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(
+                json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
+                encoding="utf-8",
+            )
+        if args.json:
+            print(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2))
+        else:
+            print(f"Aggregated {len(report['profiles'])} benchmark report(s)")
+            for profile in report["profiles"]:
+                print(f"  {profile['profile']} tier {profile['tier']}: {profile['input_bytes']} bytes")
+                for mode, tools in profile["modes"].items():
+                    for tool, entry in tools.items():
+                        parity = entry.get("parity") or {}
+                        print(
+                            f"    {mode:10s} {tool:8s} median={entry.get('wall_seconds_median')}s "
+                            f"peak={entry.get('peak_rss_bytes_max')} records={entry.get('records')} "
+                            f"parity={parity.get('content_match', '-')}"
+                        )
+            if report["failures"]:
+                print(f"  preserved failures: {len(report['failures'])}")
+            if report["unsupported"]:
+                print(f"  skipped tools: {len(report['unsupported'])}")
         return 0
     try:
         report = run_comparison(

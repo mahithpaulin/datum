@@ -9,10 +9,10 @@ Recorded on 2026-10-20 from commit `8536550` and GitHub Actions run `39377829817
 
 | Claim | Evidence | Status |
 | --- | --- | --- |
-| Raw transformation speed | CSV: DATUM 1.305 s median vs pandas 0.426 s and DuckDB 0.394 s. Text: DATUM 0.189 s vs Python reference 0.116 s | **Not supported** |
-| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.0 MiB and DuckDB 177.2 MiB | Supported on this fixture |
-| Lower memory than a minimal Python loop | Text peak RSS: DATUM 29.2 MiB vs reference 26.8 MiB | **Not supported** |
-| Correct output on the measured workloads | 29,940 CSV records and 44 text records; zero missing, extra, or duplicate records for every tool | Supported on these fixtures |
+| Raw transformation speed | CI: DATUM 1.305 s median vs pandas 0.426 s and DuckDB 0.394 s. Local Tier A: DATUM 53.545 s vs Python reference 13.673 s | **Not supported** |
+| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.0 MiB and DuckDB 177.2 MiB. Local 10.5 MB CSV: DATUM 40.8 MB vs Python 111.2 MB | Supported on these fixtures |
+| Lower memory than a minimal Python loop | Text peak RSS: DATUM 29.2 MiB vs reference 26.8 MiB | **Not supported on the text fixture** |
+| Correct output on the measured workloads | CI: 29,940 CSV and 44 text records. Local Tier A: 98,625 CSV records. Zero missing, extra, or duplicate records | Supported on these fixtures |
 | Easier to audit | Manifest, quality report, rejection ledger, independent verifier, tamper detection, deterministic rebuild | Supported by the evidence below |
 | More reliable in general | Deterministic rebuilds and quality gates are tested; no real-corpus field data exists | **Not proven** |
 | Willingness to pay | No customer interviews, paid pilots, or revenue | **Unproven** |
@@ -23,7 +23,7 @@ DuckDB on the measured transform.
 
 ## Correctness and parity
 
-- Full test suite: **47 passed**.
+- Full test suite: **52 passed** (including the large-scale harness tests).
 - Both example builds: passed, rebuilt with the same build IDs and output identities.
 - Committed snapshots: `examples/expected` and `examples/structured/expected`, **33 verification
   checks each**, all passed.
@@ -127,6 +127,20 @@ python -m pytest -q tests/test_customer_acceptance.py
 That test imports JSONL, inspects format detection, applies a custom schema and field mapping,
 builds, reviews three rejection categories, verifies with source hashes, tampers with the
 dataset, and confirms verification fails.
+
+## Large-scale benchmark status
+
+The configurable harness is implemented in `benchmarks/run.py`; Tier A and Tier B Kaggle
+runs plus a Tier C CSV/JSONL pilot are defined in `benchmarks/kaggle/`. The harness records
+raw trials, medians/minima/maxima/IQRs, peak RSS, parity, determinism, and preserved
+failures. See [benchmark methodology](benchmark-methodology.md),
+[performance analysis](performance-analysis.md), and
+[competitive assessment](competitive-assessment.md).
+
+The local Tier A CSV result is already negative for speed: on a 10.5 MB fixture, DATUM's
+full build took 53.545 s median versus 13.673 s for the Python transform reference, while
+using 40.8 MB versus 111.2 MB peak RSS. This does not support a speed claim. The Kaggle
+tier results must be added before any scaling conclusion is made.
 
 ## Reproducibility evidence
 

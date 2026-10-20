@@ -1,0 +1,14 @@
+{
+  "code_file": "notebook.ipynb",
+  "competition_sources": [],
+  "dataset_sources": [],
+  "enable_gpu": false,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "id": "mahithpaulin/datum-large-scale-benchmark",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "notebook",
+  "language": "python",
+  "title": "DATUM Large Scale Benchmark"
+}

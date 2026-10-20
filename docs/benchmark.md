@@ -172,6 +172,30 @@ Absolute times vary between runners. An earlier workflow run of the same code me
 ranking was unchanged, but the absolute values moved by more than 2x. Treat these numbers as
 runner-specific and compare runs from the same host and commit.
 
+## Large-scale harness
+
+The CI smoke benchmark and cross-tool comparison are intentionally small. The configurable
+large-scale harness is documented in [benchmarks/README.md](../benchmarks/README.md) and
+[benchmark methodology](benchmark-methodology.md). It adds seeded fixtures for six profiles,
+Tiers A–E, multiple baselines, raw trial evidence, resume support, failure preservation,
+record parity, determinism, and independent report validation.
+
+Run a local Tier A experiment with:
+
+```sh
+python benchmarks/run.py \
+  --profile csv-transform \
+  --tier A \
+  --mode both \
+  --tools python \
+  --repetitions 3 \
+  --warmups 1
+```
+
+The Kaggle notebook in `benchmarks/kaggle/` runs Tiers A/B across profiles and a Tier C
+CSV/JSONL pilot. Tier D/E are documented but not automated; they require a separate resource
+plan.
+
 ## Interpreting results
 
 - Compare runs produced by the same commit, fixture settings, host, and power state.
@@ -189,7 +213,9 @@ runner-specific and compare runs from the same host and commit.
 ## Missing evidence
 
 There is no public acceptance corpus, no independent replication of the comparison, no
-cold-storage benchmark, and no long-running large-corpus result yet. One synthetic CI
+cold-storage benchmark, and no completed multi-gigabyte result yet. The large-scale harness
+and Kaggle notebook are implemented; their reports must be added before making scaling
+claims. One synthetic CI
 comparison is checked in, but it must be read against the stated fairness limits and is not
 customer evidence. These are roadmap items and must be produced before making public
 performance claims.
