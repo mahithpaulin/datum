@@ -7,6 +7,6 @@ committed.
 - `before/`: run `tierA-csv-10`, original normalization.
 - `after/`: run `tierA-csv-10-opt`, compiled `Cc` substitution and cheaper stat accumulation.
 
-Both runs used the same 10,511,219-byte CSV fixture, three measured repetitions, no warm-up,
-and the Termux host. The canonical DATUM output hash is identical. Absolute times are not
+Both runs used the same 10,511,219-byte CSV fixture, three measured repetitions, and the
+Termux host. The before run used one warm-up; the after run omitted it. The canonical DATUM output hash is identical. Absolute times are not
 portable.
