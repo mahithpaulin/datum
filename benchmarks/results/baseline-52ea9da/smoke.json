@@ -1,0 +1,115 @@
+{
+  "benchmark_schema_version": 1,
+  "created_at": "2026-10-20T06:15:18Z",
+  "datum_version": "0.1.0",
+  "deterministic_outputs": true,
+  "environment": {
+    "cpu_count": 8,
+    "implementation": "CPython",
+    "machine": "aarch64",
+    "memory_total_bytes": 3921993728,
+    "platform": "Android-13-aarch64-64bit",
+    "python": "3.14.6"
+  },
+  "fixture": {
+    "chunking": {
+      "overlap": 400,
+      "size": 8000,
+      "unit": "chars"
+    },
+    "file_kib": 16,
+    "files": 8,
+    "input_bytes": 133104,
+    "workers": 2
+  },
+  "mode": "synthetic-text",
+  "notes": [
+    "Wall time includes Python process startup; build_seconds is measured inside the build.",
+    "input_mib_per_second uses wall time and processed source bytes.",
+    "This synthetic corpus measures pipeline mechanics, not model quality or real-world corpus diversity.",
+    "Do not present these numbers as a claim about all hardware or all datasets."
+  ],
+  "runs": [
+    {
+      "build_id": "6399ea2b20cb27bd228434d5ab0c148c",
+      "build_seconds": 0.391573,
+      "cache": {
+        "hits": 0,
+        "invalid": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "compile_seconds": 0.021487,
+      "exported_records": 24,
+      "exported_records_per_second": 22.017,
+      "files_per_second": 7.339,
+      "files_processed": 8,
+      "input_bytes": 133104,
+      "input_mib_per_second": 0.116,
+      "label": "cold-no-cache",
+      "output_bytes": 140568,
+      "output_identity": "97427736c8fa863e0ce91279d998bd94b9b13b14dade9a40efe7637c137c4179",
+      "peak_rss_bytes": 27750400,
+      "processing_seconds": 0.268648,
+      "source_records": 8,
+      "status": "passed",
+      "verification_seconds": 0.009357,
+      "wall_seconds": 1.090081,
+      "workers": 2
+    },
+    {
+      "build_id": "6399ea2b20cb27bd228434d5ab0c148c",
+      "build_seconds": 0.434382,
+      "cache": {
+        "hits": 0,
+        "invalid": 0,
+        "misses": 8,
+        "writes": 8
+      },
+      "compile_seconds": 0.029624,
+      "exported_records": 24,
+      "exported_records_per_second": 20.153,
+      "files_per_second": 6.718,
+      "files_processed": 8,
+      "input_bytes": 133104,
+      "input_mib_per_second": 0.107,
+      "label": "cold-cache",
+      "output_bytes": 140568,
+      "output_identity": "97427736c8fa863e0ce91279d998bd94b9b13b14dade9a40efe7637c137c4179",
+      "peak_rss_bytes": 28102656,
+      "processing_seconds": 0.303594,
+      "source_records": 8,
+      "status": "passed",
+      "verification_seconds": 0.009251,
+      "wall_seconds": 1.190899,
+      "workers": 2
+    },
+    {
+      "build_id": "6399ea2b20cb27bd228434d5ab0c148c",
+      "build_seconds": 0.240798,
+      "cache": {
+        "hits": 8,
+        "invalid": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "compile_seconds": 0.032238,
+      "exported_records": 24,
+      "exported_records_per_second": 27.199,
+      "files_per_second": 9.066,
+      "files_processed": 8,
+      "input_bytes": 133104,
+      "input_mib_per_second": 0.144,
+      "label": "warm-cache",
+      "output_bytes": 140568,
+      "output_identity": "97427736c8fa863e0ce91279d998bd94b9b13b14dade9a40efe7637c137c4179",
+      "peak_rss_bytes": 27906048,
+      "processing_seconds": 0.127314,
+      "source_records": 8,
+      "status": "passed",
+      "verification_seconds": 0.01005,
+      "wall_seconds": 0.882399,
+      "workers": 2
+    }
+  ]
+}

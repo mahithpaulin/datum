@@ -1,0 +1,208 @@
+{
+  "comparison_schema_version": 2,
+  "created_at": "2026-10-20T06:02:18Z",
+  "datum_version": "0.1.0",
+  "environment": {
+    "cpu_count": 4,
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "memory_total_bytes": 16759443456,
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+    "python": "3.13.16"
+  },
+  "fixture": {
+    "csv": {
+      "input_bytes": 2870976,
+      "rows": 30000
+    },
+    "repetitions": 3,
+    "text": {
+      "file_kib": 16,
+      "files": 48,
+      "input_bytes": 760621
+    },
+    "workers": 2
+  },
+  "mode": "cross-tool-comparison",
+  "notes": [
+    "DATUM runs a complete build; pandas, DuckDB, and the Python reference run only the stated transform.",
+    "The Python reference is an internal baseline, not a marketed data product.",
+    "Times are medians across repeated runs; wall time includes Python process startup for all tools.",
+    "Accuracy means record-level output parity against an independent Python reader, not model quality.",
+    "These synthetic fixtures measure mechanics, throughput, memory, and parity, not downstream model performance.",
+    "Do not present this report as a general performance ranking."
+  ],
+  "skipped": [],
+  "source_commit": "52ea9dabbfb8f24af37287fb805b9db6d113fa39",
+  "workloads": {
+    "csv-transform": {
+      "accuracy": {
+        "all_byte_identical": false,
+        "all_content_match": true,
+        "all_duplicate_free": true,
+        "definition": "Record-level output parity against an independent Python reader over the same fixture.",
+        "expected_records": 29940,
+        "per_tool": {
+          "datum": {
+            "content_match": true,
+            "duplicate_records": 0,
+            "extra_vs_reference": 0,
+            "missing_vs_reference": 0,
+            "records": 29940
+          },
+          "duckdb": {
+            "content_match": true,
+            "duplicate_records": 0,
+            "extra_vs_reference": 0,
+            "missing_vs_reference": 0,
+            "records": 29940
+          },
+          "pandas": {
+            "content_match": true,
+            "duplicate_records": 0,
+            "extra_vs_reference": 0,
+            "missing_vs_reference": 0,
+            "records": 29940
+          }
+        }
+      },
+      "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
+      "description": "Read CSV prompt/completion pairs, trim fields, drop empty/duplicate pairs, write JSONL.",
+      "input_bytes": 2870976,
+      "output_content_match": true,
+      "tools": [
+        {
+          "build_seconds": 2.853523,
+          "kind": "full build",
+          "output_bytes": 3055991,
+          "output_sha256": "1af0139511a20844e0a3eb905e2bd61591e5030829c6812c02a76ac4b75e39e6",
+          "peak_rss_bytes": 32636928,
+          "peak_rss_mib": 31.125,
+          "records": 29940,
+          "runs": 3,
+          "status": "passed",
+          "throughput": {
+            "input_mib_per_second": 0.916,
+            "output_mib_per_second": 0.976,
+            "records_per_second": 10021.938
+          },
+          "tool": "datum",
+          "verification_seconds": 0.188201,
+          "wall_seconds": 2.987446,
+          "wall_seconds_max": 3.021442,
+          "wall_seconds_min": 2.905456,
+          "workers": 1
+        },
+        {
+          "output_bytes": 3055991,
+          "output_sha256": "1af0139511a20844e0a3eb905e2bd61591e5030829c6812c02a76ac4b75e39e6",
+          "pandas_version": "3.0.6",
+          "peak_rss_bytes": 95354880,
+          "peak_rss_mib": 90.938,
+          "records": 29940,
+          "runs": 3,
+          "throughput": {
+            "input_mib_per_second": 4.209,
+            "output_mib_per_second": 4.481,
+            "records_per_second": 46028.61
+          },
+          "tool": "pandas",
+          "wall_seconds": 0.650465,
+          "wall_seconds_max": 0.985402,
+          "wall_seconds_min": 0.641663,
+          "work_seconds": 0.258886
+        },
+        {
+          "duckdb_version": "1.5.6",
+          "output_bytes": 3055991,
+          "output_sha256": "fa4823cacb2bd54f745d7bad92030169aa14e71377f18f540e353d6bfcd55b3f",
+          "peak_rss_bytes": 185815040,
+          "peak_rss_mib": 177.207,
+          "records": 29940,
+          "runs": 3,
+          "throughput": {
+            "input_mib_per_second": 4.615,
+            "output_mib_per_second": 4.913,
+            "records_per_second": 50466.997
+          },
+          "tool": "duckdb",
+          "wall_seconds": 0.593259,
+          "wall_seconds_max": 0.608497,
+          "wall_seconds_min": 0.557076,
+          "work_seconds": 0.37411
+        }
+      ]
+    },
+    "text-ingest": {
+      "accuracy": {
+        "all_byte_identical": true,
+        "all_content_match": true,
+        "all_duplicate_free": true,
+        "definition": "Record-level output parity against an independent Python reader over the same fixture.",
+        "expected_records": 44,
+        "per_tool": {
+          "datum": {
+            "content_match": true,
+            "duplicate_records": 0,
+            "extra_vs_reference": 0,
+            "missing_vs_reference": 0,
+            "records": 44
+          },
+          "python-reference": {
+            "content_match": true,
+            "duplicate_records": 0,
+            "extra_vs_reference": 0,
+            "missing_vs_reference": 0,
+            "records": 44
+          }
+        }
+      },
+      "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
+      "description": "Read sorted text files, normalize, drop empty/duplicate text, write JSONL.",
+      "input_bytes": 760621,
+      "output_content_match": true,
+      "tools": [
+        {
+          "build_seconds": 0.201357,
+          "kind": "full build",
+          "output_bytes": 714109,
+          "output_sha256": "4f5f12b6deb2fa3f96da9dac71e7e3008518a7a1d857ef0342505f86a6a4e875",
+          "peak_rss_bytes": 30646272,
+          "peak_rss_mib": 29.227,
+          "records": 44,
+          "runs": 3,
+          "status": "passed",
+          "throughput": {
+            "input_mib_per_second": 2.175,
+            "output_mib_per_second": 2.042,
+            "records_per_second": 131.922
+          },
+          "tool": "datum",
+          "verification_seconds": 0.003317,
+          "wall_seconds": 0.33353,
+          "wall_seconds_max": 0.801041,
+          "wall_seconds_min": 0.332316,
+          "workers": 2
+        },
+        {
+          "output_bytes": 714109,
+          "output_sha256": "4f5f12b6deb2fa3f96da9dac71e7e3008518a7a1d857ef0342505f86a6a4e875",
+          "peak_rss_bytes": 28221440,
+          "peak_rss_mib": 26.914,
+          "records": 44,
+          "runs": 3,
+          "throughput": {
+            "input_mib_per_second": 3.881,
+            "output_mib_per_second": 3.644,
+            "records_per_second": 235.436
+          },
+          "tool": "python-reference",
+          "wall_seconds": 0.186887,
+          "wall_seconds_max": 0.190452,
+          "wall_seconds_min": 0.18352,
+          "work_seconds": 0.085559
+        }
+      ]
+    }
+  }
+}

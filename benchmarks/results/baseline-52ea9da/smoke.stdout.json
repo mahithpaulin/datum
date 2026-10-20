@@ -1,0 +1,7 @@
+DATUM 0.1.0 synthetic benchmark
+Fixture: 8 files, 130.0 KiB input
+  cold-no-cache  wall=1.09s build=0.39s files/s=7.339 records/s=22.017 cache=0h/0m
+  cold-cache     wall=1.19s build=0.43s files/s=6.718 records/s=20.153 cache=0h/8m
+  warm-cache     wall=0.88s build=0.24s files/s=9.066 records/s=27.199 cache=8h/0m
+Deterministic outputs: yes
+Synthetic mechanics benchmark; not a general performance claim.

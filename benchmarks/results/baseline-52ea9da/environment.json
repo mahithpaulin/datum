@@ -1,0 +1,15 @@
+{
+  "cpu_count": 8,
+  "cwd": "/data/data/com.termux/files/home/projects/datum",
+  "datum_version": "0.1.0",
+  "disk": {
+    ".": 38993813504,
+    "/data/data/com.termux/files/usr/tmp": 38993813504
+  },
+  "executable": "/data/data/com.termux/files/usr/bin/python",
+  "implementation": "CPython",
+  "machine": "aarch64",
+  "memory_total_bytes": 3921993728,
+  "platform": "Android-13-aarch64-64bit",
+  "python": "3.14.6"
+}
