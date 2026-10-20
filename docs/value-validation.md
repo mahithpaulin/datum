@@ -10,8 +10,8 @@ Recorded on 2026-10-20. CI evidence is from commit `8536550` and GitHub Actions 
 
 | Claim | Evidence | Status |
 | --- | --- | --- |
-| Raw transformation speed | CI: DATUM 1.305 s median vs pandas 0.426 s and DuckDB 0.394 s. Local Tier A: DATUM 36.550 s vs Python reference 13.067 s | **Not supported** |
-| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.0 MiB and DuckDB 177.2 MiB. Local 10.5 MB CSV: DATUM 40.8 MB vs Python 111.3 MB | Supported on these fixtures |
+| Raw transformation speed | CI: DATUM 1.305 s median vs pandas 0.426 s and DuckDB 0.394 s. Local Tier A: DATUM 35.617 s vs Python reference 10.472 s | **Not supported** |
+| Lower memory than DataFrame/OLAP engines | CSV peak RSS: DATUM 31.1 MiB vs pandas 91.0 MiB and DuckDB 177.2 MiB. Local 10.5 MB CSV: DATUM 42.3 MB vs Python 112.4 MB | Supported on these fixtures |
 | Lower memory than a minimal Python loop | Text peak RSS: DATUM 29.2 MiB vs reference 26.8 MiB | **Not supported on the text fixture** |
 | Correct output on the measured workloads | CI: 29,940 CSV and 44 text records. Local Tier A: 98,625 CSV records. Zero missing, extra, or duplicate records | Supported on these fixtures |
 | Easier to audit | Manifest, quality report, rejection ledger, independent verifier, tamper detection, deterministic rebuild | Supported by the evidence below |
@@ -71,9 +71,9 @@ Do not generalize either result to larger or different corpora without measuring
 ### Local optimization result
 
 A safe control-character normalization change reduced the local Tier A CSV median from
-53.545 s to 36.550 s (-31.7%) and the workflow median from 66.367 s to 46.502 s (-29.9%).
+53.545 s to 35.617 s (-33.5%) and the workflow median from 66.367 s to 46.123 s (-30.5%).
 The canonical output hash and all 98,625 records were unchanged. The optimized DATUM build
-is still about 2.8x slower than the independent Python transform, so this is a performance
+is still about 3.4x slower than the independent Python transform, so this is a performance
 improvement, not a speed claim. See [performance analysis](performance-analysis.md).
 
 ## Auditability demonstration

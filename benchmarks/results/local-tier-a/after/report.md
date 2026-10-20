@@ -1,13 +1,13 @@
-# Benchmark run `tierA-csv-10-opt`
+# Benchmark run `tierA-csv-10-opt5`
 
-- Source commit: `fafac57ea1b0d1cc1ddf5ed36dded8e3103161d7`
+- Source commit: `431d3ba5aea240295cd6a65b8a365d7d753ec023`
 - Profile/tier: `csv-transform` / `A`
 - Fixture: 1 files, 10511219 bytes
 
 | Mode | Tool | Runs | Median s | Min s | Max s | IQR s | Peak MiB | Records | Reference match |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| equivalent | python | 3 | 13.06724 | 10.565899 | 15.014967 | 2.224534 | 106.1 | 98625 | True |
-| equivalent | datum | 3 | 36.549555 | 36.395978 | 36.597391 | 0.100707 | 38.95 | 98625 | True |
-| workflow | datum | 3 | 46.50197 | 45.150431 | 46.600724 | 0.725147 | 42.23 | 98625 | - |
+| equivalent | python | 5 | 10.471563 | 10.423123 | 10.58011 | 0.005475 | 107.21 | 98625 | True |
+| equivalent | datum | 5 | 35.616547 | 35.200601 | 35.665086 | 0.142873 | 40.38 | 98625 | True |
+| workflow | datum | 5 | 46.122527 | 45.819904 | 47.580921 | 0.206554 | 41.86 | 98625 | - |
 
 Wall time includes process startup and teardown. DATUM performs a full build with validation, manifest, quality, and verification; competitor rows are the declared transform only unless the row is marked workflow.

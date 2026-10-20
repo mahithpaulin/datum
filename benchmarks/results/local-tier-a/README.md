@@ -5,8 +5,10 @@ These reports are the compact evidence for the normalization optimization descri
 committed.
 
 - `before/`: run `tierA-csv-10`, original normalization.
-- `after/`: run `tierA-csv-10-opt`, compiled `Cc` substitution and cheaper stat accumulation.
+- `after/`: run `tierA-csv-10-opt5`, compiled `Cc` substitution and cheaper stat
+  accumulation.
 
-Both runs used the same 10,511,219-byte CSV fixture, three measured repetitions, and the
-Termux host. The before run used one warm-up; the after run omitted it. The canonical DATUM output hash is identical. Absolute times are not
-portable.
+Both runs used the same 10,511,219-byte CSV fixture and the Termux host. The before run was
+limited to three measured repetitions with one warm-up; the after run used five measured
+repetitions and no warm-up. Compare medians, not the raw repetition counts. The canonical
+DATUM output hash is identical. Absolute times are not portable.

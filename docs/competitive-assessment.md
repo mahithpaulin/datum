@@ -13,7 +13,7 @@ identifies where that value is and is not supported.
   GitHub Actions run `39377829817`.
 - Local Tier A CSV run `tierA-csv-10`: 10.5 MB input, 98,625 records, DATUM plus Python
   reference, three repetitions. A later normalization optimization reduced DATUM from
-  53.545 s to 36.550 s on the same fixture, with identical output.
+  53.545 s to 35.617 s on the same fixture, with identical output.
 - Baseline evidence from `52ea9da` in `benchmarks/results/baseline-52ea9da/`.
 - Full test suite and acceptance workflow.
 - Large-scale Kaggle results are appended after the notebook completes; this page must not
@@ -47,7 +47,7 @@ identifies where that value is and is not supported.
 ### Not supported
 
 - **DATUM is faster.** CI: pandas 0.426 s and DuckDB 0.394 s versus DATUM 1.305 s on CSV.
-  Local Tier A: Python reference 13.067 s versus optimized DATUM 36.550 s. No speed claim
+  Local Tier A: Python reference 10.472 s versus optimized DATUM 35.617 s. No speed claim
   survives this evidence.
 - **DATUM is more memory-efficient in general.** The text fixture showed DATUM slightly
   above the Python reference (29.2 vs 26.8 MiB). Large-scale memory behavior is pending.

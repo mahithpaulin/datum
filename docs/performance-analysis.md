@@ -73,20 +73,22 @@ removal now uses a compiled Unicode `Cc` range substitution instead of a per-cha
 dataclass dictionary for every record. The replacement has an explicit equivalence test for
 `Cc` handling and preserves the same counters.
 
-Same host, same 10,511,219-byte fixture, three repetitions, one warm-up omitted. Compact
+Same host, same 10,511,219-byte fixture. The baseline used three measured repetitions and
+one warm-up; the optimized run used five measured repetitions and no warm-up. Compact
 evidence: `benchmarks/results/local-tier-a/after/`.
 
 | Mode / tool | Baseline median | Optimized median | Change | Peak RSS | Parity |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| equivalent / DATUM | 53.545 s | 36.550 s | -31.7% | 40.8 MB | 100% |
-| workflow / DATUM | 66.367 s | 46.502 s | -29.9% | 44.3 MB | stable |
-| equivalent / Python reference | 13.673 s | 13.067 s | reference variance | 111.3 MB | 100% |
+| equivalent / DATUM | 53.545 s | 35.617 s | -33.5% | 42.3 MB | 100% |
+| workflow / DATUM | 66.367 s | 46.123 s | -30.5% | 43.9 MB | stable |
+| equivalent / Python reference | 13.673 s | 10.472 s | reference variance | 112.4 MB | 100% |
 
 The canonical output hash (`ea642650...`) and 98,625 exported records were identical before
-and after optimization. Internal stages moved from compile 21.119 s to 17.195 s, processing
-27.204 s to 15.683 s, dedup hashing 4.519 s to 3.699 s, and verification 3.574 s to 2.843 s.
-The optimized DATUM build is still about 2.8x slower than the Python reference. This is a
-local before/after result, not yet replicated at Tier B/C or on Kaggle.
+and after optimization. Internal stages moved from compile 21.119 s to 16.652 s, processing
+27.204 s to 15.335 s, dedup hashing 4.519 s to 3.555 s, and verification 3.574 s to 2.704 s.
+The optimized DATUM build is still about 3.4x slower than the Python reference in the
+optimized run. This is a local before/after result, not yet replicated at Tier B/C or on
+Kaggle.
 
 The stage breakdown identifies the primary local bottleneck: compilation (schema
 validation, normalization, per-record serialization, and output writing), followed by

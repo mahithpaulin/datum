@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-20T07:21:41Z",
+  "created_at": "2026-10-20T07:55:21Z",
   "determinism": {
     "equivalent": {
       "datum": {
@@ -7,20 +7,24 @@
         "record_counts": [
           98625,
           98625,
+          98625,
+          98625,
           98625
         ],
         "record_counts_stable": true,
-        "runs": 3
+        "runs": 5
       },
       "python": {
         "output_stable": true,
         "record_counts": [
           98625,
           98625,
+          98625,
+          98625,
           98625
         ],
         "record_counts_stable": true,
-        "runs": 3
+        "runs": 5
       }
     },
     "workflow": {
@@ -29,16 +33,18 @@
         "record_counts": [
           98625,
           98625,
+          98625,
+          98625,
           98625
         ],
         "record_counts_stable": true,
-        "runs": 3
+        "runs": 5
       }
     }
   },
   "environment": {
     "cpu_count": 8,
-    "disk_free_bytes": 38303498240,
+    "disk_free_bytes": 38246305792,
     "disk_total_bytes": 113349984256,
     "environment_variables": {
       "CUDA_VISIBLE_DEVICES": null,
@@ -49,7 +55,7 @@
       "PYTHONHASHSEED": null
     },
     "machine": "aarch64",
-    "memory_available_bytes": 1085833216,
+    "memory_available_bytes": 1106411520,
     "platform": "Android-13-aarch64-64bit",
     "processor": null,
     "python_implementation": "CPython",
@@ -130,8 +136,8 @@
   "partial": false,
   "resource_check": {
     "allowed": true,
-    "available_disk_bytes": 38303498240,
-    "available_memory_bytes": 1086865408,
+    "available_disk_bytes": 38246305792,
+    "available_memory_bytes": 1109032960,
     "disk_ok": true,
     "forced": false,
     "memory_ok": true,
@@ -139,7 +145,7 @@
     "needed_memory_bytes": 284164096,
     "target_bytes": 10485760
   },
-  "run_id": "tierA-csv-10-opt",
+  "run_id": "tierA-csv-10-opt5",
   "run_schema_version": 1,
   "settings": {
     "allow_low_resource": false,
@@ -151,10 +157,10 @@
     "min_free_disk_mib": 512,
     "mode": "both",
     "profile": "csv-transform",
-    "repetitions": 3,
+    "repetitions": 5,
     "resume": false,
     "rows": null,
-    "run_id": "tierA-csv-10-opt",
+    "run_id": "tierA-csv-10-opt5",
     "runs_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs",
     "seed": 42,
     "target_bytes": null,
@@ -166,92 +172,93 @@
   },
   "source": {
     "branch": "benchmark/large-scale-v1",
-    "commit": "fafac57ea1b0d1cc1ddf5ed36dded8e3103161d7",
-    "describe": "fafac57-dirty",
-    "dirty": true,
-    "dirty_files": [
-      "M benchmarks/README.md",
-      " M benchmarks/run.py",
-      " M datum/transform/normalize.py",
-      " M docs/benchmark.md"
-    ],
+    "commit": "431d3ba5aea240295cd6a65b8a365d7d753ec023",
+    "describe": "431d3ba",
+    "dirty": false,
+    "dirty_files": [],
     "remote": "https://github.com/mahithpaulin/datum.git"
   },
   "summary": {
     "equivalent": {
       "datum": {
-        "attempts": 3,
-        "completed": 3,
+        "attempts": 5,
+        "completed": 5,
         "failed": 0,
         "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
         "output_stable": true,
-        "peak_rss_bytes_max": 40837120,
+        "peak_rss_bytes_max": 42340352,
         "record_counts_stable": true,
         "records": 98625,
         "tool_versions": {
           "datum": "0.1.0"
         },
-        "wall_seconds_iqr": 0.100707,
-        "wall_seconds_max": 36.597391,
-        "wall_seconds_median": 36.549555,
-        "wall_seconds_min": 36.395978,
+        "wall_seconds_iqr": 0.142873,
+        "wall_seconds_max": 35.665086,
+        "wall_seconds_median": 35.616547,
+        "wall_seconds_min": 35.200601,
         "wall_seconds_runs": [
-          36.597391,
-          36.395978,
-          36.549555
+          35.665086,
+          35.509253,
+          35.200601,
+          35.652126,
+          35.616547
         ]
       },
       "python": {
-        "attempts": 3,
-        "completed": 3,
+        "attempts": 5,
+        "completed": 5,
         "failed": 0,
         "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
         "output_stable": true,
-        "peak_rss_bytes_max": 111251456,
+        "peak_rss_bytes_max": 112418816,
         "record_counts_stable": true,
         "records": 98625,
         "tool_versions": {
           "python": "3.14.6"
         },
-        "wall_seconds_iqr": 2.224534,
-        "wall_seconds_max": 15.014967,
-        "wall_seconds_median": 13.06724,
-        "wall_seconds_min": 10.565899,
+        "wall_seconds_iqr": 0.005475,
+        "wall_seconds_max": 10.58011,
+        "wall_seconds_median": 10.471563,
+        "wall_seconds_min": 10.423123,
         "wall_seconds_runs": [
-          10.565899,
-          15.014967,
-          13.06724
+          10.58011,
+          10.471223,
+          10.476698,
+          10.471563,
+          10.423123
         ]
       }
     },
     "workflow": {
       "datum": {
-        "attempts": 3,
-        "completed": 3,
+        "attempts": 5,
+        "completed": 5,
         "failed": 0,
         "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
         "output_stable": true,
-        "peak_rss_bytes_max": 44285952,
+        "peak_rss_bytes_max": 43892736,
         "record_counts_stable": true,
         "records": 98625,
         "tool_versions": {
           "datum": "0.1.0"
         },
-        "wall_seconds_iqr": 0.725147,
-        "wall_seconds_max": 46.600724,
-        "wall_seconds_median": 46.50197,
-        "wall_seconds_min": 45.150431,
+        "wall_seconds_iqr": 0.206554,
+        "wall_seconds_max": 47.580921,
+        "wall_seconds_median": 46.122527,
+        "wall_seconds_min": 45.819904,
         "wall_seconds_runs": [
-          46.50197,
-          46.600724,
-          45.150431
+          46.067182,
+          46.273736,
+          47.580921,
+          45.819904,
+          46.122527
         ]
       }
     }
   },
   "tool_startup_seconds": {
-    "datum": 0.076648,
-    "python": 0.153907
+    "datum": 0.077374,
+    "python": 0.117249
   },
   "tools_available": {
     "datum": true,
@@ -272,39 +279,39 @@
         "--input",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-01/python.jsonl"
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-01/python.jsonl"
       ],
-      "controller_wall_seconds": 13.370248,
-      "cpu_seconds": 10.486579,
+      "controller_wall_seconds": 13.293818,
+      "cpu_seconds": 10.507163,
       "exit_code": 0,
-      "internal_seconds": 10.12533,
+      "internal_seconds": 10.128326,
       "kind": "independent transform",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 11648554,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-01",
-      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-01/python.jsonl",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-01",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-01/python.jsonl",
       "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
-      "peak_rss_bytes": 111251456,
-      "recorded_at": "2026-10-20T07:21:54Z",
+      "peak_rss_bytes": 112418816,
+      "recorded_at": "2026-10-20T07:55:34Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "repetition": 1,
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-01/workload.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-01/workload.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-01/workload.stdout.json",
-      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 111251456, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 10.12533}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-01/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 112418816, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 10.128326}\n",
       "timed_out": false,
       "tool": "python",
       "versions": {
         "python": "3.14.6"
       },
-      "wall_seconds": 10.565899
+      "wall_seconds": 10.58011
     },
     {
-      "build_seconds": 35.878454,
+      "build_seconds": 34.872015,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -314,29 +321,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 42.900486,
-      "cpu_seconds": 36.407435,
+      "controller_wall_seconds": 41.982825,
+      "cpu_seconds": 35.530147,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 35.878454,
+      "internal_seconds": 34.872015,
       "kind": "full build",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 12706976,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/current",
       "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
-      "peak_rss_bytes": 40837120,
-      "processing_seconds": 15.682659,
+      "peak_rss_bytes": 42340352,
+      "processing_seconds": 15.335408,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:22:37Z",
+      "recorded_at": "2026-10-20T07:56:16Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -363,17 +370,17 @@
         "dataset": 98625
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 17.195212,\n    \"dedup_hash_seconds\": 3.698663,\n    \"dedup_index_seconds\": 0.200317,\n    \"discovery_seconds\": 0.000768,\n    \"exported_records_per_second\": 2993.469197,\n    \"files_per_second\": 0.063765,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.639195,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40837120,\n    \"processing_seconds\": 15.682659,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6513.181023,\n    \"total_seconds\": 35.878454,\n    \"verification_seconds\": 2.842862,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.842862\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.652463,\n    \"dedup_hash_seconds\": 3.554661,\n    \"dedup_index_seconds\": 0.207946,\n    \"discovery_seconds\": 0.000662,\n    \"exported_records_per_second\": 3076.915958,\n    \"files_per_second\": 0.065209,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.653669,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 42340352,\n    \"processing_seconds\": 15.335408,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6660.664,\n    \"total_seconds\": 34.872015,\n    \"verification_seconds\": 2.704165,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.704165\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 2.842862,
+      "verification_seconds_internal": 2.704165,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-01/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-01/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -491,16 +498,16 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 3.482884
+        "wall_seconds": 3.535817
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 36.597391,
+      "wall_seconds": 35.665086,
       "workers": 1
     },
     {
-      "build_seconds": 35.617149,
+      "build_seconds": 34.698054,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -510,29 +517,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 43.878987,
-      "cpu_seconds": 35.963332,
+      "controller_wall_seconds": 41.777021,
+      "cpu_seconds": 35.375705,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 35.617149,
+      "internal_seconds": 34.698054,
       "kind": "full build",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 12706976,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/current",
       "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
-      "peak_rss_bytes": 40828928,
-      "processing_seconds": 15.445809,
+      "peak_rss_bytes": 41779200,
+      "processing_seconds": 15.367136,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:23:21Z",
+      "recorded_at": "2026-10-20T07:56:58Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -559,17 +566,17 @@
         "dataset": 98625
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.682789,\n    \"dedup_hash_seconds\": 3.583409,\n    \"dedup_index_seconds\": 0.20295,\n    \"discovery_seconds\": 0.000635,\n    \"exported_records_per_second\": 3063.091983,\n    \"files_per_second\": 0.064742,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.648997,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40828928,\n    \"processing_seconds\": 15.445809,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6613.056007,\n    \"total_seconds\": 35.617149,\n    \"verification_seconds\": 3.329159,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 3.329159\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.38834,\n    \"dedup_hash_seconds\": 3.492958,\n    \"dedup_index_seconds\": 0.20131,\n    \"discovery_seconds\": 0.002149,\n    \"exported_records_per_second\": 3098.684594,\n    \"files_per_second\": 0.065074,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.652319,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 41779200,\n    \"processing_seconds\": 15.367136,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6646.912122,\n    \"total_seconds\": 34.698054,\n    \"verification_seconds\": 2.735296,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.735296\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 3.329159,
+      "verification_seconds_internal": 2.735296,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-02/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-02/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -687,12 +694,12 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 4.193221
+        "wall_seconds": 3.434718
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 36.395978,
+      "wall_seconds": 35.509253,
       "workers": 1
     },
     {
@@ -706,36 +713,36 @@
         "--input",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-02/python.jsonl"
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-02/python.jsonl"
       ],
-      "controller_wall_seconds": 18.634707,
-      "cpu_seconds": 12.765205,
+      "controller_wall_seconds": 13.170665,
+      "cpu_seconds": 10.412427,
       "exit_code": 0,
-      "internal_seconds": 14.522538,
+      "internal_seconds": 9.990339,
       "kind": "independent transform",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 11648554,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-02",
-      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-02/python.jsonl",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-02",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-02/python.jsonl",
       "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
-      "peak_rss_bytes": 110862336,
-      "recorded_at": "2026-10-20T07:23:40Z",
+      "peak_rss_bytes": 111955968,
+      "recorded_at": "2026-10-20T07:57:11Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "repetition": 2,
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-02/workload.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-02/workload.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-02/workload.stdout.json",
-      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 110862336, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 14.522538}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-02/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 111955968, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 9.990339}\n",
       "timed_out": false,
       "tool": "python",
       "versions": {
         "python": "3.14.6"
       },
-      "wall_seconds": 15.014967
+      "wall_seconds": 10.471223
     },
     {
       "command": [
@@ -748,39 +755,39 @@
         "--input",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-03/python.jsonl"
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-03/python.jsonl"
       ],
-      "controller_wall_seconds": 15.916878,
-      "cpu_seconds": 12.398982,
+      "controller_wall_seconds": 13.231535,
+      "cpu_seconds": 10.427385,
       "exit_code": 0,
-      "internal_seconds": 12.390581,
+      "internal_seconds": 10.015183,
       "kind": "independent transform",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 11648554,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-03",
-      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-03/python.jsonl",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-03",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-03/python.jsonl",
       "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
-      "peak_rss_bytes": 110776320,
-      "recorded_at": "2026-10-20T07:23:56Z",
+      "peak_rss_bytes": 112029696,
+      "recorded_at": "2026-10-20T07:57:24Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "repetition": 3,
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-03/workload.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-03/workload.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/python/rep-03/workload.stdout.json",
-      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 110776320, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 12.390581}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-03/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 112029696, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 10.015183}\n",
       "timed_out": false,
       "tool": "python",
       "versions": {
         "python": "3.14.6"
       },
-      "wall_seconds": 13.06724
+      "wall_seconds": 10.476698
     },
     {
-      "build_seconds": 35.533108,
+      "build_seconds": 34.512009,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -790,29 +797,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 43.035337,
-      "cpu_seconds": 36.112562,
+      "controller_wall_seconds": 41.597318,
+      "cpu_seconds": 35.148358,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 35.533108,
+      "internal_seconds": 34.512009,
       "kind": "full build",
       "mode": "equivalent",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 12706976,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/current",
       "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
-      "peak_rss_bytes": 40738816,
-      "processing_seconds": 15.920695,
+      "peak_rss_bytes": 40189952,
+      "processing_seconds": 15.013949,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:24:39Z",
+      "recorded_at": "2026-10-20T07:58:06Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -839,17 +846,17 @@
         "dataset": 98625
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.65126,\n    \"dedup_hash_seconds\": 3.578937,\n    \"dedup_index_seconds\": 0.197826,\n    \"discovery_seconds\": 0.00074,\n    \"exported_records_per_second\": 3021.630911,\n    \"files_per_second\": 0.062811,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.629638,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40738816,\n    \"processing_seconds\": 15.920695,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6415.800129,\n    \"total_seconds\": 35.533108,\n    \"verification_seconds\": 2.742879,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.742879\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.584891,\n    \"dedup_hash_seconds\": 3.534483,\n    \"dedup_index_seconds\": 0.206727,\n    \"discovery_seconds\": 0.000695,\n    \"exported_records_per_second\": 3114.394064,\n    \"files_per_second\": 0.066605,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.667664,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40189952,\n    \"processing_seconds\": 15.013949,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6803.273479,\n    \"total_seconds\": 34.512009,\n    \"verification_seconds\": 2.763688,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.763688\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 2.742879,
+      "verification_seconds_internal": 2.763688,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/equivalent/datum/rep-03/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-03/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -967,16 +974,492 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 3.635089
+        "wall_seconds": 3.535706
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 36.549555,
+      "wall_seconds": 35.200601,
       "workers": 1
     },
     {
-      "build_seconds": 45.769503,
+      "build_seconds": 34.866989,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 41.966422,
+      "cpu_seconds": 35.523977,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 34.866989,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 40345600,
+      "processing_seconds": 15.350707,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T07:58:48Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 4,
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.596634,\n    \"dedup_hash_seconds\": 3.552889,\n    \"dedup_index_seconds\": 0.206315,\n    \"discovery_seconds\": 0.000701,\n    \"exported_records_per_second\": 3080.63379,\n    \"files_per_second\": 0.065144,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.653017,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40345600,\n    \"processing_seconds\": 15.350707,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6654.025772,\n    \"total_seconds\": 34.866989,\n    \"verification_seconds\": 2.756392,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.756392\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 2.756392,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-04/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "1 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=11648554 expected=11648554",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: 98625 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=98625 manifest=98625",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance mode=off",
+            "name": "sidecar_not_required",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "single dataset split",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b declared=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 3.533489
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 35.652126,
+      "workers": 1
+    },
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-04/python.jsonl"
+      ],
+      "controller_wall_seconds": 13.173846,
+      "cpu_seconds": 10.403211,
+      "exit_code": 0,
+      "internal_seconds": 9.989852,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-04",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-04/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 110845952,
+      "recorded_at": "2026-10-20T07:59:01Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "repetition": 4,
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-04/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-04/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 110845952, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 9.989852}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 10.471563
+    },
+    {
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "/data/data/com.termux/files/home/projects/datum/benchmarks/workloads.py",
+        "--tool",
+        "python",
+        "--profile",
+        "csv-transform",
+        "--input",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/input",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-05/python.jsonl"
+      ],
+      "controller_wall_seconds": 13.128339,
+      "cpu_seconds": 10.378051,
+      "exit_code": 0,
+      "internal_seconds": 9.952327,
+      "kind": "independent transform",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 11648554,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-05",
+      "output_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-05/python.jsonl",
+      "output_sha256": "34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41",
+      "peak_rss_bytes": 110936064,
+      "recorded_at": "2026-10-20T07:59:14Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "repetition": 5,
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-05/workload.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/python/rep-05/workload.stdout.json",
+      "stdout_tail": "{\"output_bytes\": 11648554, \"output_sha256\": \"34ccb683f40a82feef1254abed138f6ae9bfcb5b230768e84acb091df4b47a41\", \"peak_rss_bytes\": 110936064, \"profile\": \"csv-transform\", \"records\": 98625, \"status\": \"ok\", \"tool\": \"python\", \"versions\": {\"python\": \"3.14.6\"}, \"work_seconds\": 9.952327}\n",
+      "timed_out": false,
+      "tool": "python",
+      "versions": {
+        "python": "3.14.6"
+      },
+      "wall_seconds": 10.423123
+    },
+    {
+      "build_seconds": 34.917627,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 42.198476,
+      "cpu_seconds": 35.481322,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 34.917627,
+      "kind": "full build",
+      "mode": "equivalent",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 12706976,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/current",
+      "output_sha256": "ea6426502963cd81154f44c52530f6eee4a34510caa2bc839855662864cbce82",
+      "peak_rss_bytes": 40259584,
+      "processing_seconds": 15.219825,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T07:59:57Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 5,
+      "splits": {
+        "dataset": 98625
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"aa15929f16bc9cac528e57fe93c800cb\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/current\",\n  \"performance\": {\n    \"compile_seconds\": 16.818806,\n    \"dedup_hash_seconds\": 3.614953,\n    \"dedup_index_seconds\": 0.203874,\n    \"discovery_seconds\": 0.000729,\n    \"exported_records_per_second\": 3070.898806,\n    \"files_per_second\": 0.065704,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.658633,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 40259584,\n    \"processing_seconds\": 15.219825,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 0,\n    \"source_records_per_second\": 6711.246476,\n    \"total_seconds\": 34.917627,\n    \"verification_seconds\": 2.704447,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"dataset\": 98625\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 2.704447\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 2.704447,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/equivalent/datum/rep-05/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "1 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=11648554 expected=11648554",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: 98625 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "dataset.jsonl: actual=98625 manifest=98625",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance mode=off",
+            "name": "sidecar_not_required",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "single dataset split",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b declared=c832a29fd0a9fd4fd3addeebca918094fb38a59fa8ffb05d815e7213ac8c488b",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 3.58686
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 35.616547,
+      "workers": 1
+    },
+    {
+      "build_seconds": 45.195822,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -986,29 +1469,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 56.377587,
-      "cpu_seconds": 46.350613,
+      "controller_wall_seconds": 56.025977,
+      "cpu_seconds": 45.931331,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 45.769503,
+      "internal_seconds": 45.195822,
       "kind": "full build",
       "mode": "workflow",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 58458490,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/current",
       "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
-      "peak_rss_bytes": 44285952,
-      "processing_seconds": 15.453738,
+      "peak_rss_bytes": 43413504,
+      "processing_seconds": 15.282838,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:25:35Z",
+      "recorded_at": "2026-10-20T08:00:53Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -1037,17 +1520,17 @@
         "validation": 9957
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.692575,\n    \"dedup_hash_seconds\": 3.804424,\n    \"dedup_index_seconds\": 0.215835,\n    \"discovery_seconds\": 0.000732,\n    \"exported_records_per_second\": 2507.279083,\n    \"files_per_second\": 0.064709,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.648664,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 44285952,\n    \"processing_seconds\": 15.453738,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6609.662785,\n    \"total_seconds\": 45.769503,\n    \"verification_seconds\": 6.361014,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.361014\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.362068,\n    \"dedup_hash_seconds\": 3.782883,\n    \"dedup_index_seconds\": 0.217029,\n    \"discovery_seconds\": 0.000786,\n    \"exported_records_per_second\": 2538.43513,\n    \"files_per_second\": 0.065433,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.655917,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43413504,\n    \"processing_seconds\": 15.282838,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6683.575292,\n    \"total_seconds\": 45.195822,\n    \"verification_seconds\": 6.262568,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.262568\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 6.361014,
+      "verification_seconds_internal": 6.262568,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-01/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-01/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -1220,16 +1703,16 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 7.103571
+        "wall_seconds": 7.008025
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 46.50197,
+      "wall_seconds": 46.067182,
       "workers": 1
     },
     {
-      "build_seconds": 45.897912,
+      "build_seconds": 45.513386,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -1239,29 +1722,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 56.592504,
-      "cpu_seconds": 46.346348,
+      "controller_wall_seconds": 56.181679,
+      "cpu_seconds": 46.126747,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 45.897912,
+      "internal_seconds": 45.513386,
       "kind": "full build",
       "mode": "workflow",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 58458490,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/current",
       "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
-      "peak_rss_bytes": 43495424,
-      "processing_seconds": 15.756434,
+      "peak_rss_bytes": 43552768,
+      "processing_seconds": 15.245694,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:26:32Z",
+      "recorded_at": "2026-10-20T08:01:49Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -1290,17 +1773,17 @@
         "validation": 9957
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.454906,\n    \"dedup_hash_seconds\": 3.756537,\n    \"dedup_index_seconds\": 0.208038,\n    \"discovery_seconds\": 0.000651,\n    \"exported_records_per_second\": 2501.93624,\n    \"files_per_second\": 0.063466,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.636202,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43495424,\n    \"processing_seconds\": 15.756434,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6482.685041,\n    \"total_seconds\": 45.897912,\n    \"verification_seconds\": 6.396481,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.396481\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.469447,\n    \"dedup_hash_seconds\": 3.774237,\n    \"dedup_index_seconds\": 0.220868,\n    \"discovery_seconds\": 0.000709,\n    \"exported_records_per_second\": 2534.885401,\n    \"files_per_second\": 0.065592,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.657515,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43552768,\n    \"processing_seconds\": 15.245694,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6699.858787,\n    \"total_seconds\": 45.513386,\n    \"verification_seconds\": 6.508596,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.508596\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 6.396481,
+      "verification_seconds_internal": 6.508596,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-02/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-02/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -1473,16 +1956,16 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 7.102723
+        "wall_seconds": 7.009235
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 46.600724,
+      "wall_seconds": 46.273736,
       "workers": 1
     },
     {
-      "build_seconds": 44.263473,
+      "build_seconds": 46.855219,
       "build_status": "passed",
       "command": [
         "/data/data/com.termux/files/usr/bin/python",
@@ -1492,29 +1975,29 @@
         "--config",
         "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
         "--output",
-        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03",
         "--no-cache",
         "--no-progress",
         "--json"
       ],
-      "controller_wall_seconds": 55.142564,
-      "cpu_seconds": 45.043455,
+      "controller_wall_seconds": 57.680592,
+      "cpu_seconds": 47.265532,
       "exit_code": 0,
       "exported_matches_output": true,
-      "internal_seconds": 44.263473,
+      "internal_seconds": 46.855219,
       "kind": "full build",
       "mode": "workflow",
       "monitor_peak_rss_bytes": 0,
       "oom": false,
       "output_bytes": 58458490,
-      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03",
-      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/current",
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/current",
       "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
-      "peak_rss_bytes": 43560960,
-      "processing_seconds": 15.107092,
+      "peak_rss_bytes": 43401216,
+      "processing_seconds": 16.090283,
       "quality_status": "passed",
       "record_counts_stable": true,
-      "recorded_at": "2026-10-20T07:27:27Z",
+      "recorded_at": "2026-10-20T08:02:47Z",
       "records": 98625,
       "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
       "records_reported": 98625,
@@ -1543,17 +2026,17 @@
         "validation": 9957
       },
       "status": "completed",
-      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/benchmark.stderr.txt",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/benchmark.stderr.txt",
       "stderr_tail": "",
-      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/benchmark.stdout.json",
-      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 22.612748,\n    \"dedup_hash_seconds\": 3.640881,\n    \"dedup_index_seconds\": 0.203584,\n    \"discovery_seconds\": 0.000677,\n    \"exported_records_per_second\": 2602.508013,\n    \"files_per_second\": 0.066194,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.663548,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43560960,\n    \"processing_seconds\": 15.107092,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6761.327588,\n    \"total_seconds\": 44.263473,\n    \"verification_seconds\": 6.284505,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.284505\n}\n",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/current\",\n  \"performance\": {\n    \"compile_seconds\": 24.08367,\n    \"dedup_hash_seconds\": 3.88644,\n    \"dedup_index_seconds\": 0.219392,\n    \"discovery_seconds\": 0.000648,\n    \"exported_records_per_second\": 2444.771513,\n    \"files_per_second\": 0.062149,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.623002,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43401216,\n    \"processing_seconds\": 16.090283,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6348.179299,\n    \"total_seconds\": 46.855219,\n    \"verification_seconds\": 6.36902,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.36902\n}\n",
       "timed_out": false,
       "tool": "datum",
-      "verification_seconds_internal": 6.284505,
+      "verification_seconds_internal": 6.36902,
       "verify": {
         "checks": [
           {
-            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt/outputs/workflow/datum/rep-03/current/manifest.json",
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-03/current/manifest.json",
             "name": "manifest_readable",
             "passed": true
           },
@@ -1726,12 +2209,518 @@
         "ok": true,
         "status": "completed",
         "stderr_tail": "",
-        "wall_seconds": 7.057879
+        "wall_seconds": 7.207979
       },
       "versions": {
         "datum": "0.1.0"
       },
-      "wall_seconds": 45.150431,
+      "wall_seconds": 47.580921,
+      "workers": 1
+    },
+    {
+      "build_seconds": 45.134049,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 56.080437,
+      "cpu_seconds": 45.677789,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 45.134049,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43712512,
+      "processing_seconds": 15.176462,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T08:03:43Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 4,
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.362376,\n    \"dedup_hash_seconds\": 3.748321,\n    \"dedup_index_seconds\": 0.2166,\n    \"discovery_seconds\": 0.000651,\n    \"exported_records_per_second\": 2546.999726,\n    \"files_per_second\": 0.065892,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.660515,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43712512,\n    \"processing_seconds\": 15.176462,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6730.422379,\n    \"total_seconds\": 45.134049,\n    \"verification_seconds\": 6.318618,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.318618\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 6.318618,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-04/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "3 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=1163686 expected=1163686",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: 9844 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=9844 manifest=9844",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=9306855 expected=9306855",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: 78824 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=78824 manifest=78824",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=1178013 expected=1178013",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: 9957 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=9957 manifest=9957",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance sha256",
+            "name": "sidecar_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=45751514 expected=45751514",
+            "name": "sidecar_bytes",
+            "passed": true
+          },
+          {
+            "detail": "provenance records parse and IDs are unique",
+            "name": "sidecar_parse",
+            "passed": true
+          },
+          {
+            "detail": "actual=98625 manifest=98625 exported=98625",
+            "name": "sidecar_record_count",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "quality={'test': 9844, 'train': 78824, 'validation': 9957} actual={'test': 9844, 'train': 78824, 'validation': 9957}",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090 declared=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 7.156922
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 45.819904,
+      "workers": 1
+    },
+    {
+      "build_seconds": 45.366599,
+      "build_status": "passed",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/python",
+        "-m",
+        "datum.cli",
+        "build",
+        "--config",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10/fixture/datum-workflow.toml",
+        "--output",
+        "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05",
+        "--no-cache",
+        "--no-progress",
+        "--json"
+      ],
+      "controller_wall_seconds": 56.058355,
+      "cpu_seconds": 45.983163,
+      "exit_code": 0,
+      "exported_matches_output": true,
+      "internal_seconds": 45.366599,
+      "kind": "full build",
+      "mode": "workflow",
+      "monitor_peak_rss_bytes": 0,
+      "oom": false,
+      "output_bytes": 58458490,
+      "output_dir": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05",
+      "output_directory": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/current",
+      "output_sha256": "2dc6b7643c9b8f31a4e5dfb9f3254921fcf013cc4cbe1b61c2fc4da6fd35d255",
+      "peak_rss_bytes": 43892736,
+      "processing_seconds": 15.463152,
+      "quality_status": "passed",
+      "record_counts_stable": true,
+      "recorded_at": "2026-10-20T08:04:39Z",
+      "records": 98625,
+      "records_hash": "432721dbd1ffae215c9d3747ba63302bdb454f26eed821a94e5a26f65c0f197b",
+      "records_reported": 98625,
+      "rejections": {
+        "chunks_created": 102144,
+        "duplicates": 2491,
+        "empty": 1028,
+        "excluded_total": 3519,
+        "exported": 98625,
+        "malformed_input": 0,
+        "mapping_rejected": 0,
+        "rejected_total": 3519,
+        "retained_pre_dedup": 101116,
+        "schema_rejected": 0,
+        "source_records_extracted": 102144,
+        "source_records_mapped": 102144,
+        "source_records_split": 0,
+        "too_long": 0,
+        "too_short": 0,
+        "truncated": 0
+      },
+      "repetition": 5,
+      "splits": {
+        "test": 9844,
+        "train": 78824,
+        "validation": 9957
+      },
+      "status": "completed",
+      "stderr_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/benchmark.stderr.txt",
+      "stderr_tail": "",
+      "stdout_path": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/benchmark.stdout.json",
+      "stdout_tail": "{\n  \"build_id\": \"f0a900ac9a041f2a6dcf1898030e9680\",\n  \"cache\": {\n    \"directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/.datum-cache\",\n    \"enabled\": false,\n    \"entry_bytes\": 0,\n    \"hash_seconds\": 0.0,\n    \"hits\": 0,\n    \"invalid\": 0,\n    \"misses\": 0,\n    \"read_seconds\": 0.0,\n    \"write_errors\": 0,\n    \"write_seconds\": 0.0,\n    \"writes\": 0\n  },\n  \"files\": {\n    \"discovered\": 1,\n    \"duplicate_targets_skipped\": 0,\n    \"empty_files\": 0,\n    \"excluded_by_config\": 0,\n    \"failed\": 0,\n    \"hidden_skipped\": 0,\n    \"input_bytes_discovered\": 10511219,\n    \"input_bytes_processed\": 10511219,\n    \"non_regular_skipped\": 0,\n    \"processed\": 1,\n    \"processed_with_errors\": 0,\n    \"skipped\": 0,\n    \"symlinks_skipped\": 0,\n    \"walk_issues\": 0\n  },\n  \"manifest_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/current/manifest.json\",\n  \"ok\": true,\n  \"output_directory\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/current\",\n  \"performance\": {\n    \"compile_seconds\": 23.194579,\n    \"dedup_hash_seconds\": 3.706478,\n    \"dedup_index_seconds\": 0.214867,\n    \"discovery_seconds\": 0.000751,\n    \"exported_records_per_second\": 2538.717443,\n    \"files_per_second\": 0.06467,\n    \"input_bytes\": 10511219,\n    \"input_mib_per_second\": 0.648269,\n    \"output_bytes\": 11648554,\n    \"peak_rss_bytes\": 43892736,\n    \"processing_seconds\": 15.463152,\n    \"rejected_bytes\": 1058422,\n    \"sidecar_bytes\": 45751514,\n    \"source_records_per_second\": 6605.639038,\n    \"total_seconds\": 45.366599,\n    \"verification_seconds\": 6.399397,\n    \"workers\": 1\n  },\n  \"quality_path\": \"/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/current/quality.json\",\n  \"quality_status\": \"passed\",\n  \"records\": {\n    \"chunks_created\": 102144,\n    \"duplicates\": 2491,\n    \"empty\": 1028,\n    \"excluded_total\": 3519,\n    \"exported\": 98625,\n    \"malformed_input\": 0,\n    \"mapping_rejected\": 0,\n    \"rejected_total\": 3519,\n    \"retained_pre_dedup\": 101116,\n    \"schema_rejected\": 0,\n    \"source_records_extracted\": 102144,\n    \"source_records_mapped\": 102144,\n    \"source_records_split\": 0,\n    \"too_long\": 0,\n    \"too_short\": 0,\n    \"truncated\": 0\n  },\n  \"splits\": {\n    \"test\": 9844,\n    \"train\": 78824,\n    \"validation\": 9957\n  },\n  \"status\": \"passed\",\n  \"verification_seconds\": 6.399397\n}\n",
+      "timed_out": false,
+      "tool": "datum",
+      "verification_seconds_internal": 6.399397,
+      "verify": {
+        "checks": [
+          {
+            "detail": "/data/data/com.termux/files/usr/tmp/opencode/datum-runs/tierA-csv-10-opt5/outputs/workflow/datum/rep-05/current/manifest.json",
+            "name": "manifest_readable",
+            "passed": true
+          },
+          {
+            "detail": "status=complete",
+            "name": "build_status",
+            "passed": true
+          },
+          {
+            "detail": "completion v1",
+            "name": "schema_readable",
+            "passed": true
+          },
+          {
+            "detail": "3 file(s)",
+            "name": "outputs_declared",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=1163686 expected=1163686",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: 9844 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "test.jsonl: actual=9844 manifest=9844",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=9306855 expected=9306855",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: 78824 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "train.jsonl: actual=78824 manifest=78824",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl sha256",
+            "name": "output_sha256",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=1178013 expected=1178013",
+            "name": "output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: 9957 records, 0 invalid",
+            "name": "output_jsonl_and_schema",
+            "passed": true
+          },
+          {
+            "detail": "validation.jsonl: actual=9957 manifest=9957",
+            "name": "output_record_count",
+            "passed": true
+          },
+          {
+            "detail": "provenance sha256",
+            "name": "sidecar_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=45751514 expected=45751514",
+            "name": "sidecar_bytes",
+            "passed": true
+          },
+          {
+            "detail": "provenance records parse and IDs are unique",
+            "name": "sidecar_parse",
+            "passed": true
+          },
+          {
+            "detail": "actual=98625 manifest=98625 exported=98625",
+            "name": "sidecar_record_count",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl sha256",
+            "name": "rejected_sha256",
+            "passed": true
+          },
+          {
+            "detail": "actual=1058422 expected=1058422",
+            "name": "rejected_bytes",
+            "passed": true
+          },
+          {
+            "detail": "quality.json",
+            "name": "quality_readable",
+            "passed": true
+          },
+          {
+            "detail": "quality schema version=1",
+            "name": "quality_schema_version",
+            "passed": true
+          },
+          {
+            "detail": "quality=98625 actual=98625",
+            "name": "quality_exported_count",
+            "passed": true
+          },
+          {
+            "detail": "all recorded quality invariants passed",
+            "name": "quality_invariants",
+            "passed": true
+          },
+          {
+            "detail": "quality status=passed",
+            "name": "quality_status",
+            "passed": true
+          },
+          {
+            "detail": "manifest=complete quality=passed",
+            "name": "manifest_quality_status",
+            "passed": true
+          },
+          {
+            "detail": "quality={'test': 9844, 'train': 78824, 'validation': 9957} actual={'test': 9844, 'train': 78824, 'validation': 9957}",
+            "name": "split_counts",
+            "passed": true
+          },
+          {
+            "detail": "quality=11648554 actual=11648554",
+            "name": "quality_output_bytes",
+            "passed": true
+          },
+          {
+            "detail": "rejected.jsonl",
+            "name": "rejected_log_parses",
+            "passed": true
+          },
+          {
+            "detail": "actual=3519 quality=3519",
+            "name": "rejected_log_count",
+            "passed": true
+          },
+          {
+            "detail": "computed=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090 declared=98e95d20a745bcd30722f93410a5b6984a4a40b4b387e4e1a6f366ef9f60d090",
+            "name": "output_identity",
+            "passed": true
+          },
+          {
+            "detail": "checked=1 failures=0",
+            "name": "source_hashes",
+            "passed": true
+          }
+        ],
+        "ok": true,
+        "status": "completed",
+        "stderr_tail": "",
+        "wall_seconds": 7.007343
+      },
+      "versions": {
+        "datum": "0.1.0"
+      },
+      "wall_seconds": 46.122527,
       "workers": 1
     }
   ],
@@ -1744,7 +2733,7 @@
         "ok": true
       },
       {
-        "detail": "fafac57ea1b0d1cc1ddf5ed36dded8e3103161d7",
+        "detail": "431d3ba5aea240295cd6a65b8a365d7d753ec023",
         "name": "source commit recorded",
         "ok": true
       },
@@ -1759,12 +2748,12 @@
         "ok": true
       },
       {
-        "detail": 9,
+        "detail": 15,
         "name": "trials present",
         "ok": true
       },
       {
-        "detail": 9,
+        "detail": 15,
         "name": "completed trials present",
         "ok": true
       },
