@@ -9,6 +9,7 @@ Run it from the repository root:
 python -m datum.cli validate --config examples/structured/datum.toml
 python -m datum.cli inspect --config examples/structured/datum.toml
 python -m datum.cli build --config examples/structured/datum.toml
+python -m datum.cli quality examples/structured/output/structured/current
 python -m datum.cli verify examples/structured/output/structured/current --sources
 python -m datum.cli manifest examples/structured/output/structured/current
 ```

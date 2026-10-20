@@ -77,6 +77,7 @@ Useful commands:
 | `datum inspect` | Show discovered files, detected formats, and unsupported inputs |
 | `datum build` | Run a build and publish a verified dataset |
 | `datum verify` | Independently verify a build directory or manifest |
+| `datum quality` | Show quality status, error counts, thresholds, and invariants |
 | `datum manifest` | Show a build manifest summary |
 | `datum clean` | Remove current, previous, failed, cache, or staging output |
 | `datum benchmark` | Run a reproducible synthetic mechanics benchmark |

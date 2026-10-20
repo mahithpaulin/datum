@@ -81,11 +81,18 @@ Use `--json` for a machine-readable build summary.
 
 ### 4. Review the quality gate
 
-Open `quality.txt` or `quality.json` inside the build directory. The quality report reconciles
-source records, mapped records, chunks, duplicates, rejects, and exported records.
+```sh
+python -m datum.cli quality path/to/output/current
+```
+
+This prints exported and rejected counts, rejection reasons, schema/file error examples,
+failed thresholds, and failed invariants. Use `--json` for scripting or `--full` for the
+complete report. The same data is in `quality.json` and `quality.txt` inside the build
+directory.
 
 A quality failure exits nonzero and preserves the existing `current/` dataset. It is not a
-partial success. Rejected candidates are still recorded in `rejected.jsonl`.
+partial success. Rejected candidates are still recorded in `rejected.jsonl`, including their
+source path and locator.
 
 ### 5. Verify independently
 

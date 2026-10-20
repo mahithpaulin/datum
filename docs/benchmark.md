@@ -99,11 +99,13 @@ separate mechanics comparison on two narrow workloads:
 DATUM performs a complete build: schema validation, quality accounting, manifest generation,
 and post-build verification. The baseline tools perform only the stated transform. For that
 reason the comparison is labelled a mechanics comparison, not an apples-to-apples product
-ranking, and wall times include process startup for every tool.
+ranking, and median wall times include process startup for every tool.
 
-The script checks output content equality across tools and fails if they disagree. DATUM's
-additional work is recorded in every report so a reader cannot mistake the comparison for an
-isolated transform speed test.
+The script runs each tool three times, reports median wall time, and computes input/output
+MiB/s, records/s, peak RSS, and record-level parity. Accuracy here means output parity against
+an independent Python reader, not model accuracy. It fails if any tool loses, invents, or
+duplicates records relative to that reference. DATUM's additional work is recorded in every
+report so a reader cannot mistake the comparison for an isolated transform speed test.
 
 Run it from the repository root:
 
@@ -113,6 +115,7 @@ python benchmarks/compare.py \
   --text-files 48 \
   --text-kib 16 \
   --workers 2 \
+  --repetitions 3 \
   --json-out benchmarks/results/comparison.json
 ```
 
@@ -122,37 +125,9 @@ as a downloadable artifact.
 
 ## CI comparison result
 
-The checked-in report is `benchmarks/results/comparison-ci.json`, produced by GitHub Actions
-at source commit `4a875ad` on 2026-10-20T05:13:29Z. The runner had 4 vCPUs, 16 GB RAM,
-CPython 3.13.16, pandas 3.0.6, and DuckDB 1.5.6.
-
-### Text ingest
-
-48 text files, 16 KiB target per file, 760,621 input bytes, 44 output records.
-
-| Tool | Wall s | Build/work s | Peak RSS | Output bytes | Content match |
-| --- | ---: | ---: | ---: | ---: | --- |
-| DATUM (full build) | 0.728 | 0.198 | 28.7 MiB | 714,109 | yes |
-| Python reference | 0.181 | 0.083 | 24.4 MiB | 714,109 | yes |
-
-### CSV transform
-
-30,000 input rows, 2,870,976 input bytes, 29,940 output records.
-
-| Tool | Wall s | Build/work s | Peak RSS | Output bytes | Content match |
-| --- | ---: | ---: | ---: | ---: | --- |
-| DATUM (full build) | 3.050 | 2.910 | 31.1 MiB | 3,055,991 | yes |
-| pandas | 0.905 | 0.256 | 90.4 MiB | 3,055,991 | yes |
-| DuckDB | 0.585 | 0.364 | 174.4 MiB | 3,055,991 | yes |
-
-Pandas produced byte-identical JSONL to DATUM in this run. DuckDB's JSON serialization
-differed byte-for-byte, but the parsed records matched. DATUM's build time includes schema
-validation, quality accounting, and manifest generation; its wall time also includes process
-startup and post-build verification. The baseline tools perform only the stated transform.
-
-These numbers are a single run on a shared CI runner. They are useful for finding gross
-regressions and overhead, not for ranking tools or predicting customer workloads. Repeat runs
-varied enough that small differences should not be treated as meaningful.
+The GitHub Actions workflow runs the comparison and uploads the report as an artifact. The
+next checked-in report will include median throughput, peak RSS, and parity metrics after the
+repeated-run workflow completes.
 
 ## Interpreting results
 

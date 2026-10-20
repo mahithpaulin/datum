@@ -66,6 +66,7 @@ jobs:
             --text-files 48 \
             --text-kib 16 \
             --workers 2 \
+            --repetitions 3 \
             --json-out benchmarks/results/comparison.json
       - name: Upload comparison report
         if: always()

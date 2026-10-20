@@ -281,6 +281,68 @@ def _cmd_manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_quality(args: argparse.Namespace) -> int:
+    manifest_path = find_manifest(args.path)
+    quality_path = manifest_path.parent / "quality.json"
+    if not quality_path.is_file():
+        raise VerificationError(f"quality.json not found under {manifest_path.parent}")
+    with quality_path.open("r", encoding="utf-8") as handle:
+        quality = json.load(handle)
+    passed = quality.get("status") == "passed"
+    failed_invariants = [
+        item for item in quality.get("invariants", []) if not item.get("passed", False)
+    ]
+    summary = {
+        "ok": passed,
+        "build_id": quality.get("build_id"),
+        "status": quality.get("status"),
+        "records": quality.get("records", {}),
+        "rejected": quality.get("rejected", {}),
+        "errors": quality.get("errors", {}),
+        "thresholds": quality.get("thresholds", []),
+        "failed_invariants": failed_invariants,
+        "quality_path": str(quality_path),
+        "rejected_log": str(quality_path.parent / "rejected.jsonl"),
+    }
+    if args.json:
+        _json_dump(quality if args.full else summary)
+        return 0 if passed else 2
+    print(f"Quality: {'PASS' if passed else 'FAIL'}")
+    print(f"Build ID: {summary['build_id']}")
+    records = summary["records"]
+    print(f"Exported: {records.get('exported', 0)}")
+    print(f"Rejected: {records.get('rejected_total', 0)}")
+    for rule, count in (quality.get("rejected", {}).get("by_rule") or {}).items():
+        print(f"  {rule}: {count}")
+    errors = summary["errors"]
+    if errors.get("by_code"):
+        print("Errors:")
+        for code, count in errors["by_code"].items():
+            print(f"  {code}: {count}")
+        for item in errors.get("examples", []):
+            print(f"    {item.get('path', '?')}: {item.get('message', '')}")
+        if errors.get("examples_truncated"):
+            print("    ... more examples in quality.json")
+    failed_thresholds = [item for item in summary["thresholds"] if not item.get("passed", False)]
+    if failed_thresholds:
+        print("Failed thresholds:")
+        for item in failed_thresholds:
+            print(f"  {item['metric']}: actual={item['actual']} requirement={item['requirement']}")
+    else:
+        print("Thresholds: all passed")
+    if failed_invariants:
+        print("Failed invariants:")
+        for item in failed_invariants:
+            print(f"  {item['name']}: {item.get('detail', '')}")
+    else:
+        print("Invariants: all passed")
+    print(f"Rejected log: {summary['rejected_log']}")
+    if args.full:
+        print("\nFull quality report:")
+        _json_dump(quality)
+    return 0 if passed else 2
+
+
 def _safe_remove_target(path: Path, output: Path) -> Path:
     resolved = path.resolve()
     if resolved == output or not resolved.is_relative_to(output):
@@ -426,6 +488,12 @@ def build_parser() -> argparse.ArgumentParser:
     manifest.add_argument("--json", action="store_true", help="emit JSON")
     manifest.add_argument("--full", action="store_true", help="include the full manifest")
     manifest.set_defaults(handler=_cmd_manifest)
+
+    quality = subparsers.add_parser("quality", help="inspect build quality, errors, thresholds, and invariants")
+    quality.add_argument("path", nargs="?", default=".", help="build directory, current/, failed/ entry, or manifest")
+    quality.add_argument("--json", action="store_true", help="emit JSON")
+    quality.add_argument("--full", action="store_true", help="include the full quality report")
+    quality.set_defaults(handler=_cmd_quality)
 
     clean = subparsers.add_parser("clean", help="remove build outputs or cache after review")
     clean.add_argument("--config", default=_default_config(), help="TOML configuration path")

@@ -21,6 +21,7 @@ import json
 import os
 import random
 import shutil
+import statistics
 import subprocess
 import sys
 import tempfile
@@ -232,25 +233,44 @@ def _reference_normalize(text: str) -> str:
     return result.strip()
 
 
+def _reference_text_records(input_dir: Path) -> list[str]:
+    seen: set[str] = set()
+    records: list[str] = []
+    for path in sorted(input_dir.rglob("*.txt"), key=lambda item: item.relative_to(input_dir).as_posix()):
+        text = _reference_normalize(path.read_text(encoding="utf-8"))
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        records.append(canonical_json({"text": text}))
+    return records
+
+
+def _reference_csv_records(input_path: Path) -> list[str]:
+    seen: set[str] = set()
+    records: list[str] = []
+    with input_path.open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            prompt = _reference_normalize(row.get("prompt") or "")
+            completion = _reference_normalize(row.get("completion") or "")
+            if not prompt and not completion:
+                continue
+            key = canonical_json({"prompt": prompt, "completion": completion})
+            if key in seen:
+                continue
+            seen.add(key)
+            records.append(key)
+    return records
+
+
 def worker_reference_text(input_dir: Path, output_path: Path) -> dict[str, Any]:
     started = time.perf_counter()
-    seen: set[str] = set()
-    records = 0
+    records = _reference_text_records(input_dir)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for path in sorted(input_dir.rglob("*.txt"), key=lambda item: item.relative_to(input_dir).as_posix()):
-            text = _reference_normalize(path.read_text(encoding="utf-8"))
-            if not text:
-                continue
-            if text in seen:
-                continue
-            seen.add(text)
-            handle.write(canonical_json({"text": text}) + "\n")
-            records += 1
+    output_path.write_text("".join(record + "\n" for record in records), encoding="utf-8", newline="\n")
     duration = time.perf_counter() - started
     digest, size = sha256_file(output_path)
     return {
-        "records": records,
+        "records": len(records),
         "output_bytes": size,
         "output_sha256": digest,
         "work_seconds": round(duration, 6),
@@ -363,6 +383,7 @@ def _run_worker(tool: str, input_path: Path, output_path: Path) -> dict[str, Any
     except json.JSONDecodeError as error:
         raise RuntimeError(f"{tool} worker returned invalid JSON: {error}") from error
     result["wall_seconds"] = round(wall, 6)
+    result["output_path"] = str(output_path)
     return result
 
 
@@ -422,20 +443,80 @@ def _read_records(path: Path) -> list[dict[str, Any]]:
     return records
 
 
-def _output_content_match(paths: Sequence[Path]) -> bool:
-    try:
-        datasets = [_read_records(path) for path in paths]
-    except (OSError, json.JSONDecodeError):
-        return False
-    canonical = [
-        sorted(canonical_json(record) for record in records)
-        for records in datasets
-    ]
-    return all(dataset == canonical[0] for dataset in canonical[1:])
+def _median(values: Sequence[float | None]) -> float | None:
+    clean = [value for value in values if value is not None]
+    return round(statistics.median(clean), 6) if clean else None
 
 
-def _normalize_tool_result(tool: str, result: dict[str, Any]) -> dict[str, Any]:
-    return {"tool": tool, **result}
+def _aggregate_tool(tool: str, runs: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    if not runs:
+        raise RuntimeError(f"no runs recorded for {tool}")
+    first = runs[0]
+    for run in runs[1:]:
+        if run["records"] != first["records"]:
+            raise RuntimeError(f"{tool} produced inconsistent record counts across runs")
+        if run["output_sha256"] != first["output_sha256"]:
+            raise RuntimeError(f"{tool} produced inconsistent output across runs")
+    aggregate = dict(runs[-1])
+    aggregate["tool"] = tool
+    aggregate["runs"] = len(runs)
+    for key in ("wall_seconds", "build_seconds", "verification_seconds", "work_seconds"):
+        value = _median([run.get(key) for run in runs])
+        if value is not None:
+            aggregate[key] = value
+    walls = [run["wall_seconds"] for run in runs]
+    aggregate["wall_seconds_min"] = round(min(walls), 6)
+    aggregate["wall_seconds_max"] = round(max(walls), 6)
+    peaks = [run.get("peak_rss_bytes") for run in runs if run.get("peak_rss_bytes") is not None]
+    if peaks:
+        aggregate["peak_rss_bytes"] = max(peaks)
+    return aggregate
+
+
+def _attach_throughput(tool: dict[str, Any], input_bytes: int) -> None:
+    wall = tool.get("wall_seconds")
+    peak = tool.get("peak_rss_bytes")
+    if peak is not None:
+        tool["peak_rss_mib"] = round(peak / (1024 * 1024), 3)
+    if not wall or wall <= 0:
+        return
+    tool["throughput"] = {
+        "input_mib_per_second": round(input_bytes / (1024 * 1024) / wall, 3),
+        "output_mib_per_second": round(tool["output_bytes"] / (1024 * 1024) / wall, 3),
+        "records_per_second": round(tool["records"] / wall, 3),
+    }
+
+
+def _accuracy(expected: Sequence[str], tools: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    expected_set = set(expected)
+    per_tool: dict[str, dict[str, Any]] = {}
+    all_content_match = True
+    all_duplicate_free = True
+    for tool in tools:
+        records = _read_records(Path(tool["output_path"]))
+        keys = [canonical_json(record) for record in records]
+        key_set = set(keys)
+        missing = len(expected_set - key_set)
+        extra = len(key_set - expected_set)
+        duplicates = len(keys) - len(key_set)
+        content_match = missing == 0 and extra == 0 and duplicates == 0 and len(keys) == len(expected)
+        all_content_match = all_content_match and content_match
+        all_duplicate_free = all_duplicate_free and duplicates == 0
+        per_tool[tool["tool"]] = {
+            "records": len(keys),
+            "missing_vs_reference": missing,
+            "extra_vs_reference": extra,
+            "duplicate_records": duplicates,
+            "content_match": content_match,
+        }
+    return {
+        "definition": "Record-level output parity against an independent Python reader over the same fixture.",
+        "expected_records": len(expected),
+        "all_content_match": all_content_match,
+        "all_duplicate_free": all_duplicate_free,
+        "all_byte_identical": len({tool["output_sha256"] for tool in tools}) == 1,
+        "per_tool": per_tool,
+    }
 
 
 def run_comparison(
@@ -444,12 +525,13 @@ def run_comparison(
     text_files: int = 48,
     text_kib: int = 16,
     workers: int = 2,
+    repetitions: int = 3,
     tools: Sequence[str] = ("pandas", "duckdb"),
     workdir: Path | None = None,
     keep: bool = False,
 ) -> dict[str, Any]:
-    if rows < 1 or text_files < 1 or text_kib < 1:
-        raise ValueError("rows, text_files, and text_kib must be positive")
+    if rows < 1 or text_files < 1 or text_kib < 1 or repetitions < 1:
+        raise ValueError("rows, text_files, text_kib, and repetitions must be positive")
     temporary = workdir is None
     base = Path(tempfile.mkdtemp(prefix="datum-compare-")) if temporary else workdir.expanduser().resolve()
     if not temporary:
@@ -471,42 +553,49 @@ def run_comparison(
     text_config.write_text(_text_config(workers), encoding="utf-8", newline="\n")
     csv_config.write_text(_csv_config(workers), encoding="utf-8", newline="\n")
 
-    text_tools: list[dict[str, Any]] = []
-    csv_tools: list[dict[str, Any]] = []
-    text_output_paths: list[Path] = []
-    csv_output_paths: list[Path] = []
-
-    datum_text = _run_datum(text_config)
-    text_output_paths.append(Path(datum_text.pop("output_path")))
-    text_tools.append(_normalize_tool_result("datum", datum_text))
-
+    text_tools = [
+        _aggregate_tool(
+            "datum",
+            [_run_datum(text_config) for _ in range(repetitions)],
+        )
+    ]
     reference_output = base / "reference-text.jsonl"
-    reference = _run_worker("reference-text", text_input, reference_output)
-    text_output_paths.append(reference_output)
-    text_tools.append(_normalize_tool_result("python-reference", reference))
+    reference_runs = [
+        _run_worker("reference-text", text_input, reference_output)
+        for _ in range(repetitions)
+    ]
+    text_tools.append(_aggregate_tool("python-reference", reference_runs))
 
-    datum_csv = _run_datum(csv_config)
-    csv_output_paths.append(Path(datum_csv.pop("output_path")))
-    csv_tools.append(_normalize_tool_result("datum", datum_csv))
+    csv_tools = [
+        _aggregate_tool(
+            "datum",
+            [_run_datum(csv_config) for _ in range(repetitions)],
+        )
+    ]
 
     skipped: list[dict[str, str]] = []
-    for tool, worker, output_name in (
-        ("pandas", worker_pandas, "pandas.jsonl"),
-        ("duckdb", worker_duckdb, "duckdb.jsonl"),
-    ):
+    for tool, worker in (("pandas", worker_pandas), ("duckdb", worker_duckdb)):
         if tool not in tools:
             skipped.append({"workload": "csv-transform", "tool": tool, "reason": "not requested"})
             continue
         if importlib.util.find_spec(tool) is None:
             skipped.append({"workload": "csv-transform", "tool": tool, "reason": "not installed"})
             continue
-        output = base / output_name
-        result = _run_worker(tool, csv_path, output)
-        csv_output_paths.append(output)
-        csv_tools.append(_normalize_tool_result(tool, result))
+        output = base / f"{tool}.jsonl"
+        runs = [_run_worker(tool, csv_path, output) for _ in range(repetitions)]
+        csv_tools.append(_aggregate_tool(tool, runs))
+
+    for tool in text_tools:
+        _attach_throughput(tool, text_bytes)
+    for tool in csv_tools:
+        _attach_throughput(tool, csv_bytes)
+    text_accuracy = _accuracy(_reference_text_records(text_input), text_tools)
+    csv_accuracy = _accuracy(_reference_csv_records(csv_path), csv_tools)
+    for tool in [*text_tools, *csv_tools]:
+        tool.pop("output_path", None)
 
     report = {
-        "comparison_schema_version": 1,
+        "comparison_schema_version": 2,
         "created_at": utc_now_iso(),
         "datum_version": __version__,
         "source_commit": _source_commit(),
@@ -523,18 +612,23 @@ def run_comparison(
                 "input_bytes": csv_bytes,
             },
             "workers": workers,
+            "repetitions": repetitions,
         },
         "workloads": {
             "text-ingest": {
                 "description": "Read sorted text files, normalize, drop empty/duplicate text, write JSONL.",
+                "input_bytes": text_bytes,
                 "tools": text_tools,
-                "output_content_match": _output_content_match(text_output_paths),
+                "output_content_match": text_accuracy["all_content_match"],
+                "accuracy": text_accuracy,
                 "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
             },
             "csv-transform": {
                 "description": "Read CSV prompt/completion pairs, trim fields, drop empty/duplicate pairs, write JSONL.",
+                "input_bytes": csv_bytes,
                 "tools": csv_tools,
-                "output_content_match": _output_content_match(csv_output_paths),
+                "output_content_match": csv_accuracy["all_content_match"],
+                "accuracy": csv_accuracy,
                 "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
             },
         },
@@ -542,8 +636,9 @@ def run_comparison(
         "notes": [
             "DATUM runs a complete build; pandas, DuckDB, and the Python reference run only the stated transform.",
             "The Python reference is an internal baseline, not a marketed data product.",
-            "Wall time includes Python process startup for all tools.",
-            "These synthetic fixtures measure mechanics and overhead, not data quality or downstream model performance.",
+            "Times are medians across repeated runs; wall time includes Python process startup for all tools.",
+            "Accuracy means record-level output parity against an independent Python reader, not model quality.",
+            "These synthetic fixtures measure mechanics, throughput, memory, and parity, not downstream model performance.",
             "Do not present this report as a general performance ranking.",
         ],
     }
@@ -558,6 +653,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--text-files", type=int, default=48)
     parser.add_argument("--text-kib", type=int, default=16)
     parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--tools", default="pandas,duckdb", help="comma-separated optional tools")
     parser.add_argument("--workdir", help="retain fixtures and outputs here")
     parser.add_argument("--json-out", help="write the report to a file")
@@ -585,6 +681,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             text_files=args.text_files,
             text_kib=args.text_kib,
             workers=args.workers,
+            repetitions=args.repetitions,
             tools=tuple(item.strip() for item in args.tools.split(",") if item.strip()),
             workdir=Path(args.workdir) if args.workdir else None,
             keep=bool(args.workdir),
@@ -601,11 +698,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     else:
         print(f"DATUM {report['datum_version']} cross-tool comparison")
         for workload, payload in report["workloads"].items():
-            print(f"  {workload}: content match={payload['output_content_match']}")
+            accuracy = payload["accuracy"]
+            print(
+                f"  {workload}: parity={accuracy['all_content_match']} "
+                f"expected={accuracy['expected_records']} byte-identical={accuracy['all_byte_identical']}"
+            )
             for tool in payload["tools"]:
+                throughput = tool.get("throughput", {})
                 print(
                     f"    {tool['tool']:<17} wall={tool['wall_seconds']:.3f}s "
-                    f"records={tool['records']} peak={tool.get('peak_rss_bytes')}"
+                    f"in={throughput.get('input_mib_per_second', 0):.2f} MiB/s "
+                    f"records={tool['records']} rec/s={throughput.get('records_per_second', 0):.1f} "
+                    f"peak={tool.get('peak_rss_mib', 0):.1f} MiB"
                 )
         if report["skipped"]:
             print("  skipped:", ", ".join(f"{item['tool']} ({item['reason']})" for item in report["skipped"]))
