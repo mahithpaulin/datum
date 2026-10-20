@@ -977,7 +977,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--keep-outputs",
         choices=["all", "first"],
         default="all",
-        help="Retain every trial output or only the first completed output per tool/mode.",
+        help="Retain every trial output or only the first completed output per tool.",
     )
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--allow-low-resource", action="store_true")

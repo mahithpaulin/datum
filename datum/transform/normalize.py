@@ -9,6 +9,17 @@ from dataclasses import asdict, dataclass
 from ..config import NormalizeOptions
 
 
+_CONTROL_CHARS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]")
+_STAT_FIELDS = (
+    "line_endings_converted",
+    "control_chars_removed",
+    "unicode_normalized",
+    "outer_whitespace_stripped",
+    "trailing_whitespace_removed",
+    "whitespace_collapsed",
+)
+
+
 @dataclass
 class NormalizeStats:
     line_endings_converted: int = 0
@@ -19,8 +30,8 @@ class NormalizeStats:
     whitespace_collapsed: int = 0
 
     def add(self, other: "NormalizeStats") -> None:
-        for key, value in asdict(other).items():
-            setattr(self, key, getattr(self, key) + value)
+        for key in _STAT_FIELDS:
+            setattr(self, key, getattr(self, key) + getattr(other, key))
 
     def to_dict(self) -> dict[str, int]:
         return asdict(self)
@@ -40,19 +51,7 @@ def normalize_text(text: str, options: NormalizeOptions) -> tuple[str, Normalize
         stats.line_endings_converted = crlf + lone
         result = result.replace("\r\n", "\n").replace("\r", "\n")
     if options.strip_control_chars:
-        removable = []
-        allowed = "\n\t"
-        if options.line_endings == "preserve":
-            allowed += "\r"
-        for character in result:
-            if character in allowed:
-                continue
-            if unicodedata.category(character) == "Cc":
-                removable.append(character)
-        if removable:
-            stats.control_chars_removed = len(removable)
-            for character in set(removable):
-                result = result.replace(character, "")
+        result, stats.control_chars_removed = _CONTROL_CHARS.subn("", result)
     if options.strip_trailing_whitespace:
         lines = result.split("\n")
         changed = 0

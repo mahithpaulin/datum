@@ -189,7 +189,8 @@ python benchmarks/run.py \
   --mode both \
   --tools python \
   --repetitions 3 \
-  --warmups 1
+  --warmups 1 \
+  --keep-outputs first
 ```
 
 The Kaggle notebook in `benchmarks/kaggle/` runs Tiers A/B across profiles and a Tier C

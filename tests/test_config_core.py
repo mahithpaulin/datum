@@ -118,6 +118,20 @@ def test_character_chunking_overlap_and_normalization():
     assert stats.control_chars_removed == 1
 
 
+def test_control_character_normalization_is_exact():
+    from datum.config import NormalizeOptions
+
+    options = NormalizeOptions(
+        line_endings="preserve",
+        strip_control_chars=True,
+        strip_outer_whitespace=False,
+        strip_trailing_whitespace=False,
+    )
+    normalized, stats = normalize_text("\x00a\rb\tc\n\x7f\x85d", options)
+    assert normalized == "a\rb\tc\nd"
+    assert stats.control_chars_removed == 3
+
+
 def load_normalize():
     from datum.config import NormalizeOptions
 
