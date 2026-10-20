@@ -153,7 +153,7 @@ python -m pytest
 The suite covers configuration validation, discovery, adapters (text, structured, DOCX,
 PDF), chunking, schema validation, end-to-end builds, deduplication, splitting, caching,
 strict mode, quality failures, provenance, manifest verification, tamper detection, the
-CLI, the synthetic benchmark, and the reference-only cross-tool comparison path.
+CLI, the synthetic benchmark, and the cross-tool comparison path (the reference baseline runs without pandas or DuckDB).
 
 ## License
 

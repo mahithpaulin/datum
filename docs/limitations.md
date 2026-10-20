@@ -6,8 +6,8 @@ scope is not mistaken for a production data platform.
 ## Product status
 
 - No production SLA, long-term support, migration policy, or security audit.
-- No published real-world corpus benchmark or cross-tool comparison result. A mechanics
-  comparison harness exists, but it is not customer-corpus evidence.
+- No published real-world corpus benchmark or independent cross-tool comparison. One
+  synthetic CI mechanics comparison exists, but it is not customer-corpus evidence.
 - No downstream model-quality evaluation. Schema-valid does not mean useful.
 - The package is marked proprietary and does not grant an open-source license.
 - AI assistance is disabled. The provider interface is a placeholder, not a feature.

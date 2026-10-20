@@ -19,6 +19,7 @@ Implemented:
 - Atomic publish to `current/`, `previous/`, and `failed/`.
 - CLI: build, inspect, validate, verify, manifest, clean, benchmark, version.
 - Test suite and synthetic benchmark smoke result.
+- Cross-tool mechanics comparison harness with one checked-in GitHub Actions result.
 
 Exit criteria for treating this as a stable preview:
 

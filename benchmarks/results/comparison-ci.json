@@ -1,0 +1,106 @@
+{
+  "comparison_schema_version": 1,
+  "created_at": "2026-10-20T05:13:29Z",
+  "datum_version": "0.1.0",
+  "environment": {
+    "cpu_count": 4,
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "memory_total_bytes": 16759443456,
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+    "python": "3.13.16"
+  },
+  "fixture": {
+    "csv": {
+      "input_bytes": 2870976,
+      "rows": 30000
+    },
+    "text": {
+      "file_kib": 16,
+      "files": 48,
+      "input_bytes": 760621
+    },
+    "workers": 2
+  },
+  "mode": "cross-tool-comparison",
+  "notes": [
+    "DATUM runs a complete build; pandas, DuckDB, and the Python reference run only the stated transform.",
+    "The Python reference is an internal baseline, not a marketed data product.",
+    "Wall time includes Python process startup for all tools.",
+    "These synthetic fixtures measure mechanics and overhead, not data quality or downstream model performance.",
+    "Do not present this report as a general performance ranking."
+  ],
+  "skipped": [],
+  "source_commit": "4a875ad1ebb9f95af73e2b54c1b0747249960042",
+  "workloads": {
+    "csv-transform": {
+      "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
+      "description": "Read CSV prompt/completion pairs, trim fields, drop empty/duplicate pairs, write JSONL.",
+      "output_content_match": true,
+      "tools": [
+        {
+          "build_seconds": 2.909785,
+          "kind": "full build",
+          "output_bytes": 3055991,
+          "output_sha256": "1af0139511a20844e0a3eb905e2bd61591e5030829c6812c02a76ac4b75e39e6",
+          "peak_rss_bytes": 32657408,
+          "records": 29940,
+          "status": "passed",
+          "tool": "datum",
+          "verification_seconds": 0.187828,
+          "wall_seconds": 3.049883,
+          "workers": 1
+        },
+        {
+          "output_bytes": 3055991,
+          "output_sha256": "1af0139511a20844e0a3eb905e2bd61591e5030829c6812c02a76ac4b75e39e6",
+          "pandas_version": "3.0.6",
+          "peak_rss_bytes": 94740480,
+          "records": 29940,
+          "tool": "pandas",
+          "wall_seconds": 0.905293,
+          "work_seconds": 0.255995
+        },
+        {
+          "duckdb_version": "1.5.6",
+          "output_bytes": 3055991,
+          "output_sha256": "d663ab1b8bce5edf07612849fd716b4820b2342dbfcf7034108a9347c680d842",
+          "peak_rss_bytes": 182833152,
+          "records": 29940,
+          "tool": "duckdb",
+          "wall_seconds": 0.58544,
+          "work_seconds": 0.364085
+        }
+      ]
+    },
+    "text-ingest": {
+      "datum_extra_work": "Schema validation, quality accounting, manifest, and post-build verification.",
+      "description": "Read sorted text files, normalize, drop empty/duplicate text, write JSONL.",
+      "output_content_match": true,
+      "tools": [
+        {
+          "build_seconds": 0.198218,
+          "kind": "full build",
+          "output_bytes": 714109,
+          "output_sha256": "4f5f12b6deb2fa3f96da9dac71e7e3008518a7a1d857ef0342505f86a6a4e875",
+          "peak_rss_bytes": 30056448,
+          "records": 44,
+          "status": "passed",
+          "tool": "datum",
+          "verification_seconds": 0.003516,
+          "wall_seconds": 0.72766,
+          "workers": 2
+        },
+        {
+          "output_bytes": 714109,
+          "output_sha256": "4f5f12b6deb2fa3f96da9dac71e7e3008518a7a1d857ef0342505f86a6a4e875",
+          "peak_rss_bytes": 25591808,
+          "records": 44,
+          "tool": "python-reference",
+          "wall_seconds": 0.181391,
+          "work_seconds": 0.082793
+        }
+      ]
+    }
+  }
+}
