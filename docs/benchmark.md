@@ -86,6 +86,40 @@ python -m datum.cli benchmark --files 32 --file-kib 64 --workers 4 --workdir /pa
 
 The JSON report is versioned by `benchmark_schema_version` (currently `1`).
 
+## Cross-tool comparison
+
+The synthetic benchmark above measures DATUM against itself. `benchmarks/compare.py` adds a
+separate mechanics comparison on two narrow workloads:
+
+- **text-ingest** — DATUM against a small independent Python reference that reads sorted text
+  files, normalizes, drops empty and duplicate text, and writes JSONL.
+- **csv-transform** — DATUM against pandas and DuckDB, when installed. Each tool reads the
+  same CSV, trims prompt/completion fields, drops empty and duplicate pairs, and writes JSONL.
+
+DATUM performs a complete build: schema validation, quality accounting, manifest generation,
+and post-build verification. The baseline tools perform only the stated transform. For that
+reason the comparison is labelled a mechanics comparison, not an apples-to-apples product
+ranking, and wall times include process startup for every tool.
+
+The script checks output content equality across tools and fails if they disagree. DATUM's
+additional work is recorded in every report so a reader cannot mistake the comparison for an
+isolated transform speed test.
+
+Run it from the repository root:
+
+```sh
+python benchmarks/compare.py \
+  --rows 30000 \
+  --text-files 48 \
+  --text-kib 16 \
+  --workers 2 \
+  --json-out benchmarks/results/comparison.json
+```
+
+`pandas` and `duckdb` are optional; missing tools are listed as skipped. The
+`.github/workflows/benchmark.yml` workflow installs both and publishes the comparison report
+as a downloadable artifact. No cross-tool result is checked into the repository yet.
+
 ## Interpreting results
 
 - Compare runs produced by the same commit, fixture settings, host, and power state.
@@ -98,6 +132,7 @@ The JSON report is versioned by `benchmark_schema_version` (currently `1`).
 
 ## Missing evidence
 
-There is no public acceptance corpus, no cross-tool comparison, no cold-storage benchmark,
-and no long-running large-corpus result yet. Those are roadmap items and must be produced
-before making public performance claims.
+There is no public acceptance corpus, no published cross-tool result, no cold-storage
+benchmark, and no long-running large-corpus result yet. The comparison harness exists, but its
+output must be reviewed against the stated fairness limits. These are roadmap items and must
+be produced before making public performance claims.

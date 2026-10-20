@@ -38,6 +38,20 @@ real-time ingestion, or a full feature store.
 
 Each claim should be tested with a concrete before/after workflow, not a feature demo.
 
+## Current proof assets
+
+- [Quickstart and customer workflow](quickstart.md): validate → inspect → build → quality
+  review → independent verification.
+- `examples/datum.toml`: plain-text build with chunking, splits, provenance, cache, and a
+  committed verified snapshot.
+- `examples/structured/`: nested JSONL → custom schema → mapping → dedup → splits, with
+  deliberate rejects and a committed verified snapshot.
+- `docs/quality.md`: the accounting and threshold model used as the review gate.
+- `docs/benchmark.md`: synthetic mechanics evidence and the limits on what it proves.
+
+These assets demonstrate mechanics and reviewability. They are not customer evidence and do
+not prove willingness to pay.
+
 ## Pricing hypotheses
 
 These are hypotheses to validate, not published prices.

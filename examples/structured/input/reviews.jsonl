@@ -1,0 +1,12 @@
+{"review":{"id":"R-1001","headline":"Fast and reliable","body":"The setup was quick and the dataset built exactly as documented."},"rating":5,"sentiment":"positive"}
+{"review":{"id":"R-1002","headline":"Clear errors","body":"The build failed until I fixed my mapping, but the error pointed at the exact field."},"rating":2,"sentiment":"negative"}
+{"review":{"id":"R-1003","headline":"Good for offline work","body":"It works offline and the manifest gives me confidence in every release."},"rating":4,"sentiment":"positive"}
+{"review":{"id":"R-1004","headline":"Verifier caught a problem","body":"The verifier caught a hand-edited record before the dataset reached training."},"rating":5,"sentiment":"positive"}
+{"review":{"id":"R-1005","headline":"Useful quality report","body":"The quality report explains every rejected row and keeps the accounting easy to audit."},"rating":4,"sentiment":"positive"}
+{"review":{"id":"R-1006","headline":"Reproducible builds","body":"Rebuilding from the same source produced identical records and the same manifest identity."},"rating":5,"sentiment":"positive"}
+{"review":{"id":"R-1007","headline":"Needs better docs","body":"The command works, though I needed to read the configuration reference more than once."},"rating":3,"sentiment":"neutral"}
+{"review":{"id":"R-1008","headline":"Strict mode helped","body":"Strict mode stopped a malformed input file instead of silently publishing a partial dataset."},"rating":4,"sentiment":"positive"}
+{"review":{"id":"R-1001","headline":"Fast and reliable","body":"The setup was quick and the dataset built exactly as documented."},"rating":5,"sentiment":"positive"}
+{"review":{"id":"R-1009","headline":"Mixed feelings","body":"The output is useful but the current release is still a development preview."},"rating":3,"sentiment":"mixed"}
+{"review":{"id":"R-1010","headline":"Out of range","body":"This row deliberately carries a rating outside the schema range for the example."},"rating":7,"sentiment":"positive"}
+{"review":{"id":"R-1011","headline":"Missing body","body":null},"rating":3,"sentiment":"neutral"}

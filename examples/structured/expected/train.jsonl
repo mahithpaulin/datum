@@ -1,0 +1,6 @@
+{"headline":"Fast and reliable","label":"positive","review_id":"R-1001","score":5,"text":"The setup was quick and the dataset built exactly as documented."}
+{"headline":"Clear errors","label":"negative","review_id":"R-1002","score":2,"text":"The build failed until I fixed my mapping, but the error pointed at the exact field."}
+{"headline":"Good for offline work","label":"positive","review_id":"R-1003","score":4,"text":"It works offline and the manifest gives me confidence in every release."}
+{"headline":"Reproducible builds","label":"positive","review_id":"R-1006","score":5,"text":"Rebuilding from the same source produced identical records and the same manifest identity."}
+{"headline":"Needs better docs","label":"neutral","review_id":"R-1007","score":3,"text":"The command works, though I needed to read the configuration reference more than once."}
+{"headline":"Strict mode helped","label":"positive","review_id":"R-1008","score":4,"text":"Strict mode stopped a malformed input file instead of silently publishing a partial dataset."}

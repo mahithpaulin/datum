@@ -70,6 +70,7 @@ source directory
 | `datum/verify.py` | Independent manifest and artifact verification |
 | `datum/cli.py` | Command-line interface and exit codes |
 | `datum/benchmark.py` | Synthetic fixture and three-run mechanics benchmark |
+| `benchmarks/compare.py` | Optional cross-tool mechanics comparison against a reference, pandas, and DuckDB |
 
 ## Determinism model
 

@@ -47,8 +47,10 @@ jobs:
           assert verify["ok"] is True, verify
           print("example build and verification passed")
           PY
-      - name: Verify checked-in expected snapshot
-        run: python -m datum.cli verify examples/expected
+      - name: Verify checked-in expected snapshots
+        run: |
+          python -m datum.cli verify examples/expected
+          python -m datum.cli verify examples/structured/expected
 
   package:
     name: Build package

@@ -44,16 +44,30 @@ from a checkout:
 
 ```sh
 python -m datum.cli build --config examples/datum.toml
-python -m datum.cli verify examples/output/example/current
+python -m datum.cli verify examples/output/example/current --sources
 python -m datum.cli manifest examples/output/example/current
+```
+
+The text example reads three documents, skips one unsupported image, and exports three text
+records. A structured example maps nested JSONL into a custom schema:
+
+```sh
+python -m datum.cli build --config examples/structured/datum.toml
+python -m datum.cli verify examples/structured/output/structured/current --sources
+```
+
+Committed snapshots are available under `examples/expected/` and
+`examples/structured/expected/`; verify them without the original source paths:
+
+```sh
+python -m datum.cli verify examples/expected
+python -m datum.cli verify examples/structured/expected
 ```
 
 To install the `datum` console script, use `python -m pip install -e .`. The build backend
 requires `setuptools >= 68`; offline environments without it should use `python -m datum.cli`
-from the repository root instead.
-
-The example build reads three documents, skips one unsupported image, exports three text
-records, and writes a verified snapshot under `examples/output/example/current/`.
+from the repository root instead. See the [quickstart and customer workflow](docs/quickstart.md)
+for the full validate → inspect → build → review → verify path.
 
 Useful commands:
 
@@ -119,6 +133,7 @@ Excel, Parquet, and archives are not parsed in this release. See
 
 ## Documentation
 
+- [Quickstart and customer workflow](docs/quickstart.md)
 - [Architecture](docs/architecture.md)
 - [Configuration reference](docs/configuration.md)
 - [Schemas and mapping](docs/schemas.md)
@@ -138,7 +153,7 @@ python -m pytest
 The suite covers configuration validation, discovery, adapters (text, structured, DOCX,
 PDF), chunking, schema validation, end-to-end builds, deduplication, splitting, caching,
 strict mode, quality failures, provenance, manifest verification, tamper detection, the
-CLI, and the synthetic benchmark.
+CLI, the synthetic benchmark, and the reference-only cross-tool comparison path.
 
 ## License
 

@@ -1,0 +1,610 @@
+{
+  "build": {
+    "build_id": "c384ce7368564f71f7547b7aa3dd405f",
+    "finished_at": "2026-10-20T05:05:41Z",
+    "output_identity": "86a1fb65f09b78700b0962786a567f395f11bfb3446fbe5649bd911fc2422c6d",
+    "started_at": "2026-10-20T05:05:41Z",
+    "status": "complete"
+  },
+  "cache": {
+    "directory": "/data/data/com.termux/files/home/projects/datum/examples/structured/output/structured/.datum-cache",
+    "enabled": true,
+    "entry_bytes": 6190,
+    "hash_seconds": 0.00033,
+    "hits": 0,
+    "invalid": 0,
+    "misses": 1,
+    "read_seconds": 0.000238,
+    "write_errors": 0,
+    "write_seconds": 0.0,
+    "writes": 1
+  },
+  "config": {
+    "ai": {
+      "api_key_env": "",
+      "base_url": "",
+      "enabled": false,
+      "max_calls": 0,
+      "model": "",
+      "provider": ""
+    },
+    "cache": {
+      "dir": null,
+      "enabled": true,
+      "verify_integrity": true
+    },
+    "chunking": {
+      "enabled": false,
+      "overlap": 0,
+      "size": 4000,
+      "tokenizer": "",
+      "unit": "chars"
+    },
+    "completion_separator": "",
+    "config_version": 1,
+    "dedup": {
+      "enabled": true,
+      "index": "memory"
+    },
+    "errors": {
+      "policy": "permissive",
+      "unsupported": "skip"
+    },
+    "length": {
+      "max_chars": 5000,
+      "min_chars": 80,
+      "oversize": "reject"
+    },
+    "limits": {
+      "max_archive_uncompressed_bytes": 268435456,
+      "max_file_bytes": 67108864,
+      "max_records_per_file": 1000000,
+      "min_free_disk_bytes": 52428800
+    },
+    "manifest": {
+      "include_input_hashes": true
+    },
+    "mapping": {
+      "fields": {
+        "headline": "review.headline",
+        "label": "sentiment",
+        "review_id": "review.id",
+        "score": "rating",
+        "text": "review.body"
+      }
+    },
+    "normalize": {
+      "collapse_whitespace": false,
+      "line_endings": "lf",
+      "strip_control_chars": true,
+      "strip_outer_whitespace": true,
+      "strip_trailing_whitespace": false,
+      "unicode_form": "none"
+    },
+    "output": {
+      "dir": "/data/data/com.termux/files/home/projects/datum/examples/structured/output/structured"
+    },
+    "pdf": {
+      "engine": "builtin"
+    },
+    "provenance": {
+      "include_file_sha256": true,
+      "inline_field": "_datum",
+      "mode": "sidecar"
+    },
+    "quality": {
+      "include_samples": false,
+      "max_duplicate_rate": 0.5,
+      "max_file_error_rate": 0.5,
+      "max_samples": 20,
+      "max_schema_rejection_rate": 0.5,
+      "min_exported_records": 8,
+      "sample_chars": 160
+    },
+    "runtime": {
+      "progress": false,
+      "workers": 1
+    },
+    "schema": {
+      "file": "/data/data/com.termux/files/home/projects/datum/examples/structured/review.schema.json",
+      "name": "custom",
+      "version": 1
+    },
+    "source": {
+      "csv_delimiter": "auto",
+      "csv_has_header": true,
+      "detect_content": true,
+      "encoding": "auto",
+      "encoding_errors": "strict",
+      "exclude": [],
+      "follow_symlinks": false,
+      "include_hidden": false,
+      "json_records_path": "",
+      "jsonl_skip_blank": true,
+      "ordering": "path",
+      "path": "/data/data/com.termux/files/home/projects/datum/examples/structured/input",
+      "recursive": true,
+      "text_fallback": false
+    },
+    "split": {
+      "enabled": true,
+      "seed": 1,
+      "test": 0.25,
+      "train": 0.5,
+      "validation": 0.25
+    }
+  },
+  "config_fingerprint": "3d657e9003100e30c1feee78bd7c2b0cec5fe4eec5c61765c3b7276347b74972",
+  "datum_version": "0.1.0",
+  "dependencies": {
+    "optional": {},
+    "required": {}
+  },
+  "environment": {
+    "cpu_count": 8,
+    "implementation": "CPython",
+    "machine": "aarch64",
+    "memory_total_bytes": 3921993728,
+    "platform": "Android-13-aarch64-64bit",
+    "python": "3.14.6"
+  },
+  "inputs": [
+    {
+      "adapter": "jsonl",
+      "format": "jsonl",
+      "path": "reviews.jsonl",
+      "sha256": "60cab7cdf71d90c2175a70c4009e246456a457a525ceaafe36e765568e53637a",
+      "size": 2092,
+      "status": "processed"
+    }
+  ],
+  "manifest_schema_version": 1,
+  "notes": [
+    "Dataset bytes are deterministic for equivalent inputs and processing configuration.",
+    "Timestamps, durations, environment details, and cache statistics make manifest bytes nondeterministic.",
+    "Schema validity is a mechanical check, not a guarantee of semantic correctness."
+  ],
+  "ordering": "source path ascending; source record ordinal; chunk index",
+  "output_identity": "86a1fb65f09b78700b0962786a567f395f11bfb3446fbe5649bd911fc2422c6d",
+  "outputs": [
+    {
+      "bytes": 183,
+      "path": "test.jsonl",
+      "records": 1,
+      "sha256": "6a4028a83987809a90770b225f3dc09eae867e495879f36a17b21459cb3f7b3f"
+    },
+    {
+      "bytes": 1046,
+      "path": "train.jsonl",
+      "records": 6,
+      "sha256": "fe98050bb80a2d2943051f0927fcf6e0437bb23c5f7db43cf59813facad4e724"
+    },
+    {
+      "bytes": 178,
+      "path": "validation.jsonl",
+      "records": 1,
+      "sha256": "135ae87863274fc704ed81f42ad8eee716c42f4e773144d003d1a18752ae2999"
+    }
+  ],
+  "performance": {
+    "compile_seconds": 0.004996,
+    "dedup_hash_seconds": 0.000414,
+    "dedup_index_seconds": 2.7e-05,
+    "discovery_seconds": 0.001356,
+    "exported_records_per_second": 283.91176,
+    "files_per_second": 75.823416,
+    "input_bytes": 2092,
+    "input_mib_per_second": 0.151274,
+    "output_bytes": 1407,
+    "peak_rss_bytes": 27131904,
+    "processing_seconds": 0.013189,
+    "rejected_bytes": 1232,
+    "sidecar_bytes": 3604,
+    "source_records_per_second": 909.880989,
+    "total_seconds": 0.153451,
+    "verification_seconds": 0.008588,
+    "workers": 1
+  },
+  "pipeline_fingerprint": "12803d32fc6c9d72bdca4f568c75768e98cdcb25b3717a3231d9ed1efa52d772",
+  "pipeline_version": 1,
+  "quality": {
+    "build_id": "c384ce7368564f71f7547b7aa3dd405f",
+    "cache": {
+      "directory": "/data/data/com.termux/files/home/projects/datum/examples/structured/output/structured/.datum-cache",
+      "enabled": true,
+      "entry_bytes": 6190,
+      "hash_seconds": 0.00033,
+      "hits": 0,
+      "invalid": 0,
+      "misses": 1,
+      "read_seconds": 0.000238,
+      "write_errors": 0,
+      "write_seconds": 0.0,
+      "writes": 1
+    },
+    "definitions": {
+      "exported": "records written to dataset files; independent verification revalidates bytes, schema, and counts",
+      "file_error_rate": "failed files / discovered files",
+      "record_duplicate_rate": "duplicates / retained_pre_dedup",
+      "retained_pre_dedup": "candidates passing empty, length, and schema checks before exact deduplication",
+      "schema_compliance": "(schema_checked - schema_rejected) / schema_checked; null when no candidate reached schema validation"
+    },
+    "errors": {
+      "by_code": {
+        "schema_invalid": 2
+      },
+      "examples": [
+        {
+          "code": "schema_invalid",
+          "message": "$.label: value is not one of the allowed enum values",
+          "path": "reviews.jsonl",
+          "severity": "error"
+        },
+        {
+          "code": "schema_invalid",
+          "message": "$.score: value above maximum 5.0",
+          "path": "reviews.jsonl",
+          "severity": "error"
+        }
+      ],
+      "examples_truncated": false,
+      "total": 2
+    },
+    "files": {
+      "discovered": 1,
+      "duplicate_targets_skipped": 0,
+      "empty_files": 0,
+      "excluded_by_config": 0,
+      "failed": 0,
+      "hidden_skipped": 0,
+      "input_bytes_discovered": 2092,
+      "input_bytes_processed": 2092,
+      "non_regular_skipped": 0,
+      "processed": 1,
+      "processed_with_errors": 0,
+      "skipped": 0,
+      "symlinks_skipped": 0,
+      "walk_issues": 0
+    },
+    "invariants": [
+      {
+        "detail": "discovered=1 processed=1 failed=0 skipped=0",
+        "name": "file_accounting",
+        "passed": true
+      },
+      {
+        "detail": "processed_with_errors=0 processed=1",
+        "name": "processed_with_errors_subset",
+        "passed": true
+      },
+      {
+        "detail": "extracted=12 mapped=12 mapping_rejected=0",
+        "name": "source_record_mapping",
+        "passed": true
+      },
+      {
+        "detail": "chunks=12 empty=0 too_short=1 too_long=0 schema_rejected=2 duplicates=1 exported=8",
+        "name": "candidate_outcomes",
+        "passed": true
+      },
+      {
+        "detail": "retained_pre_dedup=9",
+        "name": "retention_equation",
+        "passed": true
+      },
+      {
+        "detail": "exported=8 retained_pre_dedup=9 duplicates=1",
+        "name": "export_equation",
+        "passed": true
+      },
+      {
+        "detail": "exported=8 split_total=8",
+        "name": "split_accounting",
+        "passed": true
+      },
+      {
+        "detail": "log_entries=4 rejected_total=4 malformed_input=0",
+        "name": "rejected_log_accounting",
+        "passed": true
+      }
+    ],
+    "lengths": {
+      "count": 8,
+      "max": 124,
+      "mean": 113.875,
+      "min": 95,
+      "p50": 116,
+      "p90": 124,
+      "p99": 124,
+      "total_chars": 911
+    },
+    "performance": {
+      "compile_seconds": 0.004996,
+      "dedup_hash_seconds": 0.000414,
+      "dedup_index_seconds": 2.7e-05,
+      "discovery_seconds": 0.001356,
+      "exported_records_per_second": 283.91176,
+      "files_per_second": 75.823416,
+      "input_bytes": 2092,
+      "input_mib_per_second": 0.151274,
+      "output_bytes": 1407,
+      "peak_rss_bytes": 27131904,
+      "processing_seconds": 0.013189,
+      "rejected_bytes": 1232,
+      "sidecar_bytes": 3604,
+      "source_records_per_second": 909.880989,
+      "total_seconds": 0.153451,
+      "verification_seconds": 0.008588,
+      "workers": 1
+    },
+    "rates": {
+      "file_error_rate": 0.0,
+      "file_skip_rate": 0.0,
+      "mapping_rejection_rate": 0.0,
+      "record_duplicate_rate": 0.1111111111111111,
+      "schema_compliance": 0.8181818181818182,
+      "schema_rejection_rate": 0.18181818181818182
+    },
+    "records": {
+      "chunks_created": 12,
+      "duplicates": 1,
+      "empty": 0,
+      "excluded_total": 4,
+      "exported": 8,
+      "malformed_input": 0,
+      "mapping_rejected": 0,
+      "rejected_total": 4,
+      "retained_pre_dedup": 9,
+      "schema_rejected": 2,
+      "source_records_extracted": 12,
+      "source_records_mapped": 12,
+      "source_records_split": 0,
+      "too_long": 0,
+      "too_short": 1,
+      "truncated": 0
+    },
+    "rejected": {
+      "by_rule": {
+        "duplicate": 1,
+        "schema_invalid": 2,
+        "too_short": 1
+      },
+      "log_entries": 4
+    },
+    "schema": {
+      "checked": 11,
+      "compliance": 0.8181818181818182,
+      "name": "review",
+      "note": "schema compliance is mechanical, not semantic correctness",
+      "rejected": 2,
+      "version": 1
+    },
+    "schema_version": 1,
+    "splits": {
+      "test": 1,
+      "train": 6,
+      "validation": 1
+    },
+    "status": "passed",
+    "threshold_failures": [],
+    "thresholds": [
+      {
+        "actual": 8,
+        "metric": "min_exported_records",
+        "passed": true,
+        "requirement": ">= 8"
+      },
+      {
+        "actual": 0.0,
+        "metric": "max_file_error_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      },
+      {
+        "actual": 0.18181818181818182,
+        "metric": "max_schema_rejection_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      },
+      {
+        "actual": 0.1111111111111111,
+        "metric": "max_duplicate_rate",
+        "passed": true,
+        "requirement": "<= 0.5"
+      }
+    ],
+    "transformation": {
+      "control_chars_removed": 0,
+      "encoding_replacements": 0,
+      "line_endings_converted": 0,
+      "outer_whitespace_stripped": 0,
+      "trailing_whitespace_removed": 0,
+      "truncated_records": 0,
+      "unicode_normalized": 0,
+      "warnings": 0,
+      "whitespace_collapsed": 0
+    }
+  },
+  "rejected": {
+    "bytes": 1232,
+    "path": "rejected.jsonl",
+    "records": 4,
+    "sha256": "7407cbf0f6ab90c76882fd96b559a883649fa09683410276e2b5bcb834afb074"
+  },
+  "schema": {
+    "additional_properties": false,
+    "description": "A customer review with explicit rating and sentiment labels",
+    "fields": {
+      "headline": {
+        "min_length": 5,
+        "required": true,
+        "type": "string"
+      },
+      "label": {
+        "enum": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "required": true,
+        "type": "string"
+      },
+      "review_id": {
+        "min_length": 6,
+        "required": true,
+        "type": "string"
+      },
+      "score": {
+        "maximum": 5.0,
+        "minimum": 1.0,
+        "required": true,
+        "type": "integer"
+      },
+      "text": {
+        "min_length": 40,
+        "required": true,
+        "type": "string"
+      }
+    },
+    "kind": "custom",
+    "name": "review",
+    "version": 1
+  },
+  "seed": 1,
+  "sidecar": {
+    "bytes": 3604,
+    "path": "provenance.jsonl",
+    "records": 8,
+    "sha256": "0db73fbaf79157656fedade9165c6f0043d5a672719fa6fea54485bba82de4e3"
+  },
+  "transformations": [
+    {
+      "config": {
+        "ordering": "path",
+        "recursive": true
+      },
+      "name": "discovery",
+      "version": 1
+    },
+    {
+      "adapters": [
+        "text",
+        "delimited",
+        "json",
+        "jsonl",
+        "pdf",
+        "docx"
+      ],
+      "name": "extraction",
+      "version": 1
+    },
+    {
+      "config": {
+        "collapse_whitespace": false,
+        "line_endings": "lf",
+        "strip_control_chars": true,
+        "strip_outer_whitespace": true,
+        "strip_trailing_whitespace": false,
+        "unicode_form": "none"
+      },
+      "name": "normalize",
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": false,
+        "overlap": 0,
+        "size": 4000,
+        "tokenizer": "",
+        "unit": "chars"
+      },
+      "name": "chunking",
+      "version": 1
+    },
+    {
+      "config": {
+        "fields": {
+          "headline": "review.headline",
+          "label": "sentiment",
+          "review_id": "review.id",
+          "score": "rating",
+          "text": "review.body"
+        }
+      },
+      "name": "mapping",
+      "version": 1
+    },
+    {
+      "name": "schema_validation",
+      "schema": {
+        "additional_properties": false,
+        "description": "A customer review with explicit rating and sentiment labels",
+        "fields": {
+          "headline": {
+            "min_length": 5,
+            "required": true,
+            "type": "string"
+          },
+          "label": {
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "required": true,
+            "type": "string"
+          },
+          "review_id": {
+            "min_length": 6,
+            "required": true,
+            "type": "string"
+          },
+          "score": {
+            "maximum": 5.0,
+            "minimum": 1.0,
+            "required": true,
+            "type": "integer"
+          },
+          "text": {
+            "min_length": 40,
+            "required": true,
+            "type": "string"
+          }
+        },
+        "kind": "custom",
+        "name": "review",
+        "version": 1
+      },
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": true,
+        "index": "memory"
+      },
+      "name": "exact_deduplication",
+      "version": 1
+    },
+    {
+      "config": {
+        "enabled": true,
+        "seed": 1,
+        "test": 0.25,
+        "train": 0.5,
+        "validation": 0.25
+      },
+      "name": "split",
+      "version": 1
+    },
+    {
+      "format": "jsonl",
+      "name": "export",
+      "provenance": {
+        "include_file_sha256": true,
+        "inline_field": "_datum",
+        "mode": "sidecar"
+      },
+      "version": 1
+    }
+  ]
+}

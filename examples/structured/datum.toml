@@ -1,0 +1,59 @@
+[datum]
+config_version = 1
+
+[source]
+path = "input"
+
+[schema]
+name = "custom"
+file = "review.schema.json"
+
+[mapping.fields]
+review_id = "review.id"
+headline = "review.headline"
+text = "review.body"
+label = "sentiment"
+score = "rating"
+
+[normalize]
+line_endings = "lf"
+strip_outer_whitespace = true
+strip_control_chars = true
+
+[chunking]
+enabled = false
+
+[length]
+min_chars = 80
+max_chars = 5000
+oversize = "reject"
+
+[dedup]
+enabled = true
+index = "memory"
+
+[split]
+enabled = true
+seed = 1
+train = 0.5
+validation = 0.25
+test = 0.25
+
+[provenance]
+mode = "sidecar"
+
+[output]
+dir = "output/structured"
+
+[quality]
+min_exported_records = 8
+max_file_error_rate = 0.5
+max_schema_rejection_rate = 0.5
+max_duplicate_rate = 0.5
+
+[cache]
+enabled = true
+
+[runtime]
+workers = 1
+progress = false

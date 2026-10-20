@@ -10,3 +10,5 @@ benchmarks/run-*/
 examples/output/
 *.tmp
 .DS_Store
+examples/structured/output/
+benchmarks/results/comparison.json

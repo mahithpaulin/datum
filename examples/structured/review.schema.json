@@ -1,0 +1,17 @@
+{
+  "name": "review",
+  "version": 1,
+  "description": "A customer review with explicit rating and sentiment labels",
+  "additional_properties": false,
+  "fields": {
+    "review_id": {"type": "string", "required": true, "min_length": 6},
+    "headline": {"type": "string", "required": true, "min_length": 5},
+    "text": {"type": "string", "required": true, "min_length": 40},
+    "label": {
+      "type": "string",
+      "required": true,
+      "enum": ["positive", "neutral", "negative"]
+    },
+    "score": {"type": "integer", "required": true, "minimum": 1, "maximum": 5}
+  }
+}
